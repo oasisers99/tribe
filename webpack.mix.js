@@ -25,11 +25,13 @@ mix.styles([
 	'resources/assets/css/front/owl.theme.default.min.css',
 ], 'public/css/front/front.css');
 
-
 // login & register css
 mix.styles([
 	'resources/assets/css/auth/style.css'
 ], 'public/css/auth/style.css');
+
+
+mix.script('node_modules/jquery/dist/jquery.min.js','public/js/jquery/jquery.js');
 
 
 

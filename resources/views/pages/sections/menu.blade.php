@@ -2,12 +2,12 @@
 <nav id="NAV_1">
 	<div id="DIV_2">
 		<div id="DIV_3">
-			 <a href="#" id="A_4"><i id="I_5"></i></a> <a href="#" id="A_6">{{ config('app.name') }}</a>
+			 <a href="#" id="A_4"><i id="I_5"></i></a> <a href="/" id="A_6">{{ config('app.name') }}</a>
 		</div>
 		<div id="DIV_7">
 			<ul id="UL_8">
 				<li id="LI_9">
-					<a href="#" id="A_10">Home</a>
+					<a href="/" id="A_10">Home</a>
 				</li>
 				<li id="LI_11">
 					<a href="#" id="A_12">Create Tribe</a>

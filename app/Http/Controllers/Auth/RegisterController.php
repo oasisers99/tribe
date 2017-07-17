@@ -114,6 +114,7 @@ class RegisterController extends Controller
                 (?,?,?,?,?,?)', ['A','B','C',1,1,1]);
 
         } catch (Exception $e) {
+            return view('auth.registrationForm', ['message', 'something went wrong!']);
             Log::info($e->getMessage());
         }
 

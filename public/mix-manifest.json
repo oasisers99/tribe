@@ -3,5 +3,6 @@
   "/css/app.css": "/css/app.css",
   "/css/front/front.css": "/css/front/front.css",
   "/css/menu/style.css": "/css/menu/style.css",
-  "/css/auth/style.css": "/css/auth/style.css"
+  "/css/auth/style.css": "/css/auth/style.css",
+  "/js/jquery/jquery.js": "/js/jquery/jquery.js"
 }
