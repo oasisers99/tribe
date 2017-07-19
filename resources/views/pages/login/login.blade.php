@@ -2,14 +2,20 @@
 
 @section('title','Login')
 
-@section('head-content')
-  <meta charset="UTF-8">
-  <title>Login</title>
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" type="text/css" href="/css/login/style.css">
+@section('page-resources')
+  	<link rel="stylesheet" type="text/css" href="{{ mix('/css/auth/style.css') }}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"></script>
+	<script type="text/javascript"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready({
+			
+		});
+	</script>
 @endsection
 
 @section('body-content')
@@ -21,5 +27,4 @@
 	        <button type="submit" class="btn btn-primary btn-block btn-large">Login</button>
 	    </form>
 	</div>
-    <script scr="<?php echo asset('/js/login/index.js'); ?>"></script>
 @endsection

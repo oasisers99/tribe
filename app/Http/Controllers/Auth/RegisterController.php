@@ -65,17 +65,11 @@ class RegisterController extends Controller
         $rules = [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-            'password_confirmation' => 'min:6|same:password',
+            'password1' => 'required|string|min:6',
+            'password2' => 'min:6|same:password1',
         ];
 
         return Validator::make($data, $rules);
-        // return Validator::make($data, [
-        //     'name' => 'required|string|max:255',
-        //     'email' => 'required|string|email|max:255|unique:users',
-        //     'password' => 'required|string|min:6|confirmed',
-        //     'password_confirmation' => 'min:6|same:password',
-        // ]);
     }
 
     /**
@@ -89,7 +83,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password' => bcrypt($data['password1']),
         ]);
     }
 
@@ -101,24 +95,31 @@ class RegisterController extends Controller
         
         try {
 
-            //$result = $this->validator($request->all())->validate();
-            Log::info($request);
+            $result = $this->validator($request->all())->validate();
 
             //event(new Registered($user = $this->create($request->all())));
 
             //$this->guard()->login($user);
 
+            $name = $request['name'];
+            $email = $request['email'];
+            $password = bcrypt($request['password1']);
+            $memtype = 1;
+            $active = 1;
+            $confirmed = 1;
+
             $result = DB::insert('INSERT INTO users 
                 (NAME, EMAIL, PASSWORD, MEMBER_TYPE, ACTIVE, CONFIRMED)
                 VALUES
-                (?,?,?,?,?,?)', ['A','B','C',1,1,1]);
+                (?,?,?,?,?,?)', [$name, $email, $password, $memtype, $active,$confirmed]);
 
         } catch (Exception $e) {
+            Log::error($e->getMessage());
             return view('auth.registrationForm', ['message', 'something went wrong!']);
-            Log::info($e->getMessage());
+            
         }
 
         
-        return redirect(route('/'));
+        return redirect(route('auth.loginForm'));
     }
 }

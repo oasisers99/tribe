@@ -16,14 +16,10 @@ Route::get('/', function () {
 });
 
 
-Route::get('/login', function () {
-    return view('pages.login.login');
-});
-
-
 Route::group(['prefix' => 'auth', 'as' => 'auth.', 'namespace' => 'Auth'], function () {
 
     //Users
+    Route::get('login', 'LoginController@loginForm')->name('loginForm');
     Route::get('registrationForm', 'RegisterController@registrationForm')->name('registrationForm');
     Route::post('register', 'RegisterController@register')->name('register');
     // Route::get('users/{user}', 'UserController@show')->name('users.show');

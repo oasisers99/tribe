@@ -27,7 +27,7 @@
 		<div id="DIV_17">
 			<ul id="UL_18">
 				<li id="LI_19">
-					<a href="/login" id="A_20">Login</a>
+					<a href="{{ route('auth.loginForm') }}" id="A_20">Login</a>
 				</li>
 				<li id="LI_21">
 					<a href="{{ route('auth.registrationForm') }}" id="A_22">Register</a>
