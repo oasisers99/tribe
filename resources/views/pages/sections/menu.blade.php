@@ -27,10 +27,28 @@
 		<div id="DIV_17">
 			<ul id="UL_18">
 				<li id="LI_19">
+					@unless (Auth::check())
 					<a href="{{ route('auth.loginForm') }}" id="A_20">Login</a>
+					@endunless
 				</li>
+				@if (Auth::check())
+				<li id="LI_21" style="position: relative; top: 8%;">
+						<a href="" id="A_22">
+							@php
+								$name = Auth::user()->name;
+								$namelist = explode(' ', $name);
+								$initial = '';
+								foreach($namelist as $name){
+									$initial .= substr($name, 0, 1) . '.';
+								}
+								echo 'Profile';
+								//strtoupper($initial);
+							@endphp
+						</a>
+				@elseif (!Auth::check())
 				<li id="LI_21">
 					<a href="{{ route('auth.registrationForm') }}" id="A_22">Register</a>
+				@endif
 				</li>
 			</ul>
 		</div>

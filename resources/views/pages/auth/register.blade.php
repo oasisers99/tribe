@@ -33,9 +33,18 @@
 		        <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
 	        </fieldset>
 	    </form>
+	    @if ($errors->any())
+		    <div class="alert alert-danger">
+		        <ul>
+		            @foreach ($errors->all() as $error)
+		                <li style="color: white;">{{ $error }}</li>
+		            @endforeach
+		        </ul>
+		    </div>
+		@endif
 	</div>
 	<script type="text/javascript">
-		$("#registerForm").validate();
+		// $("#registerForm").validate();
 	</script>
 	<style type="text/css">
 		.error{

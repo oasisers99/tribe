@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Exceptions\Handler;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use App\Models\Auth\User\User;
+use App\Model\Auth\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Uuid;
 
 class RegisterController extends Controller
@@ -80,11 +77,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password1']),
+            'member_type' => 1,
+            'active' => 1,
+            'confirmed' => 1
         ]);
+
+        return $user;
     }
 
     /**
@@ -97,25 +99,23 @@ class RegisterController extends Controller
 
             $result = $this->validator($request->all())->validate();
 
-            //event(new Registered($user = $this->create($request->all())));
+            event(new Registered($user = $this->create($request->all())));
 
-            //$this->guard()->login($user);
+            $this->guard()->login($user);
 
-            $name = $request['name'];
-            $email = $request['email'];
-            $password = bcrypt($request['password1']);
-            $memtype = 1;
-            $active = 1;
-            $confirmed = 1;
+            // $name = $request['name'];
+            // $email = $request['email'];
+            // $password = bcrypt($request['password1']);
+            // $memtype = 1;
+            // $active = 1;
+            // $confirmed = 1;
 
-            $result = DB::insert('INSERT INTO users 
-                (NAME, EMAIL, PASSWORD, MEMBER_TYPE, ACTIVE, CONFIRMED)
-                VALUES
-                (?,?,?,?,?,?)', [$name, $email, $password, $memtype, $active,$confirmed]);
+            // $result = DB::insert('INSERT INTO users 
+            //     (NAME, EMAIL, PASSWORD, MEMBER_TYPE, ACTIVE, CONFIRMED)
+            //     VALUES
+            //     (?,?,?,?,?,?)', [$name, $email, $password, $memtype, $active,$confirmed]);
 
         } catch (Exception $e) {
-            Log::error($e->getMessage());
-            return view('auth.registrationForm', ['message', 'something went wrong!']);
             
         }
 
