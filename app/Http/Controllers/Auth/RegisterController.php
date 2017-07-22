@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Ramsey\Uuid\Uuid;
 
 class RegisterController extends Controller
 {
@@ -97,7 +96,7 @@ class RegisterController extends Controller
         
         try {
 
-            $result = $this->validator($request->all())->validate();
+            $this->validator($request->all())->validate();
 
             event(new Registered($user = $this->create($request->all())));
 
@@ -110,10 +109,10 @@ class RegisterController extends Controller
             // $active = 1;
             // $confirmed = 1;
 
-            // $result = DB::insert('INSERT INTO users 
-            //     (NAME, EMAIL, PASSWORD, MEMBER_TYPE, ACTIVE, CONFIRMED)
-            //     VALUES
-            //     (?,?,?,?,?,?)', [$name, $email, $password, $memtype, $active,$confirmed]);
+//             $result = DB::insert('INSERT INTO users
+//                 (NAME, EMAIL, PASSWORD, MEMBER_TYPE, ACTIVE, CONFIRMED)
+//                 VALUES
+//                 (?,?,?,?,?,?)', [$name, $email, $password, $memtype, $active,$confirmed]);
 
         } catch (Exception $e) {
             

@@ -35,3 +35,9 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.', 'namespace' => 'Auth'], funct
     // Route::get('permissions', 'PermissionController@index')->name('permissions');
     // Route::get('permissions/{user}/repeat', 'PermissionController@repeat')->name('permissions.repeat');
 });
+
+Route::group(['prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], function(){
+
+    Route::get('getTribes', 'TribeController@getTribes')->name('getTribes');
+
+});
