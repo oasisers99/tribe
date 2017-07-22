@@ -3,12 +3,16 @@
 
         getTribes('','',4);
 
-        function getTribes(topic, area, number){
+        /**
+         *  Retrieve tribes
+         *
+         */
+        function getTribes(topic, area, limit){
 
             var data = {
                 'topic': topic,
                 'area': area,
-                'number': number
+                'limit': limit
             }
 
             $.ajax({
@@ -17,10 +21,25 @@
                 data: data
             })
             .done(function(tribes){
-                alert(tribes);
+                var num = tribes.length;
+                //alert(num);
             });
+        }
+
+        /**
+         * Display results in the Tribes search section
+         *
+         * @param tribes
+         */
+        function display(tribes){
 
         }
+
+        $("#search").click(function(){
+            var topic = $("#searchTopic").val();
+            var region = $("#searchRegion").val();
+            getTribes(topic, region, 4);
+        });
 
     });
 
@@ -35,11 +54,11 @@
                 <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">Explore tribes and join their force!</p>
             </div>
             <div class="col-md-6 text-right">
-                <input type="text" class=".fh5co-post-text" placeholder="Interest" style="border-radius:10px; width:45%; border-width: 1px;">
+                <input type="text" id="searchTopic" class=".fh5co-post-text" placeholder="Interest" style="border-radius:10px; width:45%; border-width: 1px;">
             </div>
             <div class="col-md-6 text-left">
-                <input type="text" class=".fh5co-post-text" placeholder="Area" style="border-radius:10px; width:45%; border-width: 1px;">
-                <a href="#" class="btn btn-success btn-sm btn-outline">Search</a>
+                <input type="text" id="searchRegion" class=".fh5co-post-text" placeholder="Area" style="border-radius:10px; width:45%; border-width: 1px;">
+                <a id="search" class="btn btn-success btn-sm btn-outline">Search</a>
             </div>
         </div>
         <div class="row p-b">
@@ -119,7 +138,7 @@
         </div>
         <div class="row">
             <div class="col-md-4 col-md-offset-4 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="2s">
-                <a href="#" class="btn btn-primary btn-lg">View All Post</a>
+                <a href="#" class="btn btn-primary btn-lg">View All Tribes</a>
             </div>
         </div>
     </div>
