@@ -18,10 +18,16 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'auth', 'as' => 'auth.', 'namespace' => 'Auth'], function () {
 
-    //Users
-    Route::get('login', 'LoginController@loginForm')->name('loginForm');
+    //Users auth control
     Route::get('registrationForm', 'RegisterController@registrationForm')->name('registrationForm');
     Route::post('register', 'RegisterController@register')->name('register');
+
+
+    //Login control
+    Route::get('login', 'LoginController@showLoginForm')->name('login');
+    Route::get('logout', 'LoginController@logout')->name('logout');
+    Route::post('login', 'LoginController@login');
+
     // Route::get('users/{user}', 'UserController@show')->name('users.show');
     // Route::get('users/{user}/edit', 'UserController@edit')->name('users.edit');
     // Route::put('users/{user}', 'UserController@update')->name('users.update');

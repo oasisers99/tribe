@@ -21,10 +21,21 @@
 @section('body-content')
   <div class="login">
 	<h1>Welcome back!</h1>
-	    <form method="post">
-	    	<input type="text" name="u" placeholder="Username" required="required" />
-	        <input type="password" name="p" placeholder="Password" required="required" />
+	    <form method="post" id="loginForm" action="{{ route('auth.login') }}">
+			{{ csrf_field() }}
+	    	<input type="text" name="email" placeholder="Email" required="required" />
+	        <input type="password" name="password" placeholder="Password" required="required" />
 	        <button type="submit" class="btn btn-primary btn-block btn-large">Login</button>
 	    </form>
+		  @if ($errors->any())
+			  <div class="alert alert-danger">
+				  <ul>
+					  @foreach ($errors->all() as $error)
+						  <li style="color: white;">{{ $error }}</li>
+					  @endforeach
+				  </ul>
+			  </div>
+		  @endif
 	</div>
+
 @endsection

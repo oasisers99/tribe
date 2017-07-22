@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -38,7 +39,27 @@ class LoginController extends Controller
     }
 
 
-    public function loginForm(){
-        return view('pages.login.login');
+    /**
+     * Logout
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function logout(Request $request){
+
+
+        $this->guard()->logout();
+
+        /*
+         * Remove the socialite session variable if exists
+         */
+
+        \Session::forget(config('access.socialite_session_name'));
+
+        $request->session()->flush();
+
+        $request->session()->regenerate();
+
+        return redirect('/');
     }
+
 }
