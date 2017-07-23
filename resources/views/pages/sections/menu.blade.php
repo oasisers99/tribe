@@ -10,7 +10,7 @@
 					<a href="/" id="A_10">Home</a>
 				</li>
 				<li id="LI_11">
-					<a href="#" id="A_12">Create Tribe</a>
+					<a href="{{ route('tribe.createForm') }}" id="A_12">Create Tribe</a>
 				</li>
 				<li id="LI_13">
 					<a href="#" id="A_14">Explore Project</a>

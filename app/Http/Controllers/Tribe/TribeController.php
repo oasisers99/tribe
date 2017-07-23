@@ -21,6 +21,7 @@ class TribeController extends Controller
 
     /**
      * @param Request $request
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
     public function getTribes(Request $request){
 
@@ -28,11 +29,22 @@ class TribeController extends Controller
         $region = $request['region'];
         $limit = $request['limit'];
 
+        if(isset($limit) && $limit > 0)
         $result = DB::select('SELECT  
                 id, name, summary, image1, topic1, region, country
-                FROM tribe LIMIT ?', [$limit]);
+                FROM tribe LIMIT ?', [$limit]
+        );
 
         return response($result);
     }
 
+    /**
+     *
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function createTribeForm(Request $request){
+        return view('pages.tribe.create');
+    }
 }

@@ -39,5 +39,5 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.', 'namespace' => 'Auth'], funct
 Route::group(['prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], function(){
 
     Route::get('getTribes', 'TribeController@getTribes')->name('getTribes');
-
+    Route::get('createForm', 'TribeController@createTribeForm')->name('createForm');
 });

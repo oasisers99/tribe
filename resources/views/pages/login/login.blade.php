@@ -16,6 +16,7 @@
 			
 		});
 	</script>
+
 @endsection
 
 @section('body-content')
