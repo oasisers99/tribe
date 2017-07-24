@@ -16,6 +16,16 @@ Route::get('/', function () {
 });
 
 
+// Route group for front page
+Route::group(['prefix' => 'front', 'as' => 'front.', 'namespace' => 'Front'], function(){
+
+    Route::get('getTribes', 'TribeController@getTribes')->name('getTribes');
+});
+
+
+
+
+// Route group for login page
 Route::group(['prefix' => 'auth', 'as' => 'auth.', 'namespace' => 'Auth'], function () {
 
     //Users auth control
@@ -36,8 +46,10 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.', 'namespace' => 'Auth'], funct
     // Route::get('permissions/{user}/repeat', 'PermissionController@repeat')->name('permissions.repeat');
 });
 
-Route::group(['prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], function(){
 
-    Route::get('getTribes', 'TribeController@getTribes')->name('getTribes');
-    Route::get('createForm', 'TribeController@createTribeForm')->name('createForm')->middleware('logincheck');
+
+Route::group(['middleware' => 'logincheck', 'prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], function(){
+
+    Route::get('createForm', 'TribeController@createTribeForm')->name('createForm');
+    
 });

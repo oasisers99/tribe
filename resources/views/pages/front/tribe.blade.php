@@ -17,7 +17,7 @@
 
             $.ajax({
                 method: "GET",
-                url: "{{ Route('tribe.getTribes') }}",
+                url: "{{ Route('front.getTribes') }}",
                 data: data
             })
             .done(function(tribes){
