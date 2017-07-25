@@ -62,28 +62,43 @@
         </div> <!-- /demo-headline -->
         {{--<h1 class="demo-section-title">Tribe Details</h1>--}}
         <div class="col-xs-6">
+            <form method="post" id="createTribeForm" action="{{ route('tribe.createTribe') }}">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li style="color: black;">{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="form-group">
+                {{ csrf_field() }}
                 <h3 class="demo-panel-title">What is the name of your tribe?</h3>
-                <input type="text"  placeholder="Name" class="form-control" />
+                <input type="text" name="name" placeholder="Name" class="form-control" maxlength="128" required/>
 
                 <h3 class="demo-panel-title">A little bit about your tribe</h3>
-                <input type="text"  placeholder="Summary" class="form-control" />
+                <input type="text" name="summary" placeholder="Summary" class="form-control" maxlength="512" required/>
 
                 <h3 class="demo-panel-title">Where is the location of the tribe?</h3>
-                <input type="text"  placeholder="Area ex. Sydney" class="form-control" style="width: 50%;"/>
+                <input type="text" name="region" placeholder="Area ex. Sydney" class="form-control" style="width: 50%;" required/>
 
                 <h3 class="demo-panel-title">What is the topic of your tribe?</h3>
-                <select class="form-control select select-primary" data-toggle="select">
-                    <option value="0">Arts</option>
-                    <option value="1">Music</option>
-                    <option value="2">Technology</option>
-                    <option value="3">Sports</option>
-                    <option value="4">Legal</option>
-                    <option value="5">Consulting</option>
-                    <option value="6">Environment</option>
+                <select class="form-control select select-primary" name="topic1" data-toggle="select">
+                    <option value="Arts">Arts</option>
+                    <option value="Music">Music</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Legal">Legal</option>
+                    <option value="Consulting">Consulting</option>
+                    <option value="Environment">Environment</option>
+                    <option value="Education">Education</option>
+                    <option value="Social">Social</option>
                 </select>
             </div>
-            <a href="#fakelink" class="btn btn-block btn-lg btn-primary" style="width: 25%;">Create</a>
+            <button type="submit" class="btn btn-block btn-lg btn-primary" style="width: 30%;">Create</button>
+            </form>
+            {{--<a href="#fakelink" class="btn btn-block btn-lg btn-primary" style="width: 25%;">Create</a>--}}
         </div>
     </div>
 @endsection
