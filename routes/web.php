@@ -34,9 +34,9 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.', 'namespace' => 'Auth'], funct
 
 
     //Login control
-    Route::get('login', 'LoginController@showLoginForm')->name('login');
+    Route::get('loginForm', 'LoginController@loginForm')->name('loginForm');
     Route::get('logout', 'LoginController@logout')->name('logout');
-    Route::post('login', 'LoginController@login');
+    Route::post('login', 'LoginController@login')->name('login');
 
     // Route::get('users/{user}', 'UserController@show')->name('users.show');
     // Route::get('users/{user}/edit', 'UserController@edit')->name('users.edit');

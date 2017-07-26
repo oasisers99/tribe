@@ -32,7 +32,7 @@
 			<ul id="UL_18">
 				<li id="LI_19">
 					@unless (Auth::check())
-					<a href="{{ route('auth.login') }}" id="A_20">Login</a>
+					<a href="{{ route('auth.loginForm') }}" id="A_20">Login</a>
 					@endunless
 				</li>
 				@if (Auth::check())

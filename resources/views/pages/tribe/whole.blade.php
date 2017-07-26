@@ -6,7 +6,7 @@
 
     <div id="header">
         <p><a href="/">&laquo; Back to Front</a></p>
-        <h1>Tribe Main Page</h1>
+        <h1>Tribe Main Page (in progress...)</h1>
         <ul>
             <li><a href="http://matthewjamestaylor.com/blog/perfect-3-column.htm" class="active">Tribe <span>Main</span></a></li>
             {{--<li><a href="http://matthewjamestaylor.com/blog/perfect-3-column-blog-style.htm">3 Column <span>Blog Style</span></a></li>--}}
@@ -16,7 +16,7 @@
             {{--<li><a href="http://matthewjamestaylor.com/blog/perfect-full-page.htm">1 Column <span>Full Page</span></a></li>--}}
             {{--<li><a href="http://matthewjamestaylor.com/blog/perfect-stacked-columns.htm">Stacked <span>columns</span></a></li>--}}
         </ul>
-        <p id="layoutdims">Tribe created at ((date))</p>
+        <p id="layoutdims">Tribe since ((date))</p>
     </div>
     <div class="colmask threecol">
         <div class="colmid">

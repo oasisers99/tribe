@@ -35,33 +35,6 @@
 @endsection
 
 @section('body-content')
-	{{-- <div id="fh5co-page"> --}}
-		{{-- <nav class="fh5co-nav-style-1" role="navigation" data-offcanvass-position="fh5co-offcanvass-left">
-			<div class="container">
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 fh5co-logo">
-					<a href="#" class="js-fh5co-mobile-toggle fh5co-nav-toggle"><i></i></a>
-					<a href="#">Tribe</a>
-				</div>
-				<div class="col-lg-6 col-md-5 col-sm-5 text-center fh5co-link-wrap">
-					<ul data-offcanvass="yes">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#">Create Tribe</a></li>
-						<li><a href="#">Explore Project</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Pricing</a></li>
-					</ul>
-				</div> 
-				<div class="col-lg-3 col-md-4 col-sm-4 text-right fh5co-link-wrap">
-					<ul class="fh5co-special" data-offcanvass="yes">
-						<li><a href="/login">Login</a></li>
-						<li><a href="/signup" class="call-to-action">Signup</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav> --}}
-
-
 		<div class="fh5co-cover fh5co-cover-style-2 js-full-height" data-stellar-background-ratio="0.5" data-next="yes"  style="background-image: url(images/full_1.jpg);">
 		  	<span class="scroll-btn wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.4s">
 				<a href="#">
@@ -75,7 +48,7 @@
 						<div class="col-md-push-6 col-md-6 full-height js-full-height">
 							<div class="fh5co-cover-intro">
 								<h1 class="cover-text-lead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Empower You</h1>
-								<h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">Create your tribe and run fun projects. Meet great people and win interesting pro-bono opportunities. Show off your tribe's skills and projects to attact sponsors and more tribe members!</h2>
+								<h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">Create your tribe and run meaningful projects. Meet great people and win interesting pro-bono opportunities. Show off your tribe's skills and projects to attact sponsors and more tribe members!</h2>
 								<p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s"><a href="#searchTribe" class="btn btn-primary btn-outline btn-lg">Search Tribe</a></p>
 							</div>
 						</div>
@@ -359,25 +332,24 @@
 						<div class="row">
 							<div class="col-md-4 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
 								<div class="icon">
-									<i class="icon-command"></i>
+									<i class="icon-group"></i>
 								</div>
 								<span class="fh5co-counter js-counter" data-from="0" data-to="28" data-speed="5000" data-refresh-interval="50"></span>
-								<span class="fh5co-counter-label">Clients Worked With</span>
-								
+								<span class="fh5co-counter-label">Tribe Members</span>
 							</div>
 							<div class="col-md-4 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
 								<div class="icon">
-									<i class="icon-power"></i>
+									<i class="icon-flag"></i>
 								</div>
 								<span class="fh5co-counter js-counter" data-from="0" data-to="57" data-speed="500" data-refresh-interval="50"></span>
-								<span class="fh5co-counter-label">Completed Projects</span>
+								<span class="fh5co-counter-label">Active Tribes</span>
 							</div>
 							<div class="col-md-4 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s">
 								<div class="icon">
-									<i class="icon-code2"></i>
+									<i class="icon-network"></i>
 								</div>
 								<span class="fh5co-counter js-counter" data-from="0" data-to="34023" data-speed="5000" data-refresh-interval="50"></span>
-								<span class="fh5co-counter-label">Line of Codes</span>
+								<span class="fh5co-counter-label">Ongoing Projects</span>
 							</div>
 						</div>
 					</div>

@@ -69,16 +69,16 @@
                 <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.1s">
                     <div class="fh5co-post-image">
                         <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Tutorial</a></div>
+                        <div class="fh5co-category"><a href="#">Legal</a></div>
                         <img src="images/img_same_dimension_2.jpg" alt="Image" class="img-responsive">
                     </div>
                     <div class="fh5co-post-text">
-                        <h3><a href="#">How to Create Cards</a></h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts...</p>
+                        <h3><a href="#">The Lawyers</a></h3>
+                        <p>Provide legal advice for those in need.</p>
                     </div>
                     <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-chat"></i> 33</a>
-                        <a href="#"><i class="icon-clock2"></i> 2 hours ago</a>
+                        <a href="#"><i class="icon-group"></i> 5</a>
+                        <a href="#"><i class="icon-map2"></i>Sydney, Australia</a>
                     </div>
                 </div>
             </div>
@@ -86,16 +86,16 @@
                 <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.4s">
                     <div class="fh5co-post-image">
                         <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Health</a></div>
+                        <div class="fh5co-category"><a href="#">Art</a></div>
                         <img src="images/img_same_dimension_3.jpg" alt="Image" class="img-responsive">
                     </div>
                     <div class="fh5co-post-text">
-                        <h3><a href="#">Drinking Ginger and Lemon Tea</a></h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts...</p>
+                        <h3><a href="#">City Painters</a></h3>
+                        <p>Art group based in Melbourn. Display our works and invite children.</p>
                     </div>
                     <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-chat"></i> 33</a>
-                        <a href="#"><i class="icon-clock2"></i> 2 hours ago</a>
+                        <a href="#"><i class="icon-group"></i>7</a>
+                        <a href="#"><i class="icon-map2"></i>Melbourn, Australia</a>
                     </div>
                 </div>
             </div>
@@ -104,16 +104,16 @@
                 <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.7s">
                     <div class="fh5co-post-image">
                         <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Tips</a></div>
+                        <div class="fh5co-category"><a href="#">Environment</a></div>
                         <img src="images/img_same_dimension_4.jpg" alt="Image" class="img-responsive">
                     </div>
                     <div class="fh5co-post-text">
-                        <h3><a href="#">4 Easy Steps to Create a Soup</a></h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts...</p>
+                        <h3><a href="#">Tree Guards</a></h3>
+                        <p>Group of experts in biology and botany to protect our nature.</p>
                     </div>
                     <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-chat"></i> 33</a>
-                        <a href="#"><i class="icon-clock2"></i> 2 hours ago</a>
+                        <a href="#"><i class="icon-group"></i> 10</a>
+                        <a href="#"><i class="icon-map2"></i>Adelaide, Australia</a>
                     </div>
                 </div>
             </div>
@@ -122,24 +122,24 @@
                 <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.7s">
                     <div class="fh5co-post-image">
                         <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Tips</a></div>
+                        <div class="fh5co-category"><a href="#">Technology</a></div>
                         <img src="images/img_same_dimension_4.jpg" alt="Image" class="img-responsive">
                     </div>
                     <div class="fh5co-post-text">
-                        <h3><a href="#">4 Easy Steps to Create a Soup</a></h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts...</p>
+                        <h3><a href="#">Tech Savvies</a></h3>
+                        <p>IT professionals with the aim of helping developing countries</p>
                     </div>
                     <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-chat"></i> 33</a>
-                        <a href="#"><i class="icon-clock2"></i> 2 hours ago</a>
+                        <a href="#"><i class="icon-group"></i> 9</a>
+                        <a href="#"><i class="icon-map2"></i>Sydney, Australia</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="2s">
-                <a href="#" class="btn btn-primary btn-lg">View All Tribes</a>
-            </div>
-        </div>
+        {{--<div class="row">--}}
+            {{--<div class="col-md-4 col-md-offset-4 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="2s">--}}
+                {{--<a href="#" class="btn btn-primary btn-lg">View All Tribes</a>--}}
+            {{--</div>--}}
+        {{--</div>--}}
     </div>
 </div>

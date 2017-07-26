@@ -17,7 +17,7 @@ class RedirectIfNotLoggedIn
     public function handle($request, Closure $next, $guard = null)
     {
         if (!Auth::check()) {
-            return redirect()->route('auth.login')->with('warning','Please login.');
+            return redirect()->route('auth.loginForm')->with('warning','Please login.');
         }
 
         return $next($request);

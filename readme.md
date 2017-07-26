@@ -1,8 +1,8 @@
-## About Tribe
+# About Tribe
 
 Tribe is a social platform designed for the aged population to form a group and run social projects. This web platform is built upon PHP Laravel Many external js and css are used.
 
-# References
+## References
 
 Main Theme: https://freehtml5.co/voltage-free-html5-bootstrap-template/
 Elements: http://designmodo.github.io/Flat-UI/
