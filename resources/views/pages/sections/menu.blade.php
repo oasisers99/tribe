@@ -10,7 +10,11 @@
 					<a href="/" id="A_10">Home</a>
 				</li>
 				<li id="LI_11">
-					<a href="{{ route('tribe.createForm') }}" id="A_12">Create Tribe</a>
+					@if (Auth::check())
+						<a href="{{ route('tribe.mainPage') }}" id="A_12">Your Tribe</a>
+					@elseif (!Auth::check())
+						<a href="{{ route('tribe.createForm') }}" id="A_12">Create Tribe</a>
+					@endif
 				</li>
 				<li id="LI_13">
 					<a href="#" id="A_14">Explore Project</a>

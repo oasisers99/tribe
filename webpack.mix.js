@@ -30,10 +30,10 @@ mix.styles([
 	'resources/assets/css/auth/style.css'
 ], 'public/css/auth/style.css');
 
-
-mix.script('node_modules/jquery/dist/jquery.min.js','public/js/jquery/jquery.js');
-
-
+// tribe main page
+mix.styles([
+    'resources/assets/css/tribe/screen.css'
+], 'public/css/tribe/style.css');
 
 // menu css
 mix.styles([

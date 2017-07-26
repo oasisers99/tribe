@@ -73,8 +73,18 @@ class TribeController extends Controller
                  VALUES
                  (?,?,?,?,?,?,?,?)', [$id, $name, $summary, $topic1, $topic2, $region, $country, $created_by]);
 
-        return redirect('/');
+        return redirect(route('tribe.mainPage'));
     }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function mainPage(Request $request){
+        return view('pages.tribe.whole');
+    }
+
+
 
     /**
      * @param array $data
