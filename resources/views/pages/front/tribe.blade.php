@@ -17,12 +17,11 @@
 
             $.ajax({
                 method: "GET",
-                url: "{{ Route('front.getTribes') }}",
+                url: '{{ Route("front.getTribes") }}',
                 data: data
             })
             .done(function(tribes){
-                var num = tribes.length;
-                //alert(num);
+                display(tribes);
             });
         }
 
@@ -32,7 +31,7 @@
          * @param tribes
          */
         function display(tribes){
-
+            //alert(tribes[0].name);
         }
 
         $("#search").click(function(){
@@ -42,7 +41,6 @@
         });
 
     });
-
 </script>
 
 
@@ -62,9 +60,7 @@
             </div>
         </div>
         <div class="row p-b">
-            @php
 
-            @endphp
             <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 wow fadeInLeft">
                 <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.1s">
                     <div class="fh5co-post-image">

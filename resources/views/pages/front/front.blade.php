@@ -6,25 +6,9 @@
 
 	<!-- Google Fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Monsterrat:400,700|Merriweather:400,300italic,700' rel='stylesheet' type='text/css'>
-
 	<link rel="stylesheet" type="text/css" href="{{ mix('/css/front/front.css') }}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-	<script
-	  src="https://code.jquery.com/jquery-3.2.1.js"
-	  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-	  crossorigin="anonymous"></script>
-
-
-
-	<script type="text/javascript">
-		$(document).ready(function(){
-
-
-
-		});
-	</script>
-	
-	
 	
 	<!-- Modernizr JS -->
 	<!-- <script src="js/modernizr-2.6.2.min.js"></script> -->
@@ -481,8 +465,8 @@
 						<ul class="fh5co-links">
 							<li><a href="#">How it Works</a></li>
 							<li><a href="#">Services</a></li>
-							<li><a href="#">Products</a></li>
-							<li><a href="#">Careers</a></li>
+							{{--<li><a href="#">Products</a></li>--}}
+							{{--<li><a href="#">Careers</a></li>--}}
 							<li><a href="#">Blog</a></li>
 							<li><a href="#">Contact</a></li>
 						</ul>

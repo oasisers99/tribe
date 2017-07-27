@@ -19,7 +19,7 @@ Route::get('/', function () {
 // Route group for front page
 Route::group(['prefix' => 'front', 'as' => 'front.', 'namespace' => 'Front'], function(){
 
-    Route::get('getTribes', 'TribeController@getTribes')->name('getTribes');
+    Route::get('getTribes', 'FrontController@getTribes')->name('getTribes');
 });
 
 

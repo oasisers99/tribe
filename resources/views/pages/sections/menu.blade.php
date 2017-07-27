@@ -11,7 +11,11 @@
 				</li>
 				<li id="LI_11">
 					@if (Auth::check())
-						<a href="{{ route('tribe.mainPage') }}" id="A_12">Your Tribe</a>
+						@if (Session::get('userCreatedTribesCount') > 0)
+							<a href="{{ route('tribe.mainPage') }}" id="A_12">Your Tribe</a>
+						@else
+							<a href="{{ route('tribe.createForm') }}" id="A_12">Create Tribe</a>
+						@endif
 					@elseif (!Auth::check())
 						<a href="{{ route('tribe.createForm') }}" id="A_12">Create Tribe</a>
 					@endif

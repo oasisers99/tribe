@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Tribe;
 
+use App\Helper\TribeHelper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -18,24 +19,7 @@ class TribeController extends Controller
 //        $this->middleware('guest');
     }
 
-    /**
-     * @param Request $request
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
-     */
-    public function getTribes(Request $request){
 
-        $topic = $request['topic'];
-        $region = $request['region'];
-        $limit = $request['limit'];
-
-        if(isset($limit) && $limit > 0)
-        $result = DB::select('SELECT  
-                id, name, summary, image1, topic1, region, country
-                FROM tribe LIMIT ?', [$limit]
-        );
-
-        return response($result);
-    }
 
     /**
      * move to tribe create form
@@ -44,6 +28,7 @@ class TribeController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function createTribeForm(Request $request){
+
         return view('pages.tribe.create');
     }
 

@@ -3,7 +3,7 @@
 @section('title', 'Tribe Main')
 
 @section('body-content')
-
+    <link rel="stylesheet" type="text/css" href="{{ mix('/css/front/front.css') }}">
     <div id="header">
         <p><a href="/">&laquo; Back to Front</a></p>
         <h1>Tribe Main Page (in progress...)</h1>
@@ -104,6 +104,6 @@
         </div>
     </div>
     <div id="footer" style="position: fixed; bottom: 0px; width: 100%">
-        <p>This page uses the <a href="http://matthewjamestaylor.com/blog/perfect-3-column.htm">Perfect 'Holy Grail' 3 Column Liquid Layout</a> by <a href="http://matthewjamestaylor.com">Matthew James Taylor</a>. View more <a href="http://matthewjamestaylor.com/blog/-website-layouts">website layouts</a> and <a href="http://matthewjamestaylor.com/blog/-web-design">web design articles</a>.</p>
+        {{--<p>This page uses the <a href="http://matthewjamestaylor.com/blog/perfect-3-column.htm">Perfect 'Holy Grail' 3 Column Liquid Layout</a> by <a href="http://matthewjamestaylor.com">Matthew James Taylor</a>. View more <a href="http://matthewjamestaylor.com/blog/-website-layouts">website layouts</a> and <a href="http://matthewjamestaylor.com/blog/-web-design">web design articles</a>.</p>--}}
     </div>
 @endsection
