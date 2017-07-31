@@ -6,13 +6,14 @@
   margin: auto;
 }
 .form {
-  position: relative;
+  position: absolute;
   z-index: 1;
-  background: #FFFFFF;
+  /*background: #FFFFFF;*/
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
   text-align: center;
+  bottom: 18%;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .form input {
@@ -89,12 +90,17 @@
   color: #EF3B3A;
 }
 body {
-  background: #76b852; /* fallback for old browsers */
+
+  background: #3C3B3F;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #605C3C, #3C3B3F);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #605C3C, #3C3B3F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  /*background: #76b852; /*fallback for old browsers */
   /*background: -webkit-linear-gradient(right, #76b852, #8DC26F);*/
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
-  font-family: "Roboto", sans-serif;
+  /*background: -moz-linear-gradient(right, #76b852, #8DC26F);*/
+  /*background: -o-linear-gradient(right, #76b852, #8DC26F);*/
+  /*background: linear-gradient(to left, #76b852, #8DC26F);*/
+  /*font-family: "Roboto", sans-serif;*/
   /*-webkit-font-smoothing: antialiased;*/
-  -moz-osx-font-smoothing: grayscale;    
+  -moz-osx-font-smoothing: grayscale;        
 }
