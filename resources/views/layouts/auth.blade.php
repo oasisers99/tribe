@@ -11,8 +11,6 @@
 	</head>
 	<body>
 		@include('pages.sections.menu')
-		<div id="fh5co-page">
-			@yield('body-content')
-		</div>	
+		@yield('body-content')
 	</body>
 </html>

@@ -1,64 +1,46 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <link rel="stylesheet" href="{{ mix('/css/menu/style.css') }}">
-<nav id="NAV_1">
-	<div id="DIV_2">
-		<div id="DIV_3">
-			 <a href="#" id="A_4"><i id="I_5"></i></a> <a href="/" id="A_6">{{ config('app.name') }}</a>
-		</div>
-		<div id="DIV_7">
-			<ul id="UL_8">
-				<li id="LI_9">
-					<a href="/" id="A_10">Home</a>
-				</li>
-				<li id="LI_11">
-					@if (Auth::check())
-						@if (Session::get('userCreatedTribesCount') > 0)
-							<a href="{{ route('tribe.mainPage') }}" id="A_12">Your Tribe</a>
-						@else
-							<a href="{{ route('tribe.createForm') }}" id="A_12">Create Tribe</a>
-						@endif
-					@elseif (!Auth::check())
-						<a href="{{ route('tribe.createForm') }}" id="A_12">Create Tribe</a>
-					@endif
-				</li>
-				<li id="LI_13">
-					<a href="#" id="A_14">Explore Project</a>
-				</li>
-				<li id="LI_15">
-					<a href="#" id="A_16">About</a>
-				</li>
-				<!-- <li><a href="#">Blog</a></li> -->
-
-				<!-- <li><a href="#">Pricing</a></li> -->
-
-			</ul>
-		</div>
-		<div id="DIV_17">
-			<ul id="UL_18">
-				<li id="LI_19">
-					@unless (Auth::check())
-					<a href="{{ route('auth.loginForm') }}" id="A_20">Login</a>
-					@endunless
-				</li>
-				@if (Auth::check())
-				<li id="LI_21" style="position: relative; top: 8%;">
-						<a href="{{ route('auth.logout') }}" id="A_22">
-							@php
-								$name = Auth::user()->name;
-								$namelist = explode(' ', $name);
-								$initial = '';
-								foreach($namelist as $name){
-									$initial .= substr($name, 0, 1) . '.';
-								}
-								echo 'Logout';
-								//strtoupper($initial);
-							@endphp
-						</a>
-				@elseif (!Auth::check())
-				<li id="LI_21">
-					<a href="{{ route('auth.registrationForm') }}" id="A_22">Register</a>
-				@endif
-				</li>
-			</ul>
-		</div>
-	</div>
-</nav>
+<div class="topnav" id="myTopnav">
+    <div class="mainTitle">
+        <a href="/">Future Smith</a>
+    </div>
+    <div class="mainMenuSet">
+        <a href="/">About Us</a>
+        @if (Auth::check())
+            @if (Session::get('userCreatedTribesCount') > 0)
+                <a href="{{ route('tribe.mainPage') }}">Your Tribe</a>
+            @else
+                <a href="{{ route('tribe.createForm') }}">Create Tribe</a>
+            @endif
+        @elseif (!Auth::check())
+            <a href="{{ route('tribe.createForm') }}">Create Tribe</a>
+        @endif
+        <a href="/">Explore Projects</a>
+        <a href="/">Pricing</a>
+    </div>
+    <div class="userMenuSet">
+        @unless (Auth::check())
+            <a href="{{ route('auth.loginForm') }}">Login</a>
+        @endunless
+        @if (Auth::check())
+            <a href="{{ route('auth.logout') }}" id="A_22">
+                @php
+                    $name = Auth::user()->name;
+                    $namelist = explode(' ', $name);
+                    $initial = '';
+                    foreach($namelist as $name){
+                            $initial .= substr($name, 0, 1) . '.';
+                    }
+                    echo 'Logout';
+                    //strtoupper($initial);
+                @endphp
+            </a>  
+        @elseif (!Auth::check())
+            <a href="{{ route('auth.registrationForm') }}">Register</a>
+        @endif
+    </div>
+</div>

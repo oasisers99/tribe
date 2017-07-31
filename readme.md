@@ -16,3 +16,15 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 git remote add origin https://github.com/oasisers99/tribe.git
 git push -u origin master
+
+Install NodeJS in AWS EC2
+sudo yum install nodejs npm --enablerepo=epel
+
+When error says no mbstring
+sudo yum install php70-mbstring
+
+then,
+composer install
+
+Install Apache and setup
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-LAMP.html
