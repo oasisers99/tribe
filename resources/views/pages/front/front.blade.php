@@ -5,7 +5,7 @@
 @section('page-resources')
 
 	<!-- Google Fonts -->
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Monsterrat:400,700|Merriweather:400,300italic,700' rel='stylesheet' type='text/css'>
+	<{{-- link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Monsterrat:400,700|Merriweather:400,300italic,700' rel='stylesheet' type='text/css'> --}}
 	<link rel="stylesheet" type="text/css" href="{{ mix('/css/front/front.css') }}">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 

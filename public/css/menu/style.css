@@ -11,12 +11,13 @@ and open the template in the editor.
 .topnav {
     background-color: black;
     overflow: hidden;
+    
     font-family: "Open Sans", Arial, sans-serif;    
     z-index: 999;
-    border: 0px none rgb(128, 128, 128);
+    /*border: 0px none rgb(128, 128, 128);*/
     width: 100%;
     display: inline;
-    position: absolute;
+    position: fixed;
     top: 0px; left: 0px; right: 0px;
     line-height: 26px;
 }
@@ -24,21 +25,20 @@ and open the template in the editor.
 .mainTitle{
     color: white;
     text-align: center;
-    width: auto;
+    width: 20%;
     font-size: 25px;
 }
 
 .mainMenuSet{
     color: white;
-    width: auto;
     font-size: 18px;
-    position: absolute;
+    position: fixed;
+    width: 35%;
     right: 25%;
 }
 
 .userMenuSet{
     color: white;
-    width: auto;
     font-size: 18px;
     position: absolute;
     right: 5%;
