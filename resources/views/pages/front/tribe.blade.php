@@ -42,23 +42,52 @@
 
     });
 </script>
+<style type="text/css">
+    .tribe-search-text{
+        position: absolute;
+        border-radius:5px; 
+        border-width: 2px;
+        padding: 5px;
+        font-size: 14px;
+        color: #a6a6a6;
+    }
+    #search-interest{
+        width:80%;
+        right: 5%;
+    }
+    #search-area{
+        width:40%;
+    }
+    #search-tribe-btn{
+        margin-left: 45%;
+    }
 
+    div.row.p-b.tribe-search{
+        padding-bottom: 10px;
+    }
 
-<div class="fh5co-blog-style-1" id="searchTribe">
+    div.fh5co-blog-style-1.tribe-search{
+        padding: 4em 0;
+    }
+
+</style>
+
+<div class="fh5co-blog-style-1 tribe-search" id="searchTribe">
     <div class="container">
-        <div class="row p-b">
+        <div class="row p-b tribe-search">
             <div class="col-md-6 col-md-offset-3 text-center">
                 <h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Search Tribe</h2>
                 <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">Explore tribes and join their force!</p>
             </div>
-            <div class="col-md-6 text-right">
-                <input type="text" id="searchTopic" class=".fh5co-post-text" placeholder="Interest" style="border-radius:10px; width:45%; border-width: 1px;">
+            <div class="col-md-3 col-md-offset-3">
+                <input type="text" class="tribe-search-text" id="search-interest" placeholder="Interest">
             </div>
-            <div class="col-md-6 text-left">
-                <input type="text" id="searchRegion" class=".fh5co-post-text" placeholder="Area" style="border-radius:10px; width:45%; border-width: 1px;">
-                <a id="search" class="btn btn-success btn-sm btn-outline">Search</a>
+            <div class="col-md-6">
+                <input type="text" class="tribe-search-text" id="search-area" placeholder="Area">
+                <a class="btn btn-default" id="search-tribe-btn">Search</a>
             </div>
         </div>
+        <hr> 
         <div class="row p-b">
 
             <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 wow fadeInLeft">

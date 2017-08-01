@@ -11,7 +11,7 @@ and open the template in the editor.
 .topnav {
     background-color: black;
     overflow: hidden;
-    
+
     font-family: "Open Sans", Arial, sans-serif;    
     z-index: 999;
     /*border: 0px none rgb(128, 128, 128);*/
@@ -33,7 +33,7 @@ and open the template in the editor.
     color: white;
     font-size: 18px;
     position: fixed;
-    width: 35%;
+    width: 40%;
     right: 25%;
 }
 

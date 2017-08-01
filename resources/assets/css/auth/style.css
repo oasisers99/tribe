@@ -5,6 +5,7 @@
   padding: 8% 0 0;
   margin: auto;
 }
+
 .form {
   position: absolute;
   z-index: 1;
@@ -13,8 +14,16 @@
   margin: 0 auto 100px;
   padding: 45px;
   text-align: center;
-  bottom: 18%;
+  top: 20%;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form h1{
+  color: white;
+}
+.form li {
+  color: white;
+  text-align: left;
+
 }
 .form input {
   font-family: "Roboto", sans-serif;
@@ -47,15 +56,13 @@
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
-  font-size: 12px;
+  font-size: 15px;
 }
 .form .message a {
   color: #4CAF50;
   text-decoration: none;
 }
-.form .register-form {
-  display: none;
-}
+
 .container {
   position: relative;
   z-index: 1;
@@ -92,7 +99,7 @@
 body {
 
   background: #3C3B3F;  /* fallback for old browsers */
-  /*background: -webkit-linear-gradient(to right, #605C3C, #3C3B3F);  /* Chrome 10-25, Safari 5.1-6 */*/
+  background: -webkit-linear-gradient(to right, #605C3C, #3C3B3F);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #605C3C, #3C3B3F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   /*background: #76b852; /*fallback for old browsers */
