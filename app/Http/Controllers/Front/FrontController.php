@@ -28,12 +28,15 @@ class FrontController extends Controller
         $region = $request['region'];
         $limit = $request['limit'];
 
-        if(isset($limit) && $limit > 0)
-            $result = DB::select('SELECT  
-                id, name, summary, image1, topic1, region, country
-                FROM tribe LIMIT ?', [$limit]
-            );
 
+
+        if(isset($limit) && $limit > 0){
+            $result = DB::select('SELECT  
+                id, name, summary, topic1, topic2, image1, topic1, region, country
+                FROM tribe WHERE topic1 = ? AND region = ? LIMIT ?', [$topic, $region, $limit]
+            );
+        }
+        
         return response($result);
     }
 }

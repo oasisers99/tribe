@@ -100,7 +100,7 @@
 					</div>
 					<div class="col-md-3 col-sm-6 fh5co-footer-widget wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.4s">
 						<h3>About</h3>
-						<p>To strengthen social good, help people and... have fun :)</p>
+						<p>For people</p>
 						<!-- <p><a href="#" class="btn btn-success btn-sm btn-outline">I'm a button</a></p> -->
 					</div>
 					<div class="clearfix visible-sm-block"></div>

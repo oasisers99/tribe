@@ -1,7 +1,7 @@
 <script>
     $('document').ready(function(){
 
-        getTribes('','',4);
+        //getTribes('','',4);
 
         /**
          *  Retrieve tribes
@@ -31,12 +31,26 @@
          * @param tribes
          */
         function display(tribes){
+            if(tribes.length == 0){
+                $("#search-message").text("Result not found.")
+                return;
+            }
             //alert(tribes[0].name);
         }
 
-        $("#search").click(function(){
-            var topic = $("#searchTopic").val();
-            var region = $("#searchRegion").val();
+        $("#search-tribe-btn").click(function(){
+            var topic = $("#search-interest").val();
+            var region = $("#search-area").val();
+            if(topic == ''){
+                $("#search-interest").attr('placeholder', 'Please put your interest');
+                return;
+            }
+            
+            if(region == ''){
+                $("#search-area").attr('placeholder', 'Please put your area');
+                return;
+            }
+                
             getTribes(topic, region, 4);
         });
 
@@ -61,7 +75,10 @@
     #search-tribe-btn{
         margin-left: 45%;
     }
-
+    #search-message{
+        margin-top: 10px;
+        text-align: center;
+    }
     div.row.p-b.tribe-search{
         padding-bottom: 10px;
     }
@@ -85,6 +102,9 @@
             <div class="col-md-6">
                 <input type="text" class="tribe-search-text" id="search-area" placeholder="Area">
                 <a class="btn btn-default" id="search-tribe-btn">Search</a>
+            </div>
+            <div class="col-md-12" id="search-message">
+                
             </div>
         </div>
         <hr> 
