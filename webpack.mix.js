@@ -32,7 +32,8 @@ mix.styles([
 
 // tribe main page
 mix.styles([
-    'resources/assets/css/tribe/screen.css'
+    // 'resources/assets/css/tribe/screen.css',
+    'resources/assets/css/front/bootstrap.css'
 ], 'public/css/tribe/style.css');
 
 // menu css

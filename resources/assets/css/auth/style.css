@@ -7,7 +7,7 @@
 }
 
 .form {
-  position: absolute;
+  position: relative;
   z-index: 1;
   /*background: #FFFFFF;*/
   max-width: 360px;

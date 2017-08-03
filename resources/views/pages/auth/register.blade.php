@@ -18,7 +18,7 @@
 			<input type="password" id="password1" name="password1" placeholder="Password" required="required" />
 		        <input type="password" id="password2" name="password2" equalto="#password1" placeholder="Password Confirmation" required="required" />
 			<button type="submit">create</button>
-			<p class="message">Already registered? <a href="#">Sign In</a></p>
+			<p class="message">Already registered? <a href="{{ route('auth.loginForm') }}">Sign In</a></p>
 		</form>
 		{{-- Register error messages --}}
 	  	@if ($errors->any())
