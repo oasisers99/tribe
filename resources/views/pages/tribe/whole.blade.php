@@ -6,8 +6,8 @@
     float: right;
     margin: 0;
   }
-  .col-md-12{
-    height: 
+  .col-md-3.left{
+    text-align: center; 
   }
 </style>
 <nav class="navbar navbar-inverse">
@@ -26,6 +26,7 @@
         {{-- <li class="active"><a href="#">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li> --}}
+        <li role="presentation"><a href="#">Messages <span class="badge">3</span></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Setting <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -42,12 +43,10 @@
       </div><!--/.nav-collapse -->
     </div>
   </nav>
-  <div class="col-md-3" style="border-right: 1px solid;">
-  Top<br>
-  Top<br>
-  Top<br>
-  Top<br>
-  Top<br>
+  {{-- Left pane --}}
+  <div class="col-md-3 left" style="border-right: 1px solid; align-items: center;">
+  <img data-src="holder.js/200x200" class="img-thumbnail" alt="150x150" style="width: 150px; height: 150px;" src="http://www.askounis-security.gr/wp-content/uploads/2013/03/slider-businessman-dark-suit-270x300.png" data-holder-rendered="true">
+  <h2 class="profile-name">John Doe</h2>
   </div>
   <div class="col-md-6" style="border-right: 1px solid;">
   Top<br>
@@ -57,10 +56,19 @@
   Top<br>
   </div>
   <div class="col-md-3">
-  Top<br>
-  Top<br>
-  Top<br>
-  Top<br>
-  Top<br>
+    <div class="list-group">
+      <a href="#" class="list-group-item active">
+        <h4 class="list-group-item-heading">Tribe Members</h4>
+        <p class="list-group-item-text"></p>
+      </a>
+      <a href="#" class="list-group-item">
+        <h4 class="list-group-item-heading">David Jones</h4>
+        <p class="list-group-item-text">Arts experts with 20yr experience</p>
+      </a>
+      <a href="#" class="list-group-item">
+        <h4 class="list-group-item-heading">David Jones</h4>
+        <p class="list-group-item-text">Arts fan</p>
+      </a>
+    </div>
   </div>
 @endsection 
