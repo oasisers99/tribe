@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('layouts.common')
 
 @section('title','Register')
 
@@ -8,7 +8,7 @@
 
 
 @section('body-content')
-<div class="login-page">
+<div class="register-page">
 	<div class="form">
 		<h1 class="loginMainMessage">Welcome!</h1>
 		<form class="register-form" method="post" id="registerForm" action="{{ route('auth.register') }}">

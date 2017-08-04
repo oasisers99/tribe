@@ -7,7 +7,8 @@
     margin: 0;
   }
   .col-md-3.left{
-    text-align: center; 
+    padding: 3%;
+    text-align: center;
   }
 </style>
 <nav class="navbar navbar-inverse">
@@ -24,8 +25,8 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         {{-- <li class="active"><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li> --}}
+        <li><a href="#about">About</a></li> --}}
+        <li><a href="/">Home</a></li>
         <li role="presentation"><a href="#">Messages <span class="badge">3</span></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Setting <span class="caret"></span></a>
@@ -47,13 +48,46 @@
   <div class="col-md-3 left" style="border-right: 1px solid; align-items: center;">
   <img data-src="holder.js/200x200" class="img-thumbnail" alt="150x150" style="width: 150px; height: 150px;" src="http://www.askounis-security.gr/wp-content/uploads/2013/03/slider-businessman-dark-suit-270x300.png" data-holder-rendered="true">
   <h2 class="profile-name">John Doe</h2>
+  <h5>Leader, Administrator</h5>
   </div>
   <div class="col-md-6" style="border-right: 1px solid;">
-  Top<br>
-  Top<br>
-  Top<br>
-  Top<br>
-  Top<br>
+  <div class="blog-post" style="overflow-y: scroll; height: 650px;">
+            <h2 class="blog-post-title">Our experience at Voli</h2>
+            <p class="blog-post-meta">January 1, 2017 by <a href="#">Mark</a></p>
+
+            <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported</p>
+            
+            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum...<a href="#">more</a></p>
+            <hr>
+            <h2 class="blog-post-title">Our experience at Voli</h2>
+            <p class="blog-post-meta">January 1, 2017 by <a href="#">Mark</a></p>
+
+            <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported</p>
+            
+            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum...<a href="#">more</a></p>
+            <hr>
+            <h2 class="blog-post-title">Our experience at Voli</h2>
+            <p class="blog-post-meta">January 1, 2017 by <a href="#">Mark</a></p>
+
+            <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported</p>
+            
+            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum...<a href="#">more</a></p>
+            <hr>
+            <h2 class="blog-post-title">Our experience at Voli</h2>
+            <p class="blog-post-meta">January 1, 2017 by <a href="#">Mark</a></p>
+
+            <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported</p>
+            
+            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum...<a href="#">more</a></p>
+            <hr>
+            <h2 class="blog-post-title">Our experience at Voli</h2>
+            <p class="blog-post-meta">January 1, 2017 by <a href="#">Mark</a></p>
+
+            <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported</p>
+            
+            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum...<a href="#">more</a></p>
+            <hr>
+          </div>
   </div>
   <div class="col-md-3">
     <div class="list-group">

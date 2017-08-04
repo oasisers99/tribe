@@ -2,7 +2,13 @@
 
 .login-page {
   width: 360px;
-  padding: 8% 0 0;
+  padding: 15% 0 0;
+  margin: auto;
+}
+
+.register-page {
+  width: 360px;
+  padding: 11% 0 0;
   margin: auto;
 }
 
