@@ -89,6 +89,8 @@ class RegisterController extends Controller
     }
 
     /**
+     * Register a new member
+     * 
      * @param  Request
      * @return [type]
      */

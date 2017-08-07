@@ -58,7 +58,17 @@ class TribeController extends Controller
                  VALUES
                  (?,?,?,?,?,?,?,?)', [$id, $name, $summary, $topic1, $topic2, $region, $country, $created_by]);
 
-        return redirect(route('tribe.mainPage'));
+        $insertObject = array(
+            "tribe_id" => $id,
+            "member_id" => $created_by,
+        );
+
+        //Add this person into the tribe
+        TribeHelper::insertNewMemberIntoTribe($insertObject);
+        $tribe = TribeHelper::getTribeMainContents($id);
+
+        // return redirect()->route('tribe.mainPage', ["tribe"=>"tribetest"]);
+        return view('pages.tribe.whole', ["tribe"=>$tribe]);
     }
 
     /**
@@ -66,7 +76,10 @@ class TribeController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function mainPage(Request $request){
-        return view('pages.tribe.whole');
+
+        $id = $request->session()->get('email');
+        $tribe = TribeHelper::getTribeMainContents($id);
+        return view('pages.tribe.whole', ["tribe"=>$tribe]);
     }
 
 

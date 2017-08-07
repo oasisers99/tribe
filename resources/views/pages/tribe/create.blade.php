@@ -13,11 +13,13 @@
 
     <style type="text/css">
         .col-md-10.create-tribe{
-            /*margin-top: 10%;*/
-            padding: 5%;
+            margin-top: 5%;
         }
-        .form-group{
+        
+        .form-horizontal .form-group{
             margin-top: 3%;
+            margin-right: 0px;
+            margin-left: 0px;
         }
 
         #tribe-name{
@@ -41,7 +43,7 @@
 <div class="col-md-1">
 </div>
 <div class="col-md-10 create-tribe">
-    <h1 style="text-align: center;">Start a Tribe</h1>
+    <h1 style="text-align: center;">New Tribe</h1>
     <form class="form-horizontal" method="post" action="{{ route('tribe.createTribe') }}">
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -79,7 +81,7 @@
             <option value="Social">Social</option>
         </select>
     </div>
-    <button type="submit" class="btn btn-lg btn-primary" style="width: 10%;">Create</button>
+    <button type="submit" class="btn btn-lg btn-primary" style="width: 10%; margin-top: 5%;">Create</button>
     </form>
     
 </div>

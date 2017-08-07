@@ -29,12 +29,12 @@ and open the template in the editor.
         @if (Auth::check())
             <a href="{{ route('auth.logout') }}" id="A_22">
                 @php
-                    $name = Auth::user()->name;
-                    $namelist = explode(' ', $name);
-                    $initial = '';
-                    foreach($namelist as $name){
-                            $initial .= substr($name, 0, 1) . '.';
-                    }
+                    // $name = Auth::user()->name;
+                    // $namelist = explode(' ', $name);
+                    // $initial = '';
+                    // foreach($namelist as $name){
+                    //         $initial .= substr($name, 0, 1) . '.';
+                    // }
                     echo 'Logout';
                     //strtoupper($initial);
                 @endphp
