@@ -20,7 +20,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">{{ $tribe['tribe']->name}} </a>
+      <a class="navbar-brand" href="#">{{ $tribe['tribe']->name}}</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -47,8 +47,8 @@
   {{-- Left pane --}}
   <div class="col-md-3 left" style="border-right: 1px solid; align-items: center;">
   <img data-src="holder.js/200x200" class="img-thumbnail" alt="150x150" style="width: 150px; height: 150px;" src="http://www.askounis-security.gr/wp-content/uploads/2013/03/slider-businessman-dark-suit-270x300.png" data-holder-rendered="true">
-  <h2 class="profile-name">John Doe</h2>
-  <h5>Leader, Administrator</h5>
+  <h2 class="profile-name">{{ $tribe['members'][0]->user_name}}</h2>
+  <h5>{{ $tribe['members'][0]->member_type_name}}</h5>
   </div>
   <div class="col-md-6" style="border-right: 1px solid;">
   <div class="blog-post" style="overflow-y: scroll; height: 650px;">

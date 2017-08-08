@@ -43,7 +43,7 @@ class TribeController extends Controller
         $this->validator($request->all())->validate();
 
         //when validated
-        $id = uniqid(date("Ymd"));
+        $tribe_id = uniqid(date("Ymd"));
         $name = $request['name'];
         $summary = $request['summary'];
         $topic1 = $request['topic1'];
@@ -56,35 +56,44 @@ class TribeController extends Controller
         DB::insert('INSERT INTO tribe
                  (ID, NAME, SUMMARY, TOPIC1, TOPIC2, REGION, COUNTRY, CREATED_BY)
                  VALUES
-                 (?,?,?,?,?,?,?,?)', [$id, $name, $summary, $topic1, $topic2, $region, $country, $created_by]);
+                 (?,?,?,?,?,?,?,?)', [$tribe_id, $name, $summary, $topic1, $topic2, $region, $country, $created_by]);
 
         $insertObject = array(
-            "tribe_id" => $id,
+            "tribe_id" => $tribe_id,
             "member_id" => $created_by,
         );
 
         //Add this person into the tribe
         TribeHelper::insertNewMemberIntoTribe($insertObject);
-        $tribe = TribeHelper::getTribeMainContents($id);
+        $tribe = TribeHelper::getTribeMainContentsByTribeId($tribe_id);
 
         // return redirect()->route('tribe.mainPage', ["tribe"=>"tribetest"]);
         return view('pages.tribe.whole', ["tribe"=>$tribe]);
     }
 
     /**
+     * Visit a tribe.
+     * 
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function mainPage(Request $request){
 
         $id = $request->session()->get('email');
-        $tribe = TribeHelper::getTribeMainContents($id);
+
+        $userTribe = TribeHelper::getUserTribe($id);
+        $tribeId = $userTribe[0]->tribe_id;
+
+        $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
+
         return view('pages.tribe.whole', ["tribe"=>$tribe]);
     }
 
 
 
     /**
+     * Validate inputs to create a tribe.
+     * 
      * @param array $data
      * @return mixed
      */

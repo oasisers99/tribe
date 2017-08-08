@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\DB;
 class TribeHelper
 {
 
+	const MEMBER_TYPE_ADMINISTRATOR = 1;
+	const MEMBER_TYPE_LEADER = 2;
+	const MEMBER_TYPE_MEMBER = 3;
+	const MEMBER_TYPE_ORGANIZATION = 4;
+	const MEMBER_TYPE_SPONSOR = 5;
+
     /**
      * @param $user
      * @return int
@@ -48,10 +54,10 @@ class TribeHelper
      */
     public static function insertNewMemberIntoTribe($insertObject){
     	DB::insert('insert into tribe_member
-    				(tribe_id, user_id)
+    				(tribe_id, user_id, member_type)
     				values
-    				(?,?)',
-    				[$insertObject['tribe_id'], $insertObject['member_id']]
+    				(?,?,?)',
+    				[$insertObject['tribe_id'], $insertObject['member_id'],'1,2']
     		);
     }
 
@@ -61,44 +67,75 @@ class TribeHelper
      * @param  [type] $tribeId [description]
      * @return [type]          [description]
      */
-    public static function getTribeMainContents($tribeId){
+    public static function getTribeMainContentsByTribeId($tribeId){
     	
     	// Get the main content for the tribe
     	$tribe_content = DB::select('SELECT 
-    							   id,
-							       name,
-							       summary,
-							       description,
-							       image1,
-							       image2,
-							       image3,
-							       topic1,
-							       topic2,
-							       region,
-							       country,
-							       created_by,
-							       updated_at,
-							       created_at
-							FROM tribe
-							WHERE
-							    id = ?', [$tribeId]);
+	    							   id,
+								       name,
+								       summary,
+								       description,
+								       image1,
+								       image2,
+								       image3,
+								       topic1,
+								       topic2,
+								       region,
+								       country,
+								       created_by,
+								       updated_at,
+								       created_at
+									FROM 
+										tribe
+									WHERE
+									    id = ?', [$tribeId]);
 
     	// Get all active members for the tribe
     	$tribe_members = DB::select('SELECT 
-    								tribe_id,
-    								user_id,
-    								created_at
-    							FROM tribe_member
-    							WHERE
-    								tribe_id = ? AND active = "Y"', [$tribeId]);
+	    								mem.tribe_id tribe_id,
+	    								mem.user_id user_id,
+	    								user.name user_name,
+	    								mem.member_type member_type,
+	    								"" AS member_type_name,
+	    								mem.created_at created_at
+	    							FROM 
+	    								tribe_member mem, users user
+	    							WHERE
+	    								mem.user_id = user.email
+	    							AND
+	    								mem.tribe_id = ? AND mem.active = "Y"', [$tribeId]);
+    	
+    	// Define member type names
+    	foreach($tribe_members as $mkey=>$member){
+    		$memberTypes = $member->member_type;
+    		$member->member_type_name = "Administrator, Leader";
+    	}
 
     	$tribe = array(
     		"tribe"=> $tribe_content[0],
     		"members" => $tribe_members,
     	);
-
+    	
     	return $tribe;
 	}
 
-	
+	/**
+	 * Get a list of tribes that the user belongs to
+	 * 
+	 * @param  [type] $userId [description]
+	 * @return [type]         [description]
+	 */
+	public static function getUserTribe($userId){
+		$user_tribe = DB::select('
+				SELECT
+					tribe_id,
+					user_id,
+					member_type
+				FROM
+					tribe_member
+				WHERE
+					user_id = ?', [$userId]);
+		return $user_tribe;
+	}
+
 }
