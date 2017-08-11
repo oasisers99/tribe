@@ -37,7 +37,7 @@
 </script>
   {{-- Left pane --}}
   <div class="col-md-3 left" style="border-right: 1px solid; align-items: center;">
-  <img data-src="holder.js/200x200" class="img-thumbnail" alt="150x150" style="width: 150px; height: 150px;" src="https://smart-union.org/wp-content/blogs.dir/239/files/2015/12/person-placeholder.jpg" data-holder-rendered="true">
+  <img data-src="holder.js/200x200" class="img-thumbnail" alt="150x150" style="width: 150px; height: 150px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiTJhaOs5Ab2_G8DmrmHo_9GL8GW7mel7g8dk-9AN9lYRrO5H1" data-holder-rendered="true">
   <h2 class="profile-name">{{ $tribe['members'][0]->user_name}}</h2>
   <h5>{{ $tribe['members'][0]->member_type_name}}</h5>
   </div>

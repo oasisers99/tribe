@@ -96,31 +96,12 @@ class RegisterController extends Controller
      */
     public function register(Request $request){
         
-        try {
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->create($request->all())));
+        $this->guard()->login($user);
 
-            $this->validator($request->all())->validate();
+        $request->session()->put('email', $request['email']);
 
-            event(new Registered($user = $this->create($request->all())));
-
-            $this->guard()->login($user);
-
-            // $name = $request['name'];
-            // $email = $request['email'];
-            // $password = bcrypt($request['password1']);
-            // $memtype = 1;
-            // $active = 1;
-            // $confirmed = 1;
-
-//             $result = DB::insert('INSERT INTO users
-//                 (NAME, EMAIL, PASSWORD, MEMBER_TYPE, ACTIVE, CONFIRMED)
-//                 VALUES
-//                 (?,?,?,?,?,?)', [$name, $email, $password, $memtype, $active,$confirmed]);
-
-        } catch (Exception $e) {
-            
-        }
-
-        
         return redirect(route('auth.loginForm'));
     }
 }

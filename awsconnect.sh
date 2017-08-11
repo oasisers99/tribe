@@ -1,0 +1,1 @@
+ssh -i /Users/songminseok/.ssh/VOLI-PRIVATE-KEY.pem ec2-user@ec2-13-55-152-142.ap-southeast-2.compute.amazonaws.com
