@@ -16,9 +16,7 @@
 
 </head>
 <body>
+    @include('pages.sections.tribe_menu')
     @yield('body-content')
-    {{--@include('pages.tribe.left')--}}
-    {{--@include('pages.tribe.center')--}}
-    {{--@include('pages.tribe.right')--}}
 </body>
 </html>

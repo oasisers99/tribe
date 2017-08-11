@@ -68,7 +68,7 @@ class TribeController extends Controller
         $tribe = TribeHelper::getTribeMainContentsByTribeId($tribe_id);
 
         // return redirect()->route('tribe.mainPage', ["tribe"=>"tribetest"]);
-        return view('pages.tribe.whole', ["tribe"=>$tribe]);
+        return view('pages.tribe.main', ["tribe"=>$tribe]);
     }
 
     /**
@@ -86,9 +86,23 @@ class TribeController extends Controller
 
         $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
 
-        return view('pages.tribe.whole', ["tribe"=>$tribe]);
+        return view('pages.tribe.main', ["tribe"=>$tribe]);
     }
 
+    /**
+     * Go to tribe posting form page.
+     * 
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function createPostingForm(Request $request){
+
+        $tribeId = $request['tribeId'];
+
+        $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
+
+        return view('pages.tribe.create-posting', ["tribe"=>$tribe]);
+    }
 
 
     /**
