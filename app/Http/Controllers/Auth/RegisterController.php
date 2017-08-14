@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use App\Model\Auth\User;
+use App\Helper\SessionHelper;
 use App\Http\Controllers\Controller;
+
+use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+
 
 class RegisterController extends Controller
 {
@@ -100,7 +103,8 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
         $this->guard()->login($user);
 
-        $request->session()->put('email', $request['email']);
+        SessionHelper::putInfoIntoSession($request);
+        #$request->session()->put('email', $request['email']);
 
         return redirect(route('auth.loginForm'));
     }

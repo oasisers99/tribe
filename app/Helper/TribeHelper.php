@@ -138,4 +138,26 @@ class TribeHelper
 		return $user_tribe;
 	}
 
+    /**
+     * Check if the user is a tribe member
+     * 
+     * @param  [type] $userId  [description]
+     * @param  [type] $tribeId [description]
+     * @return [type]          [description]
+     */
+    public static function checkIfValidMember($userId, $tribe){
+
+        if(isset($userId) && isset($tribe)){
+            $members = $tribe['members'];
+
+            foreach($members as $member){
+                if($member->user_id == $userId){
+                    return true;
+                }
+            }
+        }
+        
+        return false;
+    }
+
 }

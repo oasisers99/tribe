@@ -5,9 +5,13 @@
     </div>
     <div class="mainMenuSet">
         <a href="/">About Us</a>
+
         @if (Auth::check())
             @if (Session::get('userCreatedTribesCount') > 0)
-                <a href="{{ route('tribe.mainPage') }}">Your Tribe</a>
+                @php
+                    $tribeId = Session::get('userTribes')[0]->tribe_id;
+                @endphp
+                <a href="{{ route('tribe.mainPage', ["tribe_id" => $tribeId]) }}">Your Tribe </a>
             @else
                 <a href="{{ route('tribe.createForm') }}">Create Tribe</a>
             @endif

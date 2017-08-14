@@ -79,12 +79,20 @@ class TribeController extends Controller
      */
     public function mainPage(Request $request){
 
-        $id = $request->session()->get('email');
-
-        $userTribe = TribeHelper::getUserTribe($id);
-        $tribeId = $userTribe[0]->tribe_id;
+        // $userTribe = TribeHelper::getUserTribe($id);
+        // $tribeId = $userTribe[0]->tribe_id;
+        $tribeId = $request['tribe_id'];
 
         $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
+
+        $userId = $request->session()->get('email');
+        $isTribeMember = false;
+
+        if(isset($userId)){
+            $isTribeMember = TribeHelper::checkIfValidMember($userId, $tribe);
+        }
+        
+        $tribe['isTribeMember'] = $isTribeMember;
 
         return view('pages.tribe.main', ["tribe"=>$tribe]);
     }
