@@ -19,10 +19,12 @@ class FrontController extends Controller
 
 
     /**
+     * Search Tribe for the main front page.
+     * 
      * @param Request $request
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
-    public function getTribes(Request $request){
+    public function getFrontTribes(Request $request){
 
         $topic = $request['topic'];
         $region = $request['region'];
@@ -38,5 +40,9 @@ class FrontController extends Controller
         }
         
         return response($result);
+    }
+
+    public function moreTribeSearchForm(Request $request){
+        return view('pages.front.tribe-search');
     }
 }

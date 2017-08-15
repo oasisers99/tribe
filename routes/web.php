@@ -19,7 +19,9 @@ Route::get('/', function () {
 // Route group for front page
 Route::group(['prefix' => 'front', 'as' => 'front.', 'namespace' => 'Front'], function(){
 
-    Route::get('getTribes', 'FrontController@getTribes')->name('getTribes');
+    Route::get('getFrontTribes', 'FrontController@getFrontTribes')->name('getFrontTribes');
+
+    Route::get('moreTribeSearch', 'FrontController@moreTribeSearchForm')->name('moreTribeSearch');
 });
 
 
@@ -52,7 +54,7 @@ Route::group(['middleware' => 'logincheck', 'prefix' => 'tribe', 'as' => 'tribe.
 
     Route::get('createForm', 'TribeController@createTribeForm')->name('createForm');
     Route::get('mainPage', 'TribeController@mainPage')->name('mainPage');
-    Route::post('createTribe', 'TribeController@createTribe')->name('createTribe');
-
     Route::get('createPosting', 'TribeController@createPostingForm')->name('createPosting');
+
+    Route::post('createTribe', 'TribeController@createTribe')->name('createTribe');
 });

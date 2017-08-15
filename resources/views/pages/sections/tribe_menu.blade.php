@@ -13,7 +13,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">{{ $tribe['tribe']->name}}</a>
+      <a class="navbar-brand" href="{{ route('tribe.mainPage', ["tribe_id" => $tribe['tribe']->id]) }}">{{ $tribe['tribe']->name}}</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">

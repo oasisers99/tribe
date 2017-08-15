@@ -49,21 +49,21 @@
 								<div class="icon">
 									<i class="icon-group"></i>
 								</div>
-								<span class="fh5co-counter js-counter" data-from="0" data-to="28" data-speed="5000" data-refresh-interval="50"></span>
+								<span class="fh5co-counter js-counter" data-from="0" data-to="28" data-speed="5000" data-refresh-interval="50">312</span>
 								<span class="fh5co-counter-label">Tribe Members</span>
 							</div>
 							<div class="col-md-4 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
 								<div class="icon">
 									<i class="icon-flag"></i>
 								</div>
-								<span class="fh5co-counter js-counter" data-from="0" data-to="57" data-speed="500" data-refresh-interval="50"></span>
+								<span class="fh5co-counter js-counter" data-from="0" data-to="57" data-speed="500" data-refresh-interval="50">35</span>
 								<span class="fh5co-counter-label">Active Tribes</span>
 							</div>
 							<div class="col-md-4 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s">
 								<div class="icon">
 									<i class="icon-network"></i>
 								</div>
-								<span class="fh5co-counter js-counter" data-from="0" data-to="34023" data-speed="5000" data-refresh-interval="50"></span>
+								<span class="fh5co-counter js-counter" data-from="0" data-to="34023" data-speed="5000" data-refresh-interval="50">43</span>
 								<span class="fh5co-counter-label">Ongoing Projects</span>
 							</div>
 						</div>
@@ -95,7 +95,7 @@
 							<li><a href="#"><i class="icon icon-facebook2"></i> Facebook</a></li>
 							<li><a href="#"><i class="icon icon-twitter"></i> Twitter</a></li>
 							<!-- <li><a href="#"><i class="icon icon-dribbble"></i> Dribbble</a></li> -->
-							<li><a href="#"><i class="icon icon-instagram"></i> Instagram</a></li>
+							{{-- <li><a href="#"><i class="icon icon-instagram"></i> Instagram</a></li> --}}
 						</ul>
 					</div>
 					<div class="col-md-3 col-sm-6 fh5co-footer-widget wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.4s">
