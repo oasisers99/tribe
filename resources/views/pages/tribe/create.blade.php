@@ -33,6 +33,7 @@
         #tribe-region{
             width: 20%;
         }
+
         #tribe-topic{
             width: 30%;
         }
@@ -45,6 +46,7 @@
 <div class="col-md-10 create-tribe">
     <h1 style="text-align: center;">New Tribe</h1>
     <form class="form-horizontal" method="post" action="{{ route('tribe.createTribe') }}">
+    {{ csrf_field() }}
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -55,7 +57,6 @@
         </div>
     @endif
     <div class="form-group">
-        {{ csrf_field() }}
         <label for="askTribeName">What is the name of your tribe?</label>
         <input type="text" id="tribe-name" name="name" placeholder="Name" class="form-control" maxlength="128" required/>
     </div>

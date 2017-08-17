@@ -3466,5 +3466,48 @@
             "testing",
             "xunit"
         ]
+    },
+    {
+        "name": "ckeditor/ckeditor",
+        "version": "4.7.1",
+        "version_normalized": "4.7.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ckeditor/ckeditor-releases.git",
+            "reference": "d62153e131ad4187700342fc044cf069c2fb5d8a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ckeditor/ckeditor-releases/zipball/d62153e131ad4187700342fc044cf069c2fb5d8a",
+            "reference": "d62153e131ad4187700342fc044cf069c2fb5d8a",
+            "shasum": ""
+        },
+        "time": "2017-06-28T14:36:40+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0+",
+            "LGPL-2.1+",
+            "MPL-1.1+"
+        ],
+        "authors": [
+            {
+                "name": "CKSource",
+                "homepage": "http://cksource.com"
+            }
+        ],
+        "description": "JavaScript WYSIWYG web text editor.",
+        "homepage": "http://ckeditor.com",
+        "keywords": [
+            "CKEditor",
+            "editor",
+            "fckeditor",
+            "html",
+            "javascript",
+            "richtext",
+            "text",
+            "wysiwyg"
+        ]
     }
 ]

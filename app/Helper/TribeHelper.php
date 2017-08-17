@@ -139,24 +139,46 @@ class TribeHelper
 	}
 
     /**
-     * Check if the user is a tribe member
+     * Get tribe members
      * 
      * @param  [type] $userId  [description]
      * @param  [type] $tribeId [description]
      * @return [type]          [description]
      */
-    public static function checkIfValidMember($userId, $tribe){
+    public static function getTribeMembers($tribeId){
 
-        if(isset($userId) && isset($tribe)){
-            $members = $tribe['members'];
+        $tribe_members = DB::select('SELECT 
+                                        mem.tribe_id tribe_id,
+                                        mem.user_id user_id,
+                                        user.name user_name,
+                                        mem.member_type member_type,
+                                        "" AS member_type_name,
+                                        mem.created_at created_at
+                                    FROM 
+                                        tribe_member mem, users user
+                                    WHERE
+                                        mem.user_id = user.email
+                                    AND
+                                        mem.tribe_id = ? AND mem.active = "Y"', [$tribeId]);
+        
+        return $tribe_members;
+    }
 
-            foreach($members as $member){
-                if($member->user_id == $userId){
-                    return true;
-                }
+    /**
+     * Check if the user is in the tribe.
+     * 
+     * @param  [type] $tribeMembers [description]
+     * @param  [type] $userId       [description]
+     * @return [type]               [description]
+     */
+    public static function checkIfTribeMember($tribeMembers, $userId){
+
+        foreach ($tribeMembers as $key => $member) {
+            if($member->user_id === $userId){
+                return true;
             }
         }
-        
+
         return false;
     }
 

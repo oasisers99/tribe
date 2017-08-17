@@ -16,7 +16,7 @@
 
 </head>
 <body>
-    @include('pages.sections.tribe_menu')
+    @include('pages.sections.tribe-menu')
     @yield('body-content')
 </body>
 </html>

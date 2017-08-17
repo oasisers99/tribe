@@ -3,6 +3,9 @@
     float: right;
     margin: 0;
   }
+  .container{
+    width: 100%;
+  }
 </style>
 <nav class="navbar navbar-inverse">
   <div class="container">
@@ -13,13 +16,14 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{ route('tribe.mainPage', ["tribe_id" => $tribe['tribe']->id]) }}">{{ $tribe['tribe']->name}}</a>
+      <a class="navbar-brand" href="{{ route('tribe.main', ["tribe_id" => $tribe['tribe']->id]) }}">{{ $tribe['tribe']->name}}</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         {{-- <li class="active"><a href="#">Home</a></li>
         <li><a href="#about">About</a></li> --}}
         <li><a href="/">Home</a></li>
+        @if ($tribe['isTribeMember'])
         <li role="presentation"><a href="#">Messages <span class="badge">3</span></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Setting <span class="caret"></span></a>
@@ -33,6 +37,7 @@
             <li><a href="#">One more separated link</a></li> --}}
           </ul>
         </li>
+        @endif
       </ul>
     </div><!--/.nav-collapse -->
   </div>

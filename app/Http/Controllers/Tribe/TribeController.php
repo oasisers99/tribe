@@ -79,20 +79,12 @@ class TribeController extends Controller
      */
     public function mainPage(Request $request){
 
-        // $userTribe = TribeHelper::getUserTribe($id);
-        // $tribeId = $userTribe[0]->tribe_id;
-        $tribeId = $request['tribe_id'];
 
+        $tribeId = $request['tribe_id'];
         $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
 
         $userId = $request->session()->get('email');
-        $isTribeMember = false;
-
-        if(isset($userId)){
-            $isTribeMember = TribeHelper::checkIfValidMember($userId, $tribe);
-        }
-        
-        $tribe['isTribeMember'] = $isTribeMember;
+        $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
 
         return view('pages.tribe.main', ["tribe"=>$tribe]);
     }
@@ -106,12 +98,30 @@ class TribeController extends Controller
     public function createPostingForm(Request $request){
 
         $tribeId = $request['tribeId'];
-
         $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
+        
+        $userId = $request->session()->get('email');
+        $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
 
         return view('pages.tribe.create-posting', ["tribe"=>$tribe]);
     }
 
+    /**
+     * Go to project creation form page.
+     * 
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function createProjectForm(Request $request){
+
+        $tribeId = $request['tribeId'];
+        $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
+        
+        $userId = $request->session()->get('email');
+        $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
+
+        return view('pages.tribe.create-project', ["tribe"=>$tribe]);
+    }
 
     /**
      * Validate inputs to create a tribe.

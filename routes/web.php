@@ -48,13 +48,15 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.', 'namespace' => 'Auth'], funct
     // Route::get('permissions/{user}/repeat', 'PermissionController@repeat')->name('permissions.repeat');
 });
 
+Route::group(['prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], function(){
+    Route::get('main', 'TribeController@mainPage')->name('main');
+});
+
 
 
 Route::group(['middleware' => 'logincheck', 'prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], function(){
-
     Route::get('createForm', 'TribeController@createTribeForm')->name('createForm');
-    Route::get('mainPage', 'TribeController@mainPage')->name('mainPage');
     Route::get('createPosting', 'TribeController@createPostingForm')->name('createPosting');
-
+    Route::get('createProject', 'TribeController@createProjectForm')->name('createProject');
     Route::post('createTribe', 'TribeController@createTribe')->name('createTribe');
 });

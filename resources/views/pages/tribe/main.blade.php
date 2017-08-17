@@ -16,8 +16,13 @@
     z-index: 3;
     margin-bottom: 1%;
   }
-  #post-btn{
-    width: 30%;
+  #write-post-btn{
+    width: 60%;
+    margin-top: 10%;
+  }
+  #create-project-btn{
+    width: 60%;
+    margin-top: 2%;
   }
 </style>
 
@@ -35,14 +40,23 @@
   // });
 
 </script>
+
   {{-- Left pane --}}
   <div class="col-md-3 left" style="border-right: 1px solid; align-items: center;">
   <img data-src="holder.js/200x200" class="img-thumbnail" alt="150x150" style="width: 150px; height: 150px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiTJhaOs5Ab2_G8DmrmHo_9GL8GW7mel7g8dk-9AN9lYRrO5H1" data-holder-rendered="true">
   <h2 class="profile-name">{{ $tribe['members'][0]->user_name}}</h2>
   <h5>{{ $tribe['members'][0]->member_type_name}}</h5>
+  @if ($tribe['isTribeMember'])
+  <div class="col-md-12">
+  <a href="{{ route('tribe.createPosting', ['tribeId' => $tribe['tribe']->id] ) }}" type="button" id="write-post-btn" class="btn btn-primary">Write Posting</a>
+  </div>
+  <div class="col-md-12"> 
+  <a href="{{ route('tribe.createProject', ['tribeId' => $tribe['tribe']->id] ) }}" type="button" id="create-project-btn" class="btn btn-success">Create Project</a>
+  </div>
+  @endif
   </div>
   <div class="col-md-6" style="border-right: 1px solid;">
-    <div class="blog-post" style="overflow-y: scroll; height: 650px;">
+    <div class="blog-post" style="overflow-y: scroll; height: 100vh;">
             <h2 class="blog-post-title">Our experience at Voli</h2>
             <p class="blog-post-meta">January 1, 2017 by <a href="#">Mark</a></p>
 
@@ -78,9 +92,6 @@
             
             <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum...<a href="#">more</a></p>
             <hr>
-    </div>
-    <div class="col-md-12 post-project-div" style="text-align: center;">
-      <a href="{{ route('tribe.createPosting', ['tribeId' => $tribe['tribe']->id] ) }}" type="button" id="post-btn" class="btn btn-primary">Write Posting</a>
     </div>
   </div>
   <div class="col-md-3">
