@@ -120,8 +120,13 @@
 
   function displayTribePostings(postingList){
     var postHTML = '';
+    var date;
+    var wordCount = 0;
     postingList.forEach(function(item){
-      postHTML += item.content + '<hr>';
+      postHTML += item.content;
+      date = new Date(item.created_at);
+      postHTML += '<p class="blog-post-meta">'+date.toLocaleDateString("en-AU")+'<a href="#"> '+item.user_name+'</a></p>';
+      postHTML += '<hr>';
     });
     $('#blog-post-div').html(postHTML);
   }
@@ -146,7 +151,7 @@
   </div>
   <div class="col-md-6" style="border-right: 1px solid;">
     <div class="blog-post" id="blog-post-div" style="overflow-y: scroll; height: 100vh;">
-          
+
             {{-- <h2 class="blog-post-title">Our experience at Voli</h2>
             <p class="blog-post-meta">January 1, 2017 by <a href="#">Mark</a></p>
        
