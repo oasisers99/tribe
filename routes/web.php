@@ -50,13 +50,17 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.', 'namespace' => 'Auth'], funct
 
 Route::group(['prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], function(){
     Route::get('main', 'TribeController@mainPage')->name('main');
+    Route::get('getTribePostings', 'TribeController@getTribePostings')->name('getTribePostings');
 });
 
 
 
 Route::group(['middleware' => 'logincheck', 'prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], function(){
     Route::get('createForm', 'TribeController@createTribeForm')->name('createForm');
-    Route::get('createPosting', 'TribeController@createPostingForm')->name('createPosting');
-    Route::get('createProject', 'TribeController@createProjectForm')->name('createProject');
+    Route::get('createPostingForm', 'TribeController@createPostingForm')->name('createPostingForm');
+    Route::get('createProjectForm', 'TribeController@createProjectForm')->name('createProjectForm');
+
+    Route::post('createPosting', 'TribeController@createPosting')->name('createPosting');
     Route::post('createTribe', 'TribeController@createTribe')->name('createTribe');
+
 });

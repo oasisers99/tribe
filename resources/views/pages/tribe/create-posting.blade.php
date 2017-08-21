@@ -30,14 +30,16 @@
 	<div class="col-md-1"></div>
 	<div class="col-md-10 posting-inputs">
 		<h1 style="text-align: center; color: white;">Write new posting</h1>
-	    <form class="form-horizontal">
+	    <form class="form-horizontal" method="post" id="posting-form" action="{{ route('tribe.createPosting') }}">
+	    {{ csrf_field() }}
 		    <div class="form-group">
 		        <input type="text" id="posting-title" name="posting-title" placeholder="Title of the posting" class="form-control" maxlength="128" required/>
 		    </div>
 			<div class="form-group editor" id="editor">
 				<h1>Hello world!</h1>
 			</div>
-			<a href="" type="button" id="write-post-btn" class="btn btn-primary">Submit</a>
+			<input id="tribeId" name="tribeId" value="{{$tribe['tribe']->id}}" hidden/>
+			<a id="write-post-btn" class="btn btn-primary">Submit</a>
 		</form>
 	</div>
 	<div class="col-md-1"></div>
@@ -48,6 +50,42 @@ CKEDITOR.replace( 'editor', {
     // uiColor: '#76706F',
     width: '100%',
     height: '300px'
+});
+
+$(document).ready(function(){
+
+	$("#write-post-btn").click(function(){
+
+		//validateContents();
+		var title = $("#posting-title").value;
+		var body = CKEDITOR.instances.editor.getData();
+
+		if(title == ''){
+			$("#posting-title").attr('placeholder', "Please fill up the title");
+		}
+
+		if(body == ''){
+
+		}
+
+		var data = {
+			'title': title,
+			'body': body
+        };
+
+        alert(CKEDITOR.instances.editor.getData());
+        return;
+        $.ajax({
+            method: "POST",
+            url: '{{Route("tribe.createPosting")}}',
+            data: data
+        })
+        .done(function(tribes){
+            // display(tribes);
+        });
+
+	});
+
 });
 </script>
 @endsection

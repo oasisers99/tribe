@@ -19,7 +19,7 @@
             <a href="{{ route('tribe.createForm') }}">Create Tribe</a>
         @endif
         <a href="/">Explore Projects</a>
-        <a href="#pricing-section">Pricing</a>
+        <a href="/#pricing-section">Pricing</a>
     </div>
     <div class="userMenuSet">
         @unless (Auth::check())

@@ -124,6 +124,49 @@ class TribeController extends Controller
     }
 
     /**
+     * Create posting
+     * 
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function createPosting(Request $request){
+
+        $tribeId = $request['tribeId'];
+        $userId = $request->session()->get('email');
+    
+        $content = $request['content'];
+        
+        DB::insert('INSERT INTO tribe_posting
+                 (TRIBE_ID, CONTENT, CREATED_BY)
+                 VALUES
+                 (?,?,?)', [$tribeId, $content, $userId]);
+
+        $postings = DB::select('SELECT post.id, post.tribe_id, post.content, post.created_by, user.name as user_name, post.created_at
+                    FROM tribe_posting post, users user
+                    WHERE post.created_by = user.email
+                    AND tribe_id = (?)
+                    ORDER BY created_at DESC', [$tribeId]);
+
+        return response($postings);
+    }
+
+    /**
+     * Get tribe postings
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function getTribePostings(Request $request){
+
+        $tribeId = $request['tribeId'];
+        $postings = DB::select('SELECT post.id, post.tribe_id, post.content, post.created_by, user.name as user_name, post.created_at
+                    FROM tribe_posting post, users user
+                    WHERE post.created_by = user.email
+                    AND tribe_id = (?)
+                    ORDER BY created_at DESC', [$tribeId]);
+        return response($postings);
+    }
+
+    /**
      * Validate inputs to create a tribe.
      * 
      * @param array $data
