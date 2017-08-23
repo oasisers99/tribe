@@ -28,6 +28,7 @@
     padding-left: 5px;
     padding-right: 5px;
   }
+
 </style>
 
 <script type="text/javascript">
@@ -44,8 +45,8 @@
         return;
       }
 
-      var editorHTML = '<div class="col-md-12 editor">'
-      editorHTML += '<div id="editor" contenteditable="true" style="border: .25rem solid; border-color: #5bc0de;">'
+      var editorHTML = '<div class="col-md-12 editor" id="new-editor-div">'
+      editorHTML += '<div id="editor" contenteditable="true" style="border: .25rem solid; border-color: #5bc0de;" onfocusout="editorFocusOut();">'
       editorHTML += '<h2>Put your title</h2>';
       editorHTML += '<p>Write your content</p>'
       editorHTML += '</div>';
@@ -65,6 +66,28 @@
   });
 
   /**
+   * Remove editor if it contains nothing.
+   * @return {[type]} [description]
+   */
+  function removeEditorIfNull(){
+    var text = $("#editor").text();
+    if(text.trim() == ''){
+      $("#new-editor-div").remove();
+      editorCNT = 0;
+      return;
+    } 
+  }
+
+  /**
+   * When it focuses out of editor.
+   * 
+   * @return {[type]} [description]
+   */
+  function editorFocusOut(){
+    removeEditorIfNull();
+  }
+
+  /**
    * Submit post ajax
    * 
    * @param  {[type]} index [description]
@@ -74,9 +97,7 @@
 
       var content = CKEDITOR.instances.editor.getData();
 
-      if(content == ''){
-        return;
-      }
+      removeEditorIfNull();
 
       var data = {
         'content' : content,
@@ -123,15 +144,29 @@
     var date;
     var wordCount = 0;
     postingList.forEach(function(item){
+      date = new Date(item.created_at);  
+      postHTML += '<div class="tribe-posting-div">';
+      postHTML += '<p class="blog-post-meta">'+date.toLocaleDateString("en-AU")+'<a href="#"> '+item.user_name+'</a>';
+      if('{{Session::get('email')}}' == item.created_by){
+        postHTML += '<a href="#" style="margin-left:70%;" onclick="editPost('+item.id+');">Edit</a>';
+      }
+      postHTML += '</p>';
+      postHTML += '<div id="post_body_'+item.id+'" contenteditable="false">';
       postHTML += item.content;
-      date = new Date(item.created_at);
-      postHTML += '<p class="blog-post-meta">'+date.toLocaleDateString("en-AU")+'<a href="#"> '+item.user_name+'</a></p>';
+      postHTML += '</div>';
+      postHTML += '</div>';
       postHTML += '<hr>';
     });
     $('#blog-post-div').html(postHTML);
   }
 
-
+  function editPost(postId){
+    
+    postId = 'post_body_' + postId;
+    $('#'+postId).attr("contenteditable", true);
+    CKEDITOR.inline(postId);
+    $('#'+postId).focus();
+  }
 </script>
 
   {{-- Left pane --}}

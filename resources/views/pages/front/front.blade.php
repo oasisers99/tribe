@@ -71,7 +71,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="fh5co-pricing-style-2" id="pricing-section">
+
+		{{-- <div class="fh5co-pricing-style-2" id="pricing-section">
 			<div class="container">
 				<div class="row">
 					<div class="row p-b">
@@ -119,7 +120,8 @@
 		         </div>
 		      </div>
 			</div>
-		</div>
+		</div> --}}
+		
 		<div class="fh5co-footer-style-3">
 			<div class="container">
 				<div class="row p-b">
