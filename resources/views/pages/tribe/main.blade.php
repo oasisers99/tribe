@@ -114,7 +114,8 @@
         displayTribePostings(response);
       })
       .fail(function() {
-        alert( "error" );
+        //alert( "error" );
+        location.reload();
       });
   }
 
@@ -143,6 +144,7 @@
     var postHTML = '';
     var date;
     var wordCount = 0;
+
     postingList.forEach(function(item){
       date = new Date(item.created_at);  
       postHTML += '<div class="tribe-posting-div">';
@@ -151,9 +153,14 @@
         postHTML += '<a href="#" style="margin-left:70%;" onclick="editPost('+item.id+');">Edit</a>';
       }
       postHTML += '</p>';
-      postHTML += '<div id="post_body_'+item.id+'" contenteditable="false">';
+      postHTML += '<div id="postbody'+item.id+'" contenteditable="false">';
       postHTML += item.content;
       postHTML += '</div>';
+
+      postHTML += '<div class="col-md-12" id="edit-save-btn-div-'+item.id+'" align="right" style="margin-bottom: 5%;" hidden>';
+      postHTML += '<a type="button" id="edit-save-post-btn" class="btn btn-danger" onclick="editPostSave('+item.id+')">Save</a>';
+      postHTML += '</div>'
+
       postHTML += '</div>';
       postHTML += '<hr>';
     });
@@ -162,11 +169,47 @@
 
   function editPost(postId){
     
-    postId = 'post_body_' + postId;
-    $('#'+postId).attr("contenteditable", true);
-    CKEDITOR.inline(postId);
-    $('#'+postId).focus();
+    var editpostid = 'postbody' + postId;
+    $('#'+editpostid).attr("contenteditable", true);
+    CKEDITOR.inline(editpostid);
+    $('#edit-save-btn-div-' + postId).show();
+    $('#'+editpostid).focus();
   }
+
+  /**
+   * Edited post save
+   * 
+   * @param  {[type]} postId [description]
+   * @return {[type]}        [description]
+   */
+  function editPostSave(postId){
+    var editorname = 'postbody'+postId;
+    var content = CKEDITOR.instances[editorname].getData();
+
+    //removeEditorIfNull();
+
+    var data = {
+      'content' : content,
+      'postId' : postId,
+      'tribeId' : '{{$tribe['tribe']->id}}'
+    };
+    $.ajax({
+          method: "POST",
+          headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+          url: '{{Route("tribe.updatePosting")}}',
+          data: data
+    })
+    .done(function(response){
+      editorCNT = 0;
+      displayTribePostings(response);
+    })
+    .fail(function() {
+      //alert( "error" );
+      location.reload();
+    });
+  }
+
+
 </script>
 
   {{-- Left pane --}}

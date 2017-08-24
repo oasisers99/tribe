@@ -151,6 +151,34 @@ class TribeController extends Controller
     }
 
     /**
+     * Update posting
+     * 
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function updatePosting(Request $request){
+
+        $postId = $request['postId'];
+        $tribeId = $request['tribeId'];
+        $content = $request['content'];
+
+        DB::update('UPDATE tribe_posting
+                    SET 
+                        content = (?),
+                        updated_at = NOW()
+                    WHERE
+                        id = (?)', [$content, $postId]);
+
+        $postings = DB::select('SELECT post.id, post.tribe_id, post.content, post.created_by, user.name as user_name, post.created_at
+                    FROM tribe_posting post, users user
+                    WHERE post.created_by = user.email
+                    AND tribe_id = (?)
+                    ORDER BY created_at DESC', [$tribeId]);
+
+        return response($postings);
+    }
+
+    /**
      * Get tribe postings
      * @param  Request $request [description]
      * @return [type]           [description]

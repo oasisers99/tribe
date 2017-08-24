@@ -61,6 +61,7 @@ Route::group(['middleware' => 'logincheck', 'prefix' => 'tribe', 'as' => 'tribe.
     Route::get('createProjectForm', 'TribeController@createProjectForm')->name('createProjectForm');
 
     Route::post('createPosting', 'TribeController@createPosting')->name('createPosting');
+    Route::post('updatePosting', 'TribeController@updatePosting')->name('updatePosting');
     Route::post('createTribe', 'TribeController@createTribe')->name('createTribe');
 
 });
