@@ -48,7 +48,7 @@
                         <img src="images/img_same_dimension_2.jpg" alt="Image" class="img-responsive">
                     </div>
                     <div class="fh5co-post-text">
-                        <h3><a href="#">{{$tribe->name}}</a></h3>
+                        <h3><a href="{{ route('tribe.main', ["tribe_id" => $tribe->id]) }}">{{$tribe->name}}</a></h3>
                         <p>{{$tribe->summary}}</p>
                     </div>
                     <div class="fh5co-post-meta">
