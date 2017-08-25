@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.front.front');
-});
+Route::get('/', 'Front\FrontController@main');
 
 
 // Route group for front page
@@ -63,5 +61,5 @@ Route::group(['middleware' => 'logincheck', 'prefix' => 'tribe', 'as' => 'tribe.
     Route::post('createPosting', 'TribeController@createPosting')->name('createPosting');
     Route::post('updatePosting', 'TribeController@updatePosting')->name('updatePosting');
     Route::post('createTribe', 'TribeController@createTribe')->name('createTribe');
-
+    Route::post('createProject', 'TribeController@createProject')->name('createProject');
 });

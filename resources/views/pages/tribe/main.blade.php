@@ -186,13 +186,12 @@
     var editorname = 'postbody'+postId;
     var content = CKEDITOR.instances[editorname].getData();
 
-    //removeEditorIfNull();
-
     var data = {
       'content' : content,
       'postId' : postId,
       'tribeId' : '{{$tribe['tribe']->id}}'
     };
+    
     $.ajax({
           method: "POST",
           headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
@@ -204,7 +203,6 @@
       displayTribePostings(response);
     })
     .fail(function() {
-      //alert( "error" );
       location.reload();
     });
   }
@@ -230,14 +228,6 @@
   <div class="col-md-6" style="border-right: 1px solid;">
     <div class="blog-post" id="blog-post-div" style="overflow-y: scroll; height: 100vh;">
 
-            {{-- <h2 class="blog-post-title">Our experience at Voli</h2>
-            <p class="blog-post-meta">January 1, 2017 by <a href="#">Mark</a></p>
-       
-            <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported</p>
-          
-            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum...<a href="#">more</a></p>
-
-            <hr> --}}
     </div>
   </div>
   <div class="col-md-3">

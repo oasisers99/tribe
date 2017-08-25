@@ -195,6 +195,37 @@ class TribeController extends Controller
     }
 
     /**
+     * Create a project
+     * 
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function createProject(Request $request){
+
+        $title = $request['title'];
+        $description = $request['description'];
+        $member_no = $request['member_no'];
+        $topic = $request['topic'];
+        $location = $request['location'];
+        $tribeId = $request['tribe_id'];
+        $userId = $request->session()->get('email');
+
+        DB::insert('INSERT INTO tribe_project
+                    (title, description, member_no, topic, location, country, created_by, tribe_id)
+                    VALUES
+                    (?,?,?,?,?,?,?,?)', [$title, $description, $member_no, $topic, $location, 'Australia', $userId, $tribeId]);
+
+
+        $tribeId = $request['tribe_id'];
+        $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
+
+        $userId = $request->session()->get('email');
+        $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
+
+        return view('pages.tribe.main', ["tribe"=>$tribe]);
+    }
+
+    /**
      * Validate inputs to create a tribe.
      * 
      * @param array $data

@@ -24,23 +24,20 @@ class FrontController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
-    public function getFrontTribes(Request $request){
-
-        $topic = $request['topic'];
-        $region = $request['region'];
-        $limit = $request['limit'];
+    public function main(Request $request){
 
 
-
-        if(isset($limit) && $limit > 0){
-            $result = DB::select('SELECT  
-                id, name, summary, topic1, topic2, image1, topic1, region, country
-                FROM tribe WHERE topic1 = ? AND region = ? LIMIT ?', [$topic, $region, $limit]
-            );
-        }
+        $tribes = DB::select("SELECT  
+                                    trb.id, trb.name, trb.summary, trb.topic1, trb.topic2, trb.image1, trb.topic1, trb.region, trb.country
+                                    , (SELECT COUNT(user_id) FROM tribe_member mem WHERE mem.tribe_id = trb.id AND mem.active = 'Y') as member_no
+                                FROM tribe trb
+                                ORDER BY rand() LIMIT 4");
         
-        return response($result);
+        return view('pages.front.front', ['tribes' => $tribes]);
     }
+
+
+
 
     public function moreTribeSearchForm(Request $request){
         return view('pages.front.tribe-search');
