@@ -66,8 +66,8 @@ class TribeController extends Controller
         //Add this person into the tribe
         TribeHelper::insertNewMemberIntoTribe($insertObject);
         $tribe = TribeHelper::getTribeMainContentsByTribeId($tribe_id);
+        $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribe_id), $created_by);
 
-        // return redirect()->route('tribe.mainPage', ["tribe"=>"tribetest"]);
         return view('pages.tribe.main', ["tribe"=>$tribe]);
     }
 

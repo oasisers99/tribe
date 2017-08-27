@@ -95,29 +95,31 @@
         </div>
         @endif
         @foreach ($tribes as $idx=>$tribe)
-            @if($idx%5 === 0)
-            <div class="row p-b more-search">
-            @endif
-                <div class="col-md-3 more-search">
-                    <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.1s">
-                        <div class="fh5co-post-image">
-                            <div class="fh5co-overlay"></div>
-                            <div class="fh5co-category"><a href="#">{{$tribe->topic1}}</a></div>
-                            <img src="/images/img_same_dimension_2.jpg" alt="Image" class="img-responsive">
-                        </div>
-                        <div class="fh5co-post-text">
-                            <h3><a href="{{ route('tribe.main', ["tribe_id" => $tribe->id]) }}">{{$tribe->name}}</a></h3>
-                            <p>{{$tribe->summary}}</p>
-                        </div>
-                        <div class="fh5co-post-meta">
-                            <a href="#"><i class="icon-group"></i> {{$tribe->member_no}}</a>
-                            <a href="#"><i class="icon-map2"></i>{{$tribe->region}}</a>
-                        </div>
+        @if(($idx + 1)%5 === 1)
+        <div class="row p-b more-search">
+        @endif
+            {{-- @if(($idx + 1)%5 === 2 || ($idx + 1)%5 === 3 || ($idx + 1)%5 === 4) --}}
+            <div class="col-md-3 more-search">
+                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.1s">
+                    <div class="fh5co-post-image">
+                        <div class="fh5co-overlay"></div>
+                        <div class="fh5co-category"><a href="#">{{$tribe->topic1}}</a></div>
+                        <img src="/images/img_same_dimension_2.jpg" alt="Image" class="img-responsive">
+                    </div>
+                    <div class="fh5co-post-text">
+                        <h3><a href="{{ route('tribe.main', ["tribe_id" => $tribe->id]) }}">{{$tribe->name}}</a></h3>
+                        <p>{{$tribe->summary}}</p>
+                    </div>
+                    <div class="fh5co-post-meta">
+                        <a href="#"><i class="icon-group"></i> {{$tribe->member_no}}</a>
+                        <a href="#"><i class="icon-map2"></i>{{$tribe->region}}</a>
                     </div>
                 </div>
-            @if($idx%5 === 0)
             </div>
-            @endif
+            {{-- @endif --}}
+        @if(($idx + 1)%5 === 0)
+        </div> 
+        @endif
         @endforeach
     </div>
 </div>
