@@ -61,7 +61,7 @@
         </div>
         <div class="row">
             <div class="col-md-4 col-md-offset-4 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="2s">
-                <a href="{{ route('front.moreTribeSearch') }}" class="btn btn-primary btn-lg">Find More Tribes</a>
+                <a href="{{ route('tribe.searchTribeFull') }}" class="btn btn-primary btn-lg">Find More Tribes</a>
             </div>
         </div>
     </div>

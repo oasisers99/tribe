@@ -225,6 +225,41 @@ class TribeController extends Controller
         return view('pages.tribe.main', ["tribe"=>$tribe]);
     }
 
+
+    
+    /**
+     * Get random 25 tribes and move to tribe search page.
+     * 
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function searchTribeFull(Request $request){
+
+        $interest = $request['interest'];
+        $area = $request['area'];
+
+        $query = DB::table('tribe')
+                    ->select(DB::raw('id, name, summary, 
+                                      topic1, topic2, image1, 
+                                      region, country, 
+                                      (SELECT COUNT(user_id) FROM tribe_member WHERE tribe_id = id AND active = "Y") AS member_no') );
+        if($interest != ''){
+            $query->where('topic1', $interest);
+        }
+
+        if($area != ''){
+            $query->where('region', $area);
+        }
+        
+        if($interest == '' && $area == ''){
+            $query->inRandomOrder();
+        }
+
+        $tribes = $query->get();
+
+        return view('pages.front.tribe-search', ['tribes' => $tribes]);
+    }
+
     /**
      * Validate inputs to create a tribe.
      * 

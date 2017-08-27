@@ -7,60 +7,19 @@
 <link rel="stylesheet" type="text/css" href="{{ mix('/css/front/front.css') }}">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    $('document').ready(function(){
 
-        /**
-         *  Retrieve tribes
-         *
-         */
-        function searchTribes(topic, area, limit){
-
-            var data = {
-                'topic': topic,
-                'area': area,
-                'limit': limit
-            }
-
-            $.ajax({
-                method: "GET",
-                url: '{{-- Route("front.getMoreTribes") --}}',
-                data: data
-            })
-            .done(function(tribes){
-                display(tribes);
-            });
-        }
-
-        /**
-         * Display results in the Tribes search section
-         *
-         * @param tribes
-         */
-        function display(tribes){
-            if(tribes.length == 0){
-                $("#search-message").text("Result not found.")
-                return;
-            }
-            //alert(tribes[0].name);
-        }
-
-        $("#search-tribe-btn").click(function(){
-            var topic = $("#search-interest").val();
-            var region = $("#search-area").val();
-            if(topic == ''){
-                $("#search-interest").attr('placeholder', 'Please put your interest');
-                return;
-            }
-            
-            if(region == ''){
-                $("#search-area").attr('placeholder', 'Please put your area');
-                return;
-            }
-                
-            searchTribes(topic, region, 4);
-        });
-
-    });
+    function validateAndSubmit(){
+        //var topic = $("#search-interest").val();
+        //var region = $("#search-area").val();
+ 
+        // if(topic.trim() == '' && region.trim() == ''){
+        //     $("#search-message").text("Please fill out interest or area.");
+        //     return false;
+        // }else{
+        tribesearchform.submit();
+        // }
+        
+    }
 </script>
 <style type="text/css">
     .tribe-search-text{
@@ -115,332 +74,51 @@
                 <h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Search more tribes!</h2>
                 {{-- <p>Search more tribes out there!</p> --}}
             </div>
-            <div class="col-md-3 col-md-offset-3">
-                <input type="text" class="tribe-search-text" id="search-interest" placeholder="Interest">
-            </div>
-            <div class="col-md-6">
-                <input type="text" class="tribe-search-text" id="search-area" placeholder="Area">
-                <a class="btn btn-default" id="search-tribe-btn">Search</a>
-            </div>
-            <div class="col-md-12" id="search-message">
-                
-            </div>
+            <form class="tribe-search-form" method="GET" id="tribe-search" name='tribesearchform' action="{{ route('tribe.searchTribeFull') }}">
+                {{ csrf_field() }}
+                <div class="col-md-3 col-md-offset-3">
+                    <input type="text" class="tribe-search-text" id="search-interest" name="interest" placeholder="Interest">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="tribe-search-text" id="search-area" name="area" placeholder="Area">
+                    <input type="button" value="Search" class="btn btn-default" id="search-tribe-btn" onclick="validateAndSubmit();">
+                </div>
+            </form>
         </div>
-        <hr id="search-result-hr"> 
-        <div class="row p-b more-search">
-            <div class="col-md-3 more-search">
-                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.1s">
-                    <div class="fh5co-post-image">
-                        <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Legal</a></div>
-                        <img src="/images/img_same_dimension_2.jpg" alt="Image" class="img-responsive">
-                    </div>
-                    <div class="fh5co-post-text">
-                        <h3><a href="#">The Lawyers</a></h3>
-                        <p>Provide legal advice for those in need.</p>
-                    </div>
-                    <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-group"></i> 5</a>
-                        <a href="#"><i class="icon-map2"></i>Sydney</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 more-search">
-                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.4s">
-                    <div class="fh5co-post-image">
-                        <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Art</a></div>
-                        <img src="/images/img_same_dimension_3.jpg" alt="Image" class="img-responsive">
-                    </div>
-                    <div class="fh5co-post-text">
-                        <h3><a href="#">City Painters</a></h3>
-                        <p>Art group based in Melbourn. Display our works and invite children.</p>
-                    </div>
-                    <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-group"></i>7</a>
-                        <a href="#"><i class="icon-map2"></i>Melbourn</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 more-search">
-                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.7s">
-                    <div class="fh5co-post-image">
-                        <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Environment</a></div>
-                        <img src="/images/img_same_dimension_4.jpg" alt="Image" class="img-responsive">
-                    </div>
-                    <div class="fh5co-post-text">
-                        <h3><a href="#">Tree Guards</a></h3>
-                        <p>Group of experts in biology and botany to protect our nature.</p>
-                    </div>
-                    <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-group"></i> 10</a>
-                        <a href="#"><i class="icon-map2"></i>Adelaide</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 more-search">
-                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.7s">
-                    <div class="fh5co-post-image">
-                        <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Technology</a></div>
-                        <img src="/images/img_same_dimension_4.jpg" alt="Image" class="img-responsive">
-                    </div>
-                    <div class="fh5co-post-text">
-                        <h3><a href="#">Tech Savvies</a></h3>
-                        <p>IT professionals with the aim of helping developing countries</p>
-                    </div>
-                    <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-group"></i> 9</a>
-                        <a href="#"><i class="icon-map2"></i>Sydney</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 more-search">
-                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.1s">
-                    <div class="fh5co-post-image">
-                        <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Legal</a></div>
-                        <img src="/images/img_same_dimension_2.jpg" alt="Image" class="img-responsive">
-                    </div>
-                    <div class="fh5co-post-text">
-                        <h3><a href="#">The Lawyers</a></h3>
-                        <p>Provide legal advice for those in need.</p>
-                    </div>
-                    <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-group"></i> 5</a>
-                        <a href="#"><i class="icon-map2"></i>Sydney</a>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-12 search-message" style="text-align: center;">
+            <p id="search-message" style="font-size: 25px;"></p>
+            <hr id="search-result-hr">
         </div>
-        <div class="row p-b more-search">
-            <div class="col-md-3 more-search">
-                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.1s">
-                    <div class="fh5co-post-image">
-                        <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Legal</a></div>
-                        <img src="/images/img_same_dimension_2.jpg" alt="Image" class="img-responsive">
-                    </div>
-                    <div class="fh5co-post-text">
-                        <h3><a href="#">The Lawyers</a></h3>
-                        <p>Provide legal advice for those in need.</p>
-                    </div>
-                    <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-group"></i> 5</a>
-                        <a href="#"><i class="icon-map2"></i>Sydney</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 more-search">
-                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.4s">
-                    <div class="fh5co-post-image">
-                        <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Art</a></div>
-                        <img src="/images/img_same_dimension_3.jpg" alt="Image" class="img-responsive">
-                    </div>
-                    <div class="fh5co-post-text">
-                        <h3><a href="#">City Painters</a></h3>
-                        <p>Art group based in Melbourn. Display our works and invite children.</p>
-                    </div>
-                    <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-group"></i>7</a>
-                        <a href="#"><i class="icon-map2"></i>Melbourn</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 more-search">
-                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.7s">
-                    <div class="fh5co-post-image">
-                        <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Environment</a></div>
-                        <img src="/images/img_same_dimension_4.jpg" alt="Image" class="img-responsive">
-                    </div>
-                    <div class="fh5co-post-text">
-                        <h3><a href="#">Tree Guards</a></h3>
-                        <p>Group of experts in biology and botany to protect our nature.</p>
-                    </div>
-                    <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-group"></i> 10</a>
-                        <a href="#"><i class="icon-map2"></i>Adelaide</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 more-search">
-                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.7s">
-                    <div class="fh5co-post-image">
-                        <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Technology</a></div>
-                        <img src="/images/img_same_dimension_4.jpg" alt="Image" class="img-responsive">
-                    </div>
-                    <div class="fh5co-post-text">
-                        <h3><a href="#">Tech Savvies</a></h3>
-                        <p>IT professionals with the aim of helping developing countries</p>
-                    </div>
-                    <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-group"></i> 9</a>
-                        <a href="#"><i class="icon-map2"></i>Sydney</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 more-search">
-                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.1s">
-                    <div class="fh5co-post-image">
-                        <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Legal</a></div>
-                        <img src="/images/img_same_dimension_2.jpg" alt="Image" class="img-responsive">
-                    </div>
-                    <div class="fh5co-post-text">
-                        <h3><a href="#">The Lawyers</a></h3>
-                        <p>Provide legal advice for those in need.</p>
-                    </div>
-                    <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-group"></i> 5</a>
-                        <a href="#"><i class="icon-map2"></i>Sydney</a>
-                    </div>
-                </div>
-            </div>
+        @if(count($tribes) === 0)
+        <div class="col-md-12 result-message" style="text-align: center;">
+            <p id="result-message" style="font-size: 25px;">No tribe found. Please search again.</p>
         </div>
-        <div class="row p-b more-search">
-            <div class="col-md-3 more-search">
-                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.1s">
-                    <div class="fh5co-post-image">
-                        <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Legal</a></div>
-                        <img src="/images/img_same_dimension_2.jpg" alt="Image" class="img-responsive">
-                    </div>
-                    <div class="fh5co-post-text">
-                        <h3><a href="#">The Lawyers</a></h3>
-                        <p>Provide legal advice for those in need.</p>
-                    </div>
-                    <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-group"></i> 5</a>
-                        <a href="#"><i class="icon-map2"></i>Sydney</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 more-search">
-                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.4s">
-                    <div class="fh5co-post-image">
-                        <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Art</a></div>
-                        <img src="/images/img_same_dimension_3.jpg" alt="Image" class="img-responsive">
-                    </div>
-                    <div class="fh5co-post-text">
-                        <h3><a href="#">City Painters</a></h3>
-                        <p>Art group based in Melbourn. Display our works and invite children.</p>
-                    </div>
-                    <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-group"></i>7</a>
-                        <a href="#"><i class="icon-map2"></i>Melbourn</a>
+        @endif
+        @foreach ($tribes as $idx=>$tribe)
+            @if($idx%5 === 0)
+            <div class="row p-b more-search">
+            @endif
+                <div class="col-md-3 more-search">
+                    <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.1s">
+                        <div class="fh5co-post-image">
+                            <div class="fh5co-overlay"></div>
+                            <div class="fh5co-category"><a href="#">{{$tribe->topic1}}</a></div>
+                            <img src="/images/img_same_dimension_2.jpg" alt="Image" class="img-responsive">
+                        </div>
+                        <div class="fh5co-post-text">
+                            <h3><a href="{{ route('tribe.main', ["tribe_id" => $tribe->id]) }}">{{$tribe->name}}</a></h3>
+                            <p>{{$tribe->summary}}</p>
+                        </div>
+                        <div class="fh5co-post-meta">
+                            <a href="#"><i class="icon-group"></i> {{$tribe->member_no}}</a>
+                            <a href="#"><i class="icon-map2"></i>{{$tribe->region}}</a>
+                        </div>
                     </div>
                 </div>
+            @if($idx%5 === 0)
             </div>
-            <div class="col-md-3 more-search">
-                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.7s">
-                    <div class="fh5co-post-image">
-                        <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Environment</a></div>
-                        <img src="/images/img_same_dimension_4.jpg" alt="Image" class="img-responsive">
-                    </div>
-                    <div class="fh5co-post-text">
-                        <h3><a href="#">Tree Guards</a></h3>
-                        <p>Group of experts in biology and botany to protect our nature.</p>
-                    </div>
-                    <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-group"></i> 10</a>
-                        <a href="#"><i class="icon-map2"></i>Adelaide</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 more-search">
-                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.7s">
-                    <div class="fh5co-post-image">
-                        <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Technology</a></div>
-                        <img src="/images/img_same_dimension_4.jpg" alt="Image" class="img-responsive">
-                    </div>
-                    <div class="fh5co-post-text">
-                        <h3><a href="#">Tech Savvies</a></h3>
-                        <p>IT professionals with the aim of helping developing countries</p>
-                    </div>
-                    <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-group"></i> 9</a>
-                        <a href="#"><i class="icon-map2"></i>Sydney</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 more-search">
-                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.1s">
-                    <div class="fh5co-post-image">
-                        <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Legal</a></div>
-                        <img src="/images/img_same_dimension_2.jpg" alt="Image" class="img-responsive">
-                    </div>
-                    <div class="fh5co-post-text">
-                        <h3><a href="#">The Lawyers</a></h3>
-                        <p>Provide legal advice for those in need.</p>
-                    </div>
-                    <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-group"></i> 5</a>
-                        <a href="#"><i class="icon-map2"></i>Sydney</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row p-b more-search">
-            <div class="col-md-3 more-search">
-                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.1s">
-                    <div class="fh5co-post-image">
-                        <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Legal</a></div>
-                        <img src="/images/img_same_dimension_2.jpg" alt="Image" class="img-responsive">
-                    </div>
-                    <div class="fh5co-post-text">
-                        <h3><a href="#">The Lawyers</a></h3>
-                        <p>Provide legal advice for those in need.</p>
-                    </div>
-                    <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-group"></i> 5</a>
-                        <a href="#"><i class="icon-map2"></i>Sydney</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 more-search">
-                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.4s">
-                    <div class="fh5co-post-image">
-                        <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Art</a></div>
-                        <img src="/images/img_same_dimension_3.jpg" alt="Image" class="img-responsive">
-                    </div>
-                    <div class="fh5co-post-text">
-                        <h3><a href="#">City Painters</a></h3>
-                        <p>Art group based in Melbourn. Display our works and invite children.</p>
-                    </div>
-                    <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-group"></i>7</a>
-                        <a href="#"><i class="icon-map2"></i>Melbourn</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 more-search">
-                <div class="fh5co-post wow fadeInLeft"  data-wow-duration="1s" data-wow-delay="1.7s">
-                    <div class="fh5co-post-image">
-                        <div class="fh5co-overlay"></div>
-                        <div class="fh5co-category"><a href="#">Environment</a></div>
-                        <img src="/images/img_same_dimension_4.jpg" alt="Image" class="img-responsive">
-                    </div>
-                    <div class="fh5co-post-text">
-                        <h3><a href="#">Tree Guards</a></h3>
-                        <p>Group of experts in biology and botany to protect our nature.</p>
-                    </div>
-                    <div class="fh5co-post-meta">
-                        <a href="#"><i class="icon-group"></i> 10</a>
-                        <a href="#"><i class="icon-map2"></i>Adelaide</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+            @endif
+        @endforeach
     </div>
 </div>
 @endsection

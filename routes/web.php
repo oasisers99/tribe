@@ -49,6 +49,8 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.', 'namespace' => 'Auth'], funct
 Route::group(['prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], function(){
     Route::get('main', 'TribeController@mainPage')->name('main');
     Route::get('getTribePostings', 'TribeController@getTribePostings')->name('getTribePostings');
+
+    Route::get('searchTribeFull', 'TribeController@searchTribeFull')->name('searchTribeFull');
 });
 
 

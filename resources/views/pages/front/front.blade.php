@@ -30,7 +30,7 @@
 							<div class="fh5co-cover-intro">
 								<h1 class="cover-text-lead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Empower You</h1>
 								<h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">Create your tribe and run meaningful projects. Meet great people and win interesting pro-bono opportunities. Show off your tribe's skills and projects to attact sponsors and more tribe members!</h2>
-								<p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s"><a href="#searchTribe" class="btn btn-primary btn-outline btn-lg">Search Tribe</a></p>
+								<p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s"><a href="{{ route('tribe.searchTribeFull') }}" class="btn btn-primary btn-outline btn-lg">Search Tribe</a></p>
 							</div>
 						</div>
 					</div>
