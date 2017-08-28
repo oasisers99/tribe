@@ -25,18 +25,19 @@
         <li><a href="/">Home</a></li>
         @if ($tribe['isTribeMember'])
         <li role="presentation"><a href="#">Messages <span class="badge">3</span></a></li>
-        <li class="dropdown">
+        <li role="presentation"><a href="{{route('tribe.setting.main', ["tribe_id" => $tribe['tribe']->id])}}">Setting</a></li>
+        {{-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Setting <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Tribe Profile</a></li>
+            <li><a href="#">Edit Tribe</a></li>
             <li><a href="#">More Features</a></li>
             <li><a href="#">Members</a></li>
-            {{-- <li role="separator" class="divider"></li>
+            <li role="separator" class="divider"></li>
             <li class="dropdown-header">Nav header</li>
             <li><a href="#">Separated link</a></li>
-            <li><a href="#">One more separated link</a></li> --}}
+            <li><a href="#">One more separated link</a></li>
           </ul>
-        </li>
+        </li> --}}
         @endif
       </ul>
     </div><!--/.nav-collapse -->

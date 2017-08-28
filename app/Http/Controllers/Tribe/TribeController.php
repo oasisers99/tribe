@@ -260,6 +260,7 @@ class TribeController extends Controller
         return view('pages.front.tribe-search', ['tribes' => $tribes]);
     }
 
+
     /**
      * Validate inputs to create a tribe.
      * 
