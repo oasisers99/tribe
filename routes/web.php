@@ -73,6 +73,7 @@ Route::group(['prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], fu
          */
         Route::group(['prefix' => 'setting', 'as' => 'setting.'], function(){
             Route::get('main', 'TribeSetController@settingMain')->name('main');
+            Route::get('profile-edit-form', 'TribeSetController@profileEditForm')->name('profile-edit-form');
         }); 
 
     }); 

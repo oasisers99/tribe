@@ -33,9 +33,24 @@ class TribeSetController extends Controller
         $userId = $request->session()->get('email');
         $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
 
-        return view('pages.tribe.profile', ["tribe"=>$tribe]);
+        return view('pages.tribe.setting.main', ["tribe"=>$tribe]);
     }
 
+    /**
+     * Profile edit form
+     * 
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function profileEditForm(Request $request){
+        $tribeId = $request['tribe_id'];
+        $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
+
+        $userId = $request->session()->get('email');
+        $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
+
+        return view('pages.tribe.setting.profile', ["tribe"=>$tribe]);
+    }
 
 
 

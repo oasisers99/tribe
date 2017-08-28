@@ -45,32 +45,32 @@
         </div>
     @endif
     <div class="form-group">
-    	<h3 style="">Edit Tribe Profile</h3>
+    	<h3 style="margin-top: 0px;">Edit Tribe Profile</h3>
     </div>
     <div class="form-group">
         <label for="askTribeName">Name of the tribe</label>
-        <input type="text" id="tribe-name" name="name" placeholder="Name" class="form-control" maxlength="128" required/>
+        <input type="text" id="tribe-name" name="name" value="{{$tribe['tribe']->name}}"placeholder="Name" class="form-control" maxlength="128" required/>
     </div>
     <div class="form-group">   
         <label for="askLittleAboutTribe">Summary</label>
-        <input type="text" id="tribe-summary" name="summary" placeholder="Summary" class="form-control" maxlength="512" required/>
+        <input type="text" id="tribe-summary" name="summary" value="{{$tribe['tribe']->summary}}" placeholder="Summary" class="form-control" maxlength="512" required/>
     </div>
     <div class="form-group">  
         <label for="askLocation">Location</label>
-        <input type="text" id="tribe-region" name="region" placeholder="Area ex. Sydney" class="form-control" required/>
+        <input type="text" id="tribe-region" name="region" value="{{$tribe['tribe']->region}}" placeholder="Area ex. Sydney" class="form-control" required/>
     </div>
     <div class="form-group">
         <label for="askTopic">Topic</label>
         <select id="tribe-topic" class="form-control select select-primary" name="topic1" data-toggle="select">
-            <option value="Arts">Arts</option>
-            <option value="Music">Music</option>
-            <option value="Technology">Technology</option>
-            <option value="Sports">Sports</option>
-            <option value="Legal">Legal</option>
-            <option value="Consulting">Consulting</option>
-            <option value="Environment">Environment</option>
-            <option value="Education">Education</option>
-            <option value="Social">Social</option>
+            <option value="Arts" <?php if($tribe['tribe']->topic1 === 'Arts') {echo 'selected';} ?> >Arts</option>
+            <option value="Music" <?php if($tribe['tribe']->topic1 === 'Music') {echo 'selected';} ?>>Music</option>
+            <option value="Technology" <?php if($tribe['tribe']->topic1 === 'Technology') {echo 'selected';} ?>>Technology</option>
+            <option value="Sports" <?php if($tribe['tribe']->topic1 === 'Sports') {echo 'selected';} ?>>Sports</option>
+            <option value="Legal" <?php if($tribe['tribe']->topic1 === 'Legal') {echo 'selected';} ?>>Legal</option>
+            <option value="Consulting" <?php if($tribe['tribe']->topic1 === 'Consulting') {echo 'selected';} ?>>Consulting</option>
+            <option value="Environment" <?php if($tribe['tribe']->topic1 === 'Environment') {echo 'selected';} ?>>Environment</option>
+            <option value="Education" <?php if($tribe['tribe']->topic1 === 'Education') {echo 'selected';} ?>>Education</option>
+            <option value="Social" <?php if($tribe['tribe']->topic1 === 'Social') {echo 'selected';} ?>>Social</option>
         </select>
     </div>
     <div class="form-group">
