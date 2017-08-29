@@ -54,37 +54,37 @@ CKEDITOR.replace( 'editor', {
 
 $(document).ready(function(){
 
-	$("#write-post-btn").click(function(){
+	// $("#write-post-btn").click(function(){
 
-		//validateContents();
-		var title = $("#posting-title").value;
-		var body = CKEDITOR.instances.editor.getData();
+	// 	//validateContents();
+	// 	var title = $("#posting-title").value;
+	// 	var body = CKEDITOR.instances.editor.getData();
 
-		if(title == ''){
-			$("#posting-title").attr('placeholder', "Please fill up the title");
-		}
+	// 	if(title == ''){
+	// 		$("#posting-title").attr('placeholder', "Please fill up the title");
+	// 	}
 
-		if(body == ''){
+	// 	if(body == ''){
 
-		}
+	// 	}
 
-		var data = {
-			'title': title,
-			'body': body
-        };
+	// 	var data = {
+	// 		'title': title,
+	// 		'body': body
+ //        };
 
-        alert(CKEDITOR.instances.editor.getData());
-        return;
-        $.ajax({
-            method: "POST",
-            url: '{{Route("tribe.createPosting")}}',
-            data: data
-        })
-        .done(function(tribes){
-            // display(tribes);
-        });
+ //        alert(CKEDITOR.instances.editor.getData());
+ //        return;
+ //        $.ajax({
+ //            method: "POST",
+            // url: '{{Route("tribe.createPosting")}}',
+ //            data: data
+ //        })
+ //        .done(function(tribes){
+ //            // display(tribes);
+ //        });
 
-	});
+	// });
 
 });
 </script>

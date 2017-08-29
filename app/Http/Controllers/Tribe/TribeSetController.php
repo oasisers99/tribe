@@ -32,7 +32,7 @@ class TribeSetController extends Controller
 
         $userId = $request->session()->get('email');
         $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
-
+        $tribe['selected'] = 'main';
         return view('pages.tribe.setting.main', ["tribe"=>$tribe]);
     }
 
@@ -48,10 +48,42 @@ class TribeSetController extends Controller
 
         $userId = $request->session()->get('email');
         $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
+        $tribe['selected'] = 'profile-edit';
 
         return view('pages.tribe.setting.profile', ["tribe"=>$tribe]);
     }
 
+    /**
+     * Save profile change
+     * 
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function profileUpdate(Request $request){
+
+        $tribeId = $request['tribe_id'];
+        $name = $request['name'];
+        $summary = $request['summary'];
+        $topic1 = $request['topic1'];
+        $region = $request['region'];
+
+        DB::table('tribe')
+            ->where('id', $tribeId)
+            ->update(['name'=>$name, 
+                        'summary'=>$summary,
+                        'topic1'=>$topic1,
+                        'region'=>$region]);
+
+        /////////////////////////////////////
+        
+        $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
+
+        $userId = $request->session()->get('email');
+        $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
+        $tribe['selected'] = 'profile-edit';
+
+        return view('pages.tribe.setting.profile', ["tribe"=>$tribe]); 
+    }
 
 
 }

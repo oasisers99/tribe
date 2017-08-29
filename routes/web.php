@@ -73,31 +73,12 @@ Route::group(['prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], fu
          */
         Route::group(['prefix' => 'setting', 'as' => 'setting.'], function(){
             Route::get('main', 'TribeSetController@settingMain')->name('main');
-            Route::get('profile-edit-form', 'TribeSetController@profileEditForm')->name('profile-edit-form');
+            Route::get('profile-edit', 'TribeSetController@profileEditForm')->name('profile-edit');
+
+            Route::post('profile-update', 'TribeSetController@profileUpdate')->name('profile-update');
         }); 
 
     }); 
 
 });
 
-
-
-// Route::group(['middleware' => 'logincheck', 'prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], function(){
-//     Route::get('createForm', 'TribeController@createTribeForm')->name('createForm');
-//     Route::get('createPostingForm', 'TribeController@createPostingForm')->name('createPostingForm');
-//     Route::get('createProjectForm', 'TribeController@createProjectForm')->name('createProjectForm');
-//     Route::get('setting-main', 'TribeController@settingMain')->name('setting-main');
-//     Route::get('setting-profile', 'TribeController@settingMain')->name('setting-profile');
-
-
-//     Route::post('createPosting', 'TribeController@createPosting')->name('createPosting');
-//     Route::post('updatePosting', 'TribeController@updatePosting')->name('updatePosting');
-//     Route::post('createTribe', 'TribeController@createTribe')->name('createTribe');
-//     Route::post('createProject', 'TribeController@createProject')->name('createProject');
-// });
-
-// Route::group(['middleware' => 'logincheck', 'prefix' => 'tribe-setting', 'as' => 'tribe-setting.', 'namespace' => 'Tribe'], function(){
-
-//     Route::get('main', 'TribeSetController@settingMain')->name('main');
-
-// });

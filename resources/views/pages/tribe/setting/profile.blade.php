@@ -33,7 +33,8 @@
 </style>
 @section('body-content')
 <div class="col-md-9 setting-body">
-	<form class="form-horizontal" method="post" action="{{ route('tribe.createTribe') }}">
+	<form class="form-horizontal" method="post" action="{{ route('tribe.setting.profile-update') }}">
+	<input id="tribe_id" name="tribe_id" value="{{$tribe['tribe']->id}}" hidden="" />
     {{ csrf_field() }}
     @if ($errors->any())
         <div class="alert alert-danger">

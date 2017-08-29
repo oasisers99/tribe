@@ -50,20 +50,20 @@
 		                <i class="fa fa-times"></i>
 		            </span>
 		        </span> --}}
-		        <a href="#" class="list-group-item active" id="menu-main">
+		        <a href="{{route('tribe.setting.main', ["tribe_id" => $tribe['tribe']->id])}}" class="list-group-item active" id="menu-main">
 		            <i class="fa fa-home"></i> Main
 		        </a>
 		        <a href="#" class="list-group-item" id="menu-message">
-		            <i class="fa fa-comment-o"></i> Message <span class="badge">7</span>
+		            <i class="fa fa-comment-o"></i> Message <span class="badge"></span>
 		        </a>
-		        <a href="{{route('tribe.setting.profile-edit-form', ["tribe_id" => $tribe['tribe']->id])}}" class="list-group-item" onclick="linkClicked('profile-edit');" id="menu-profile-edit">
+		        <a href="{{route('tribe.setting.profile-edit', ["tribe_id" => $tribe['tribe']->id])}}" class="list-group-item" id="menu-profile-edit">
 		            <i class="fa fa-edit"></i> Tribe Profile
 		        </a>
 		        <a href="#" class="list-group-item" id="menu-member">
 		            <i class="fa fa-user"></i> Tribe Member
 		        </a>
 		        <a href="#" class="list-group-item" id="menu-project">
-		            <i class="fa fa-folder-o"></i> Project <span class="badge">14</span>
+		            <i class="fa fa-folder-o"></i> Project <span class="badge"></span>
 		        </a>
 		    </div>        
 		</div>
@@ -84,13 +84,15 @@ $(function(){
         $(this).next('.list-group').toggle('slide');
         $('.mini-submenu').hide();
 	});
-})
 
-function linkClicked(selected){
+
 	$(".list-group-item").each(function(){
 		$(this).attr("class", "list-group-item");
 	});
 
+	var selected = '{{$tribe['selected']}}';
 	$("#menu-"+selected).attr("class", "list-group-item active");
-}	
+})
+
+
 </script>
