@@ -28,7 +28,7 @@
 					<div class="row">
 						<div class="col-md-push-6 col-md-6 full-height js-full-height">
 							<div class="fh5co-cover-intro">
-								<h1 class="cover-text-lead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Your time is powerful.<br/>How are you going to use it?</h1>
+								<h1 class="cover-text-lead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Your time is powerful!<br/>How are you going to use it?</h1>
 								<h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">Unite a tribe with a joint interest, love or hobby. Together you can create your lasting legacy. Through the Voli platform you can mobilise your tribe to come together for joint projects that powerfully impact the community.</h2>
 								<p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s"><a href="{{ route('tribe.searchTribeFull') }}" class="btn btn-primary btn-outline btn-lg">Search Tribe</a></p>
 							</div>
