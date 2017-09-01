@@ -212,9 +212,9 @@
 
   {{-- Left pane --}}
   <div class="col-md-3 left" style="border-right: 1px solid; align-items: center;">
-  <img data-src="holder.js/200x200" class="img-thumbnail" alt="150x150" style="width: 150px; height: 150px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiTJhaOs5Ab2_G8DmrmHo_9GL8GW7mel7g8dk-9AN9lYRrO5H1" data-holder-rendered="true">
-  <h2 class="profile-name">{{ $tribe['members'][0]->user_name}}</h2>
-  <h5>{{ $tribe['members'][0]->member_type_name}}</h5>
+  <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" style="width: 200px; height: 200px;" src="/images/person_3.jpg" data-holder-rendered="true">
+  {{-- <h2 class="profile-name">{{ $tribe['members'][0]->user_name}}</h2> --}}
+  <h5 style="font-size: 15px; text-align: left;">{{ $tribe['tribe']->summary}}</h5>
   @if ($tribe['isTribeMember'])
   <div class="col-md-12">
   <a type="button" id="write-post-btn" class="btn btn-primary">Write Posting</a>
@@ -223,6 +223,8 @@
   <div class="col-md-12"> 
   <a href="{{ route('tribe.createProjectForm', ['tribeId' => $tribe['tribe']->id] ) }}" type="button" id="create-project-btn" class="btn btn-success">Create Project</a>
   </div>
+  @else(!$tribe['isTribeMember'])
+  <button type="submit" class="btn btn-success" onclick="requestJoin();">Request Join</button>
   @endif
   </div>
   <div class="col-md-6" style="border-right: 1px solid;">
@@ -245,6 +247,30 @@
 <script src="/ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
 CKEDITOR.disableAutoInline = true;
+
+  function requestJoin(){
+    
+    var tribeId = '{{$tribe['tribe']->id}}';
+
+    var data = {
+      "tribe_id" : tribeId
+    };
+
+    $.ajax({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      method: "POST",
+      url: '{{ route('tribe.requestJoin') }}',
+      data: data
+    }).done(function(msg) {
+      if(msg.status == 'unauthed'){
+        window.location.href = '{{route('auth.loginForm')}}';
+      }else{
+        alert("success");
+      }
+    });
+  }
 
 </script>
 @endsection 

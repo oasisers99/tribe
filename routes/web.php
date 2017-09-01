@@ -66,8 +66,8 @@ Route::group(['prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], fu
         Route::post('updatePosting', 'TribeController@updatePosting')->name('updatePosting');
         Route::post('createTribe', 'TribeController@createTribe')->name('createTribe');
         Route::post('createProject', 'TribeController@createProject')->name('createProject');
-
-
+        
+  
         /**
          * Tribe setting functions (still need login check)
          */
@@ -79,6 +79,14 @@ Route::group(['prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], fu
         }); 
 
     }); 
+
+    /**
+     * Tribe functions that require login check for ajax calls.
+     * 
+     */
+    Route::middleware(['logincheck_ajax'])->group(function () {
+        Route::post('requestJoin', 'TribeController@requestJoin')->name('requestJoin');
+    });
 
 });
 

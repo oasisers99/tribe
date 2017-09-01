@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 
+
+
 class TribeController extends Controller
 {
 
@@ -258,6 +260,28 @@ class TribeController extends Controller
         $tribes = $query->get();
 
         return view('pages.front.tribe-search', ['tribes' => $tribes]);
+    }
+
+
+    /**
+     * Request join
+     * 
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function requestJoin(Request $request){
+
+        $tribeId = $request['tribe_id'];
+        $userId = $request->session()->get('email');
+        DB::table('tribe_join')->insert(
+                        ['tribe_id'=>$tribeId, 
+                         'user_id'=>$userId]
+                         );
+
+        $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
+        $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
+
+        return view('pages.tribe.main', ["tribe"=>$tribe]);
     }
 
 
