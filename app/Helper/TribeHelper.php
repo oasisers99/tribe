@@ -182,4 +182,25 @@ class TribeHelper
         return false;
     }
 
+    /**
+     * Check if the user has already requested join.
+     * 
+     * @param  [type] $tribeId [description]
+     * @param  [type] $userId  [description]
+     * @return [type]          [description]
+     */
+    public static function checkIfAlreadyRequested($tribeId, $userId){
+        
+        $query = DB::table('tribe_join')
+                    ->where('tribe_id', $tribeId, 'user_id', $userId, 'status', 0);
+
+        if(count($query) > 0){
+            return true;
+        }else{
+            return false;
+        }
+
+        return true;
+    }
+
 }

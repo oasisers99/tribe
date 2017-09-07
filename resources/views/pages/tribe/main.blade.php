@@ -223,7 +223,7 @@
   <div class="col-md-12"> 
   <a href="{{ route('tribe.createProjectForm', ['tribeId' => $tribe['tribe']->id] ) }}" type="button" id="create-project-btn" class="btn btn-success">Create Project</a>
   </div>
-  @else(!$tribe['isTribeMember'])
+  @elseif(Session::get('userCreatedTribesCount') == 0)
   <button type="submit" class="btn btn-success" onclick="requestJoin();">Request Join</button>
   @endif
   </div>
@@ -237,11 +237,35 @@
       <h4 class="list-group-item-heading member-heading">Tribe Members</h4>
       <p class="list-group-item-text"></p>
       @foreach ($tribe['members'] as $member)
-      <a href="#" class="list-group-item">
-        <h4 class="list-group-item-heading">{{$member->user_name}}</h4>
-        <p class="list-group-item-text">{{$member->member_type_name}}</p>
-      </a>
+      <div class="list-group-item" style="padding-bottom: 70px; padding-top: 10px;">
+        <div class="col-md-4">
+          <img class="img-thumbnail" alt="60x60" style="width: 60px; height: 60px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLdb4IzWVmXx1l2HcR4q1ACeR3eZvDdOB_7wecoQbpjsWhRezgjQX19B8">
+        </div>
+        <div class="col-md-8">
+          <h4 class="list-group-item-heading">{{$member->user_name}}</h4>
+          <p class="list-group-item-text">{{$member->member_type_name}}</p>
+        </div>
+      </div>
       @endforeach
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="tribeModal" tabindex="-1" role="dialog" aria-labelledby="tribeModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="tribeModalLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id="tribeModalMessage" class="modal-body">
+          .
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
   </div>
 <script src="/ckeditor/ckeditor.js"></script>
@@ -249,9 +273,8 @@
 CKEDITOR.disableAutoInline = true;
 
   function requestJoin(){
-    
-    var tribeId = '{{$tribe['tribe']->id}}';
 
+    var tribeId = '{{$tribe['tribe']->id}}';
     var data = {
       "tribe_id" : tribeId
     };
@@ -263,11 +286,14 @@ CKEDITOR.disableAutoInline = true;
       method: "POST",
       url: '{{ route('tribe.requestJoin') }}',
       data: data
-    }).done(function(msg) {
-      if(msg.status == 'unauthed'){
+    }).done(function(result) {
+      //When not logged in.
+      if(result.status == 'unauthed'){
         window.location.href = '{{route('auth.loginForm')}}';
       }else{
-        alert("success");
+        $("#tribeModalLabel").text("Join request");
+        $("#tribeModalMessage").text(result.message);
+        $("#tribeModal").modal('show');
       }
     });
   }
