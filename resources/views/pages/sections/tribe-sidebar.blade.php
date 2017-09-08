@@ -50,11 +50,11 @@
 		                <i class="fa fa-times"></i>
 		            </span>
 		        </span> --}}
-		        <a href="{{route('tribe.setting.main', ["tribe_id" => $tribe['tribe']->id])}}" class="list-group-item active" id="menu-main">
+		        {{-- <a href="{{route('tribe.setting.main', ["tribe_id" => $tribe['tribe']->id])}}" class="list-group-item active" id="menu-main">
 		            <i class="fa fa-home"></i> Main
-		        </a>
-		        <a href="#" class="list-group-item" id="menu-message">
-		            <i class="fa fa-comment-o"></i> Message <span class="badge"></span>
+		        </a> --}}
+		        <a href="{{route('tribe.setting.join-request', ["tribe_id" => $tribe['tribe']->id])}}" class="list-group-item" id="menu-join-request">
+		            <i class="fa fa-comment-o"></i> Join Request <span class="badge"></span>
 		        </a>
 		        <a href="{{route('tribe.setting.profile-edit', ["tribe_id" => $tribe['tribe']->id])}}" class="list-group-item" id="menu-profile-edit">
 		            <i class="fa fa-edit"></i> Tribe Profile

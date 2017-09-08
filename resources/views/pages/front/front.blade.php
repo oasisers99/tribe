@@ -144,8 +144,8 @@
 						<h3>Connect</h3>
 						<ul class="fh5co-links fh5co-social">
 							<li><a href="#"><i class="icon icon-facebook2"></i> Facebook</a></li>
-							<li><a href="#"><i class="icon icon-twitter"></i> Twitter</a></li>
-							<!-- <li><a href="#"><i class="icon icon-dribbble"></i> Dribbble</a></li> -->
+							{{-- <li><a href="#"><i class="icon icon-twitter"></i> Twitter</a></li> --}}
+							<li><a href="https://www.linkedin.com/company/18041353/" target="_blank"><i class="icon icon-linkedin"></i> LinkedIn</a></li>
 							{{-- <li><a href="#"><i class="icon icon-instagram"></i> Instagram</a></li> --}}
 						</ul>
 					</div>

@@ -192,9 +192,10 @@ class TribeHelper
     public static function checkIfAlreadyRequested($tribeId, $userId){
         
         $query = DB::table('tribe_join')
-                    ->where('tribe_id', $tribeId, 'user_id', $userId, 'status', 0);
+                    ->where(['tribe_id'=>$tribeId, 'user_id'=>$userId, 'status'=>0]);
+        $result = $query->get();
 
-        if(count($query) > 0){
+        if(count($result) > 0){
             return true;
         }else{
             return false;

@@ -274,7 +274,7 @@ class TribeController extends Controller
         $tribeId = $request['tribe_id'];
         $userId = $request->session()->get('email');
         $alreadyRequested = TribeHelper::checkIfAlreadyRequested($tribeId, $userId);
-        $message = "Your request has been sent to the tribe leader.";
+        $message = "Your request has been successfully sent to the tribe leader.";
 
         if(!$alreadyRequested){
             DB::table('tribe_join')->insert(
@@ -289,7 +289,6 @@ class TribeController extends Controller
         $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
         $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
 
-        //return view('pages.tribe.main', ["tribe"=>$tribe, "message"=>$message]);
         return response(["message"=>$message]);
     }
 

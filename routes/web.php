@@ -74,6 +74,7 @@ Route::group(['prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], fu
         Route::group(['prefix' => 'setting', 'as' => 'setting.'], function(){
             Route::get('main', 'TribeSetController@settingMain')->name('main');
             Route::get('profile-edit', 'TribeSetController@profileEditForm')->name('profile-edit');
+            Route::get('join-request', 'TribeSetController@joinRequest')->name('join-request');
 
             Route::post('profile-update', 'TribeSetController@profileUpdate')->name('profile-update');
         }); 

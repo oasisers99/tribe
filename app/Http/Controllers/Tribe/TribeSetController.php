@@ -49,7 +49,8 @@ class TribeSetController extends Controller
         $userId = $request->session()->get('email');
         $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
         $tribe['selected'] = 'profile-edit';
-
+        $requests = self::getJoinRequest($tribeId);
+        
         return view('pages.tribe.setting.profile', ["tribe"=>$tribe]);
     }
 
@@ -85,5 +86,39 @@ class TribeSetController extends Controller
         return view('pages.tribe.setting.profile', ["tribe"=>$tribe]); 
     }
 
+    /**
+     * Get message list
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function joinRequest(Request $request){
+
+        $tribeId = $request['tribe_id'];
+
+        $requests = self::getJoinRequest($tribeId);
+
+
+        $userId = $request->session()->get('email');
+        $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
+        $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
+        $tribe['selected'] = 'join-request';
+
+        return view('pages.tribe.setting.join-request', ["tribe"=>$tribe, "requests"=>$requests]);  
+    }
+
+
+    /**
+     * Get join requests for the tribe.
+     * 
+     * @return [type] [description]
+     */
+    private static function getJoinRequest($tribeId){
+        $query = DB::table("tribe_join")
+                    ->join("users", "tribe_join.user_id", "=", "users.email")
+                    ->select("users.name","users.email","users.name","tribe_join.message","tribe_join.created_at")
+                    ->where(["tribe_join.tribe_id"=>$tribeId, "tribe_join.status"=>0]);
+        $result = $query->get();
+        return $result;
+    }
 
 }
