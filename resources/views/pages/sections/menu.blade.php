@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{ mix('/css/menu/style.css') }}">
 <div class="topnav" id="myTopnav">
     <div class="mainTitle">
-        <a href="/">Future Smith</a>
+        <a href="/">Voli</a>
     </div>
     <div class="mainMenuSet">
         <a href="/">About Us</a>
