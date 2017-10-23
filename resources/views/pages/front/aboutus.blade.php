@@ -54,12 +54,12 @@
 					<div class="fh5co-name">
 						<img src="/images/person_3.jpg" alt="">
 						<div class="fh5co-meta">
-							<h3>Mitch Silk</h3>
-							<span class="fh5co-company">XYZ Inc.</span>
+							<h3>New Member</h3>
+							<span class="fh5co-company">Voli</span>
 						</div>
 					</div>
 					<div class="fh5co-text">
-						<p>“Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.”</p>
+						<p>New Voli member</p>
 					</div>
 				</div>
 			</div>
@@ -71,12 +71,12 @@
 					<div class="fh5co-name">
 						<img src="/images/person_1.jpg" alt="">
 						<div class="fh5co-meta">
-							<h3>Beth Glasgow</h3>
-							<span class="fh5co-company">XYZ Inc.</span>
+							<h3>New Member</h3>
+							<span class="fh5co-company">Voli</span>
 						</div>
 					</div>
 					<div class="fh5co-text">
-						<p>“Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. ”</p>
+						<p>New Voli member</p>
 					</div>
 				</div>	
 			</div>
@@ -88,13 +88,12 @@
 					<div class="fh5co-name">
 						<img src="/images/person_2.jpg" alt="">
 						<div class="fh5co-meta">
-							<h3>Rob Smith</h3>
-							<span class="fh5co-company">XYZ Inc.</span>
+							<h3>New Member</h3>
+							<span class="fh5co-company">Voli</span>
 						</div>
 					</div>
 					<div class="fh5co-text">
-						
-						<p>“Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.”</p>
+						<p>New Voli member</p>
 					</div>
 				</div>
 			</div>
@@ -103,12 +102,12 @@
 					<div class="fh5co-name">
 						<img src="/images/person_6.jpg" alt="">
 						<div class="fh5co-meta">
-							<h3>Colleen Bass</h3>
-							<span class="fh5co-company">XYZ Inc.</span>
+							<h3>New Member</h3>
+							<span class="fh5co-company">Voli</span>
 						</div>
 					</div>
 					<div class="fh5co-text">
-						<p>“Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.”</p>
+						<p>New Voli member</p>
 					</div>
 				</div>
 			</div>
