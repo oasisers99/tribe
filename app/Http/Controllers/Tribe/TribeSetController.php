@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\DB;
 class TribeSetController extends Controller
 {
 
+    const JOIN_REQUEST_PENDING = 0;
+    const JOIN_REQUEST_ACCEPT = 1;
+    const JOIN_REQUEST_DECLINE = 2; 
+
     /**
      * TribeSetController constructor.
      */
@@ -107,19 +111,31 @@ class TribeSetController extends Controller
 
 
     /**
-     * Accept the join request.
+     *  Deline join request.
      * 
-     * @param  Request $request [description]
-     * @return [type]           [description]
      */
-    public function acceptJoinRequest(Request $request){
-
+    public function declineJoin(Request $request){
+        
+        $requestId = $request['requestId'];
         $tribeId = $request['tribe_id'];
 
+        DB::update('UPDATE tribe_join
+                    SET 
+                        status = ?
+                    WHERE
+                        id = ?',
+                    [self::JOIN_REQUEST_DECLINE, $requestId]
+            );
+        
+        $requests = self::getJoinRequest($tribeId);
 
-        //return view('pages.tribe.setting.join-request', ["tribe"=>$tribe, "requests"=>$requests]);     
+        $userId = $request->session()->get('email');
+        $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
+        $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
+        $tribe['selected'] = 'join-request';
+
+        return view('pages.tribe.setting.join-request', ["tribe"=>$tribe, "requests"=>$requests]);  
     }
-
 
     /**
      * Get join requests for the tribe.

@@ -40,3 +40,9 @@ mix.styles([
 mix.styles([
 	'resources/assets/css/menu/menu.css'
 ], 'public/css/menu/style.css');
+
+// aboutus page css
+mix.styles([
+	'resources/assets/css/aboutus/about-us.css',
+	'resources/assets/css/aboutus/framework.css',
+], 'public/css/front/aboutus.css');

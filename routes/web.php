@@ -18,8 +18,8 @@ Route::get('/', 'Front\FrontController@main');
 Route::group(['prefix' => 'front', 'as' => 'front.', 'namespace' => 'Front'], function(){
 
     Route::get('getFrontTribes', 'FrontController@getFrontTribes')->name('getFrontTribes');
-
     Route::get('moreTribeSearch', 'FrontController@moreTribeSearchForm')->name('moreTribeSearch');
+    Route::get('aboutus', 'FrontController@aboutUs')->name('aboutus');
 });
 
 
@@ -77,6 +77,8 @@ Route::group(['prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], fu
             Route::get('join-request', 'TribeSetController@joinRequest')->name('join-request');
 
             Route::post('profile-update', 'TribeSetController@profileUpdate')->name('profile-update');
+
+            Route::post('join-decline', 'TribeSetController@declineJoin')->name('join-decline');
         }); 
 
     }); 

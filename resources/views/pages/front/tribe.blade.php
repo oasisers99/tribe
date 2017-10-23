@@ -30,7 +30,7 @@
                 return;
             }
 
-            alert(tribes[0].name);
+            //alert(tribes[0].name);
         }
 
 

@@ -4,7 +4,7 @@
         <a href="/">Voli</a>
     </div>
     <div class="mainMenuSet">
-        <a href="/">About Us</a>
+        <a href="{{ route('front.aboutus') }}">About Us</a>
 
         @if (Auth::check())
             @if (Session::get('userCreatedTribesCount') > 0)

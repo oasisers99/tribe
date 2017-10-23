@@ -5,7 +5,7 @@
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<meta name="description" content="Tribe" />
+<meta name="description" content="Your life is powerful." />
 <meta name="keywords" content="" />
 <meta name="author" content="mssong" />
 
