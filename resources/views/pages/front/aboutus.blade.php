@@ -21,28 +21,28 @@
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				<div class="fh5co-testimonial-item wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s" style="visibility: visible; animation-duration: 1s; animation-delay: 1.1s; animation-name: fadeInUp;">
 					<div class="fh5co-name">
-						<img src="/images/person_5.jpg" alt="">
+						<img src="https://media-exp1.licdn.com/media/AAEAAQAAAAAAAAtsAAAAJGY3NjFlYTkzLWZlNTctNDhlNi1iYmYyLWRhMjlmNzNjYzEyZQ.jpg" alt="">
 						<div class="fh5co-meta">
 							<h3>Jacqui Storey</h3>
 							<span class="fh5co-company">Founder & Director</span>
 						</div>
 					</div>
 					<div class="fh5co-text">
-						<p>The founder and director of Voli</p>
+						<p>Jacqui is curious by nature and has always her fingers in a myriad of pies! A problem solver, entrepreneur and social innovator.</p>
 					</div>
 				</div>	
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				<div class="fh5co-testimonial-item wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.4s" style="visibility: visible; animation-duration: 1s; animation-delay: 1.4s; animation-name: fadeInUp;">
 					<div class="fh5co-name">
-						<img src="/images/person_4.jpg" alt="">
+						<img src="https://media-exp1.licdn.com/mpr/mpr/shrinknp_400_400/AAIA_wDGAAAAAQAAAAAAAA3mAAAAJDEwMDZmOGE3LTk5OTgtNDJlNS1iNmVjLTRiMmZlZjdjYjI1Mw.jpg" alt="">
 						<div class="fh5co-meta">
 							<h3>Minseok Song</h3>
 							<span class="fh5co-company">Technical Director</span>
 						</div>
 					</div>
 					<div class="fh5co-text">
-						<p>Technical director who built the Voli platform</p>
+						<p>Minseok is an IT geek who likes learning and building new things.</p>
 					</div>
 				</div>
 			</div>

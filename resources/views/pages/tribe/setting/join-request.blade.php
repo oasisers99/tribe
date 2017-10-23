@@ -1,20 +1,23 @@
 @extends('layouts.tribe-setting')
 @section('title', 'Tribe Setting')
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style type="text/css">
 	
 </style>
 <script type="text/javascript">
 	
 	function declineRequestConfirm(requestId){
-		$("#requestId").val(requestId);
+		$("#declineRequestId").val(requestId);
 		$("#tribeModal").modal('show');
-		//alert(requestId);
 	}
 
 	function declineRequest(requestId){
-		var requestId = $("#requestId").val();
-		alert(requestId);
+		$("#tribeModal").modal('hide');
+		alert("");
+		$( "#declineForm" ).submit(function( event ) {
+		  alert( "Handler for .submit() called." );
+		  //event.preventDefault();
+		});
 	}
 </script>
 @section('body-content')
@@ -28,7 +31,7 @@
 	    <h4 class="card-title">{{$request->name}}</h4>
 	    <p class="card-text">Hi there. My name is {{$request->name}}. I want to join your tribe!</p>
 	    <a href="#" class="btn btn-danger" onclick="declineRequestConfirm('{{$request->id}}');">Decline</a>
-	    <a href="#" class="btn btn-success" onclick="acceptRequestConfirm('{{$request->id}}')">Accept</a>
+	    <a href="#" class="btn btn-success" onclick="acceptRequestConfirm('{{$request->id}}');">Accept</a>
 	  </div>
 	</div>
 	<hr/>
@@ -48,11 +51,13 @@
       Do you really want to decline the request?
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="declineRequest()">Decline</button>
+      <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="declineRequest();">Decline</button>
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
     </div>
   </div>
 </div>
+<form id="declineForm" action="{{route('tribe.setting.join-decline') }}">
+  <input type="input" id="declineRequestId" name="requestId" value="" hidden>
+</form>
 </div>
-<input type="input" id="requestId" name="requestId" value="" hidden>
 @endsection
