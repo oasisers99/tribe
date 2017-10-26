@@ -10,10 +10,24 @@
 @section('body-content')
 <div class="fh5co-testimonial-style-2" style="margin-top: 5%;">
 	<div class="container">
-		<div class="row p-b">
+		<div class="row p-b" style="padding-bottom: 15px;">
 			<div class="col-md-6 col-md-offset-3 text-center">
-				<h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.5s; animation-name: fadeInUp;">Members of Voli</h2>
+				<h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.5s; animation-name: fadeInUp;">About Voli</h2>
 				<p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.8s; animation-name: fadeInUp;"> </p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 text-center">
+			<p>
+			Voli ultimately aims to keep older adults connected to the community during the process of retirement. Retirement is a time when identity is rocked and people re-visit their thoughts about life purpose. This is a natural next step; through Voli, retirees will have easier access to meaningful connections and fulfilling roles in society. <br/><br/>
+
+			Voli is a web-based platform that allows like-minded people to find each other, form a group and contribute to volunteering projects of special interest to them. The platform enables the group to create and manage their own volunteering projects with assistance from Voli in navigating those tricky parts. Volunteering has been shown to have direct mental and physical health benefits to individuals and the wider community.
+			</p>
+			</div>
+		</div>
+		<div class="row p-b" style="margin-top: 5%;">
+			<div class="col-md-6 col-md-offset-3 text-center">
+				<h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.5s; animation-name: fadeInUp; margin-bottom: 0px;">Members of Voli</h2>
 			</div>
 		</div>
 		<div class="row">
