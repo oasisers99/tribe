@@ -8,17 +8,14 @@
 	
 	function declineRequestConfirm(requestId){
 		$("#declineRequestId").val(requestId);
-		$("#tribeModal").modal('show');
+		$("#decline-modal").modal('show');
 	}
 
-	function declineRequest(requestId){
-		$("#tribeModal").modal('hide');
-		alert("");
-		$( "#declineForm" ).submit(function( event ) {
-		  alert( "Handler for .submit() called." );
-		  //event.preventDefault();
-		});
+	function acceptRequestConfirm(requestId){
+		$("#acceptRequestId").val(requestId);
+		$("#accept-modal").modal('show');
 	}
+
 </script>
 @section('body-content')
 <div class="col-md-8">
@@ -38,26 +35,53 @@
 	@endforeach
 </div>
 <!-- Modal -->
-<div class="modal fade" id="tribeModal" tabindex="-1" role="dialog" aria-labelledby="tribeModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="tribeModalLabel"></h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div id="tribeModalMessage" class="modal-body">
-      Do you really want to decline the request?
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="declineRequest();">Decline</button>
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-    </div>
-  </div>
+<div class="modal fade" id="decline-modal" tabindex="-1" role="dialog" aria-labelledby="tribeModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+	    <div class="modal-header">
+	      <h5 class="modal-title" id="tribeModalLabel"></h5>
+	      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	        <span aria-hidden="true">&times;</span>
+	      </button>
+	    </div>
+	    <div id="tribeModalMessage" class="modal-body">
+	      Do you really want to decline the request?
+	    </div>
+	    <div class="modal-footer">
+		<form id="declineForm" method="post" action="{{route('tribe.setting.join-decline') }}">
+			{{ csrf_field() }}	
+			<input type="input" id="declineRequestId" name="requestId" value="" hidden>
+			<input type="input" id="tribe_id" name="tribe_id" value="{{$tribe['tribe']->id}}" hidden>
+			<button type="submit" class="btn btn-danger">Yes</button>
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+	  	</form>
+	    </div>
+	  </div>
+	</div>
 </div>
-<form id="declineForm" action="{{route('tribe.setting.join-decline') }}">
-  <input type="input" id="declineRequestId" name="requestId" value="" hidden>
-</form>
+
+<div class="modal fade" id="accept-modal" tabindex="-1" role="dialog" aria-labelledby="tribeModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+	    <div class="modal-header">
+	      <h5 class="modal-title" id="tribeModalLabel"></h5>
+	      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	        <span aria-hidden="true">&times;</span>
+	      </button>
+	    </div>
+	    <div id="tribeModalMessage" class="modal-body">
+	      Do you want to accept the request?
+	    </div>
+	    <div class="modal-footer">
+		<form id="declineForm" method="post" action="{{route('tribe.setting.join-accept') }}">
+			{{ csrf_field() }}	
+			<input type="input" id="acceptRequestId" name="requestId" value="" hidden>
+			<input type="input" id="tribe_id" name="tribe_id" value="{{$tribe['tribe']->id}}" hidden>
+			<button type="submit" class="btn btn-danger">Yes</button>
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+	  	</form>
+	    </div>
+	  </div>
+	</div>
 </div>
 @endsection

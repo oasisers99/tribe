@@ -79,6 +79,7 @@ Route::group(['prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], fu
             Route::post('profile-update', 'TribeSetController@profileUpdate')->name('profile-update');
 
             Route::post('join-decline', 'TribeSetController@declineJoin')->name('join-decline');
+            Route::post('join-accept', 'TribeSetController@acceptJoin')->name('join-accept');
         }); 
 
     }); 

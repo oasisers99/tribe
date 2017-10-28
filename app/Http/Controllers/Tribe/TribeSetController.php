@@ -100,7 +100,6 @@ class TribeSetController extends Controller
 
         $requests = self::getJoinRequest($tribeId);
 
-
         $userId = $request->session()->get('email');
         $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
         $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
@@ -109,6 +108,32 @@ class TribeSetController extends Controller
         return view('pages.tribe.setting.join-request', ["tribe"=>$tribe, "requests"=>$requests]);  
     }
 
+    /**
+     *  Accept join request.
+     * 
+     */
+    public function acceptJoin(Request $request){
+        
+        $requestId = $request['requestId'];
+        $tribeId = $request['tribe_id'];
+
+        DB::update('UPDATE tribe_join
+                    SET 
+                        status = ?
+                    WHERE
+                        id = ?',
+                    [self::JOIN_REQUEST_ACCEPT, $requestId]
+            );
+        
+        $requests = self::getJoinRequest($tribeId);
+
+        $userId = $request->session()->get('email');
+        $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
+        $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
+        $tribe['selected'] = 'join-request';
+
+        return view('pages.tribe.setting.join-request', ["tribe"=>$tribe, "requests"=>$requests]);  
+    }
 
     /**
      *  Deline join request.
