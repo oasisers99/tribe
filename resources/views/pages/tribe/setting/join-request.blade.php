@@ -6,13 +6,15 @@
 </style>
 <script type="text/javascript">
 	
-	function declineRequestConfirm(requestId){
+	function declineRequestConfirm(requestId, userId){
 		$("#declineRequestId").val(requestId);
+		$("#declineUserId").val(userId);
 		$("#decline-modal").modal('show');
 	}
 
-	function acceptRequestConfirm(requestId){
+	function acceptRequestConfirm(requestId, userId){
 		$("#acceptRequestId").val(requestId);
+		$("#acceptUserId").val(userId);
 		$("#accept-modal").modal('show');
 	}
 
@@ -27,8 +29,8 @@
 	  <div class="card-body">
 	    <h4 class="card-title">{{$request->name}}</h4>
 	    <p class="card-text">Hi there. My name is {{$request->name}}. I want to join your tribe!</p>
-	    <a href="#" class="btn btn-danger" onclick="declineRequestConfirm('{{$request->id}}');">Decline</a>
-	    <a href="#" class="btn btn-success" onclick="acceptRequestConfirm('{{$request->id}}');">Accept</a>
+	    <a href="#" class="btn btn-danger" onclick="declineRequestConfirm('{{$request->id}}', '{{$request->user_id}}');">Decline</a>
+	    <a href="#" class="btn btn-success" onclick="acceptRequestConfirm('{{$request->id}}', '{{$request->user_id}}');">Accept</a>
 	  </div>
 	</div>
 	<hr/>
@@ -51,6 +53,7 @@
 		<form id="declineForm" method="post" action="{{route('tribe.setting.join-decline') }}">
 			{{ csrf_field() }}	
 			<input type="input" id="declineRequestId" name="requestId" value="" hidden>
+			<input type="input" id="declineUserId" name="userId" value="" hidden>
 			<input type="input" id="tribe_id" name="tribe_id" value="{{$tribe['tribe']->id}}" hidden>
 			<button type="submit" class="btn btn-danger">Yes</button>
 			<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
@@ -76,6 +79,7 @@
 		<form id="declineForm" method="post" action="{{route('tribe.setting.join-accept') }}">
 			{{ csrf_field() }}	
 			<input type="input" id="acceptRequestId" name="requestId" value="" hidden>
+			<input type="input" id="acceptUserId" name="userId" value="" hidden>
 			<input type="input" id="tribe_id" name="tribe_id" value="{{$tribe['tribe']->id}}" hidden>
 			<button type="submit" class="btn btn-danger">Yes</button>
 			<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>

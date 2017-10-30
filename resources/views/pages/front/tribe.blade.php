@@ -29,8 +29,6 @@
                 $("#search-message").text("Result not found.")
                 return;
             }
-
-            //alert(tribes[0].name);
         }
 
 

@@ -115,6 +115,7 @@ class TribeSetController extends Controller
     public function acceptJoin(Request $request){
         
         $requestId = $request['requestId'];
+        $requestUserId = $request['userId'];
         $tribeId = $request['tribe_id'];
 
         DB::update('UPDATE tribe_join
@@ -129,6 +130,12 @@ class TribeSetController extends Controller
 
         $userId = $request->session()->get('email');
         $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
+
+        DB::insert('INSERT INTO tribe_member
+                    (tribe_id, user_id, active, member_type)
+                    VALUES
+                    (?,?,?,?)',[$tribeId, $requestUserId, 'Y', '2']);
+
         $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
         $tribe['selected'] = 'join-request';
 
@@ -170,7 +177,7 @@ class TribeSetController extends Controller
     private static function getJoinRequest($tribeId){
         $query = DB::table("tribe_join")
                     ->join("users", "tribe_join.user_id", "=", "users.email")
-                    ->select("users.name","users.email","users.name","tribe_join.id","tribe_join.message","tribe_join.created_at")
+                    ->select("users.name","tribe_join.user_id", "users.email","users.name","tribe_join.id","tribe_join.message","tribe_join.created_at")
                     ->where(["tribe_join.tribe_id"=>$tribeId, "tribe_join.status"=>0]);
         $result = $query->get();
         return $result;

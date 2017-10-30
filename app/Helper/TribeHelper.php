@@ -103,12 +103,16 @@ class TribeHelper
 	    							WHERE
 	    								mem.user_id = user.email
 	    							AND
-	    								mem.tribe_id = ? AND mem.active = "Y"', [$tribeId]);
+	    								mem.tribe_id = ? AND mem.active = "Y"
+                                    ORDER by
+                                        mem.created_at ASC', [$tribeId]);
     	
     	// Define member type names
     	foreach($tribe_members as $mkey=>$member){
     		$memberTypes = $member->member_type;
-    		$member->member_type_name = "Administrator, Leader";
+            $memberTypes = str_replace('1', 'Leader', $memberTypes);
+            $memberTypes = str_replace('2', ' Member', $memberTypes);
+            $tribe_members[$mkey]->member_type_name = $memberTypes;
     	}
 
     	$tribe = array(
