@@ -35,7 +35,9 @@
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				<div class="fh5co-testimonial-item wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s" style="visibility: visible; animation-duration: 1s; animation-delay: 1.1s; animation-name: fadeInUp;">
 					<div class="fh5co-name">
+						<a href="https://www.linkedin.com/in/jacquistorey/" target="_blank">
 						<img src="https://media-exp1.licdn.com/media/AAEAAQAAAAAAAAtsAAAAJGY3NjFlYTkzLWZlNTctNDhlNi1iYmYyLWRhMjlmNzNjYzEyZQ.jpg" alt="">
+						</a>
 						<div class="fh5co-meta">
 							<h3>Jacqui Storey</h3>
 							<span class="fh5co-company">Founder & Director</span>
@@ -49,7 +51,9 @@
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				<div class="fh5co-testimonial-item wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.4s" style="visibility: visible; animation-duration: 1s; animation-delay: 1.4s; animation-name: fadeInUp;">
 					<div class="fh5co-name">
+						<a href="https://www.linkedin.com/in/minseok-song-00aa33b5/" target="_blank">
 						<img src="https://media-exp1.licdn.com/mpr/mpr/shrinknp_400_400/AAIA_wDGAAAAAQAAAAAAAA3mAAAAJDEwMDZmOGE3LTk5OTgtNDJlNS1iNmVjLTRiMmZlZjdjYjI1Mw.jpg" alt="">
+						</a>
 						<div class="fh5co-meta">
 							<h3>Minseok Song</h3>
 							<span class="fh5co-company">Technical Director</span>
