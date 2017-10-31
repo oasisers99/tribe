@@ -12,7 +12,7 @@
 	<div class="container">
 		<div class="row p-b" style="padding-bottom: 15px;">
 			<div class="col-md-6 col-md-offset-3 text-center">
-				<h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.5s; animation-name: fadeInUp;">About Voli</h2>
+				<h2>About Voli</h2>
 				<p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.8s; animation-name: fadeInUp;"> </p>
 			</div>
 		</div>
@@ -27,13 +27,13 @@
 		</div>
 		<div class="row p-b" style="margin-top: 5%;">
 			<div class="col-md-6 col-md-offset-3 text-center">
-				<h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.5s; animation-name: fadeInUp; margin-bottom: 0px;">Members of Voli</h2>
+				<h2>Members of Voli</h2>
 			</div>
 		</div>
 		<div class="row">
 			
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<div class="fh5co-testimonial-item wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s" style="visibility: visible; animation-duration: 1s; animation-delay: 1.1s; animation-name: fadeInUp;">
+				<div class="fh5co-testimonial-item">
 					<div class="fh5co-name">
 						<a href="https://www.linkedin.com/in/jacquistorey/" target="_blank">
 						<img src="https://media-exp1.licdn.com/media/AAEAAQAAAAAAAAtsAAAAJGY3NjFlYTkzLWZlNTctNDhlNi1iYmYyLWRhMjlmNzNjYzEyZQ.jpg" alt="">
@@ -49,7 +49,7 @@
 				</div>	
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<div class="fh5co-testimonial-item wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.4s" style="visibility: visible; animation-duration: 1s; animation-delay: 1.4s; animation-name: fadeInUp;">
+				<div class="fh5co-testimonial-item">
 					<div class="fh5co-name">
 						<a href="https://www.linkedin.com/in/minseok-song-00aa33b5/" target="_blank">
 						<img src="https://media-exp1.licdn.com/mpr/mpr/shrinknp_400_400/AAIA_wDGAAAAAQAAAAAAAA3mAAAAJDEwMDZmOGE3LTk5OTgtNDJlNS1iNmVjLTRiMmZlZjdjYjI1Mw.jpg" alt="">
@@ -68,7 +68,7 @@
 			<div class="clearfix visible-sm-block"></div>
 
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<div class="fh5co-testimonial-item wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.7s" style="visibility: visible; animation-duration: 1s; animation-delay: 1.7s; animation-name: fadeInUp;">
+				<div class="fh5co-testimonial-item">
 					<div class="fh5co-name">
 						<img src="/images/person_3.jpg" alt="">
 						<div class="fh5co-meta">
@@ -85,7 +85,7 @@
 			<div class="clearfix visible-lg-block visible-md-block"></div>
 
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<div class="fh5co-testimonial-item wow fadeInUp" data-wow-duration="1s" data-wow-delay="2s" style="visibility: visible; animation-duration: 1s; animation-delay: 2s; animation-name: fadeInUp;">
+				<div class="fh5co-testimonial-item">
 					<div class="fh5co-name">
 						<img src="/images/person_1.jpg" alt="">
 						<div class="fh5co-meta">
@@ -102,7 +102,7 @@
 			<div class="clearfix visible-sm-block"></div>
 
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<div class="fh5co-testimonial-item wow fadeInUp" data-wow-duration="1s" data-wow-delay="2.3s" style="visibility: visible; animation-duration: 1s; animation-delay: 2.3s; animation-name: fadeInUp;">
+				<div class="fh5co-testimonial-item">
 					<div class="fh5co-name">
 						<img src="/images/person_2.jpg" alt="">
 						<div class="fh5co-meta">
@@ -116,7 +116,7 @@
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<div class="fh5co-testimonial-item wow fadeInUp" data-wow-duration="1s" data-wow-delay="2.6s" style="visibility: visible; animation-duration: 1s; animation-delay: 2.6s; animation-name: fadeInUp;">
+				<div class="fh5co-testimonial-item">
 					<div class="fh5co-name">
 						<img src="/images/person_6.jpg" alt="">
 						<div class="fh5co-meta">
