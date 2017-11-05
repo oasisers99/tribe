@@ -36,19 +36,55 @@ class FrontController extends Controller
         return view('pages.front.front', ['tribes' => $tribes]);
     }
 
-
-
-
+    /**
+     * [moreTribeSearchForm description]
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
     public function moreTribeSearchForm(Request $request){
         return view('pages.front.tribe-search');
     }
 
     /**
      * About us
+     * 
      * @param  Reuqest $request [description]
      * @return [type]           [description]
      */
     public function aboutUs(Request $request){
         return view('pages.front.aboutus');
+    }
+
+    /**
+     * Move to project search page.
+     * 
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function projectSearchPage(Request $request){
+        $projects = DB::select("SELECT 
+            id, title, description, member_no, topic, location, country, created_by, tribe_id, updated_at, created_at
+            FROM 
+                tribe_project");
+
+
+        return view('pages.front.project-search', ['projects' => $projects]);
+    }
+
+    /**
+     * Project search
+     * 
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function searchProject(Request $request){
+
+        $projects = DB::select("SELECT 
+            id, title, description, member_no, topic, location, country, created_by, tribe_id, updated_at, created_at
+            FROM 
+                tribe_project");
+
+
+        return view('pages.front.project-search', ['projects' => $projects]);
     }
 }
