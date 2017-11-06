@@ -65,7 +65,8 @@ class FrontController extends Controller
         $projects = DB::select("SELECT 
             id, title, description, member_no, topic, location, country, created_by, tribe_id, updated_at, created_at
             FROM 
-                tribe_project");
+                tribe_project
+            ORDER BY rand() LIMIT 20");
 
 
         return view('pages.front.project-search', ['projects' => $projects]);
@@ -79,11 +80,28 @@ class FrontController extends Controller
      */
     public function searchProject(Request $request){
 
-        $projects = DB::select("SELECT 
-            id, title, description, member_no, topic, location, country, created_by, tribe_id, updated_at, created_at
-            FROM 
-                tribe_project");
 
+        $topic = $request['topic'];
+        $area = $request['area'];
+
+        $query = DB::table('tribe_project')
+                    ->select(DB::raw('id, title, description, member_no, 
+                        topic, location, country, created_by, 
+                        tribe_id, updated_at, created_at' ) );
+
+        if($topic != ''){
+            $query->where('topic', $topic);
+        }
+
+        if($area != ''){
+            $query->where('location', $area);
+        }
+        
+        if($topic == '' && $area == ''){
+            $query->inRandomOrder();
+        }
+
+        $projects = $query->get();
 
         return view('pages.front.project-search', ['projects' => $projects]);
     }

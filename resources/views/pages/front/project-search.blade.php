@@ -10,7 +10,7 @@
 
     function validateAndSubmit(){
         
-        
+        projectSearchForm.submit();
         
     }
 </script>
@@ -70,10 +70,10 @@
                 You can jump in the project you like. Have a look and ask for join now!</p>
                 {{-- <p>Search more tribes out there!</p> --}}
             </div>
-            <form class="project-search-form" method="GET" id="project-search" name='tribesearchform' action="{{ route('front.searchProject') }}">
+            <form class="project-search-form" method="GET" id="project-search" name='projectSearchForm' action="{{ route('front.searchProject') }}">
                 {{ csrf_field() }}
                 <div class="col-md-3 col-md-offset-3">
-                    <input type="text" class="project-search-text" id="search-interest" name="interest" placeholder="Interest">
+                    <input type="text" class="project-search-text" id="search-interest" name="topic" placeholder="Interest">
                 </div>
                 <div class="col-md-6">
                     <input type="text" class="project-search-text" id="search-area" name="area" placeholder="Area">
