@@ -105,4 +105,21 @@ class FrontController extends Controller
 
         return view('pages.front.project-search', ['projects' => $projects]);
     }
+
+    /**
+     * View project detail
+     * 
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function viewProject(Request $request){
+        $projectId = $request['projectId'];
+
+        $query = DB::table('tribe_project');
+        $query->where('id', $projectId);
+
+        $project = $query->first();
+        
+        return view('pages.front.project-detail', ['project' => $project]);
+    }
 }

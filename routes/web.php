@@ -21,6 +21,9 @@ Route::group(['prefix' => 'front', 'as' => 'front.', 'namespace' => 'Front'], fu
     Route::get('moreTribeSearch', 'FrontController@moreTribeSearchForm')->name('moreTribeSearch');
     Route::get('projectSearchPage', 'FrontController@projectSearchPage')->name('projectSearchPage');
     Route::get('searchProject', 'FrontController@searchProject')->name('searchProject');
+    Route::get('viewProject', 'FrontController@viewProject')->name('viewProject');
+
+    
     Route::get('aboutus', 'FrontController@aboutUs')->name('aboutus');
 });
 
