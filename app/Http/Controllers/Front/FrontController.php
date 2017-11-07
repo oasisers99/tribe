@@ -70,7 +70,7 @@ class FrontController extends Controller
 
         $interests = Config::get('code.interests');
 
-        return view('pages.front.project-search', ['projects' => $projects, 'interests' => $interests]);
+        return view('pages.front.project-search', ['projects' => $projects, 'interests' => $interests, 'topic' => '']);
     }
 
     /**
