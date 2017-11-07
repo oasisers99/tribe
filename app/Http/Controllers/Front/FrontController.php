@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Front;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Config;
 /**
  * Created by PhpStorm.
  * User: songminseok
@@ -68,8 +68,9 @@ class FrontController extends Controller
                 tribe_project
             ORDER BY rand() LIMIT 20");
 
+        $interests = Config::get('code.interests');
 
-        return view('pages.front.project-search', ['projects' => $projects]);
+        return view('pages.front.project-search', ['projects' => $projects, 'interests' => $interests]);
     }
 
     /**
@@ -103,7 +104,9 @@ class FrontController extends Controller
 
         $projects = $query->get();
 
-        return view('pages.front.project-search', ['projects' => $projects]);
+        $interests = Config::get('code.interests');
+
+        return view('pages.front.project-search', ['projects' => $projects, 'interests' => $interests, 'topic' => $topic]);
     }
 
     /**
@@ -119,7 +122,7 @@ class FrontController extends Controller
         $query->where('id', $projectId);
 
         $project = $query->first();
-        
+
         return view('pages.front.project-detail', ['project' => $project]);
     }
 }

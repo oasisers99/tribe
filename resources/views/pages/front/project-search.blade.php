@@ -56,6 +56,10 @@
         margin-top: 10px;
         margin-bottom: 20px;
     }
+    #interest-select{
+        height: 40px;
+        width: 260px;
+    }
 </style>
 @endsection
 
@@ -73,7 +77,16 @@
             <form class="project-search-form" method="GET" id="project-search" name='projectSearchForm' action="{{ route('front.searchProject') }}">
                 {{ csrf_field() }}
                 <div class="col-md-3 col-md-offset-3">
-                    <input type="text" class="project-search-text" id="search-interest" name="topic" placeholder="Interest">
+                    {{-- <input type="text" class="project-search-text" id="search-interest" name="topic" placeholder="Interest"> --}}
+                    <select id="interest-select" name="topic">
+                    @foreach($interests as $idx=>$interest)
+                        @if($interest == $topic)
+                            <option value="{{$interest}}" selected>{{$interest}}</option>
+                        @else
+                            <option value="{{$interest}}">{{$interest}}</option>
+                        @endif
+                    @endforeach
+                    </select>
                 </div>
                 <div class="col-md-6">
                     <input type="text" class="project-search-text" id="search-area" name="area" placeholder="Area">
