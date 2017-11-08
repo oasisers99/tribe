@@ -37,6 +37,9 @@
                     echo 'Logout';
                     //strtoupper($initial);
                 @endphp
+            </a>
+            <a href="#">
+                Profile
             </a>  
         @elseif (!Auth::check())
             <a href="{{ route('auth.registrationForm') }}">Register</a>

@@ -28,3 +28,7 @@ composer install
 
 Install Apache and setup
 http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-LAMP.html
+
+Server start
+php artisan serve
+npm run dev
