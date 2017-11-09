@@ -63,15 +63,13 @@
     <div class="form-group">
         <label for="askTopic">Topic</label>
         <select id="tribe-topic" class="form-control select select-primary" name="topic1" data-toggle="select">
-            <option value="Arts" <?php if($tribe['tribe']->topic1 === 'Arts') {echo 'selected';} ?> >Arts</option>
-            <option value="Music" <?php if($tribe['tribe']->topic1 === 'Music') {echo 'selected';} ?>>Music</option>
-            <option value="Technology" <?php if($tribe['tribe']->topic1 === 'Technology') {echo 'selected';} ?>>Technology</option>
-            <option value="Sports" <?php if($tribe['tribe']->topic1 === 'Sports') {echo 'selected';} ?>>Sports</option>
-            <option value="Legal" <?php if($tribe['tribe']->topic1 === 'Legal') {echo 'selected';} ?>>Legal</option>
-            <option value="Consulting" <?php if($tribe['tribe']->topic1 === 'Consulting') {echo 'selected';} ?>>Consulting</option>
-            <option value="Environment" <?php if($tribe['tribe']->topic1 === 'Environment') {echo 'selected';} ?>>Environment</option>
-            <option value="Education" <?php if($tribe['tribe']->topic1 === 'Education') {echo 'selected';} ?>>Education</option>
-            <option value="Social" <?php if($tribe['tribe']->topic1 === 'Social') {echo 'selected';} ?>>Social</option>
+            @foreach($interests as $idx=>$interest)
+                @if($interest == $tribe['tribe']->topic1)
+                    <option value="{{$interest}}" selected>{{$interest}}</option>
+                @else
+                    <option value="{{$interest}}">{{$interest}}</option>
+                @endif
+            @endforeach
         </select>
     </div>
     <div class="form-group">

@@ -32,3 +32,6 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-LAMP.html
 Server start
 php artisan serve
 npm run dev
+
+CSS Templates
+https://w3layouts.com/download-share/?l=13318&norm=pack&t=pack

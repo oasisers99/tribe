@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Config;
 
 class TribeSetController extends Controller
 {
@@ -54,7 +55,9 @@ class TribeSetController extends Controller
         $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
         $tribe['selected'] = 'profile-edit';
 
-        return view('pages.tribe.setting.profile', ["tribe"=>$tribe]);
+        $interests = Config::get('code.interests');
+
+        return view('pages.tribe.setting.profile', ["tribe"=>$tribe, "interests"=>$interests]);
     }
 
     /**
@@ -86,7 +89,9 @@ class TribeSetController extends Controller
         $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
         $tribe['selected'] = 'profile-edit';
 
-        return view('pages.tribe.setting.profile', ["tribe"=>$tribe]); 
+        $interests = Config::get('code.interests');
+
+        return view('pages.tribe.setting.profile', ["tribe"=>$tribe, "interests"=>$interests]); 
     }
 
     /**

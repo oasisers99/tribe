@@ -10,6 +10,7 @@ return [
         '5' => 'Location',
         '6' => 'Professions',
         '7' => 'Recreation',
-        '8' => 'Sports'
+        '8' => 'Sports',
+        '9' => 'Technology'
     ]
 ];
