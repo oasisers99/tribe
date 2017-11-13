@@ -42,6 +42,7 @@ class FrontController extends Controller
      * @return [type]           [description]
      */
     public function moreTribeSearchForm(Request $request){
+
         return view('pages.front.tribe-search');
     }
 

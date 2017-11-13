@@ -77,7 +77,11 @@
             <form class="tribe-search-form" method="GET" id="tribe-search" name='tribesearchform' action="{{ route('tribe.searchTribeFull') }}">
                 {{ csrf_field() }}
                 <div class="col-md-3 col-md-offset-3">
-                    <input type="text" class="tribe-search-text" id="search-interest" name="interest" placeholder="Interest">
+                    <select class="form-control select select-primary" data-toggle="select" id="search-interest" name="interest" style="    height: 40px; width: 260px;">
+                    @foreach($interests as $idx=>$interest)
+                    <option value="{{$interest}}" selected>{{$interest}}</option>
+                    @endforeach
+                    </select>
                 </div>
                 <div class="col-md-6">
                     <input type="text" class="tribe-search-text" id="search-area" name="area" placeholder="Area">

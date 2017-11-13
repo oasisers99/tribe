@@ -71,15 +71,9 @@
     <div class="form-group">
         <label for="askTopic">What is the topic of your tribe?</label>
         <select id="tribe-topic" class="form-control select select-primary" name="topic1" data-toggle="select">
-            <option value="Arts">Arts</option>
-            <option value="Music">Music</option>
-            <option value="Technology">Technology</option>
-            <option value="Sports">Sports</option>
-            <option value="Legal">Legal</option>
-            <option value="Consulting">Consulting</option>
-            <option value="Environment">Environment</option>
-            <option value="Education">Education</option>
-            <option value="Social">Social</option>
+            @foreach($interests as $idx=>$interest)
+            <option value="{{$interest}}" selected>{{$interest}}</option>
+            @endforeach
         </select>
     </div>
     <button type="submit" class="btn btn-lg btn-primary" style="width: 10%; margin-top: 5%;">Create</button>

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Config;
 
 
 class TribeController extends Controller
@@ -31,7 +31,9 @@ class TribeController extends Controller
      */
     public function createTribeForm(Request $request){
 
-        return view('pages.tribe.create');
+        $interests = Config::get('code.interests');
+
+        return view('pages.tribe.create', ["interests"=>$interests]);
     }
 
     /**
@@ -122,7 +124,9 @@ class TribeController extends Controller
         $userId = $request->session()->get('email');
         $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
 
-        return view('pages.tribe.create-project', ["tribe"=>$tribe]);
+        $interests = Config::get('code.interests');
+
+        return view('pages.tribe.create-project', ["tribe"=>$tribe, "interests"=>$interests]);
     }
 
     /**
@@ -259,7 +263,9 @@ class TribeController extends Controller
 
         $tribes = $query->get();
 
-        return view('pages.front.tribe-search', ['tribes' => $tribes]);
+        $interests = Config::get('code.interests');
+
+        return view('pages.front.tribe-search', ['tribes' => $tribes, "interests" => $interests]);
     }
 
 

@@ -63,15 +63,9 @@
 		    <div class="form-group">
 		        <label for="askTopic">What is the topic of the project?</label>
 		        <select id="topic" name="topic" class="form-control select select-primary" data-toggle="select">
-		            <option value="arts">Arts</option>
-		            <option value="music">Music</option>
-		            <option value="technology">Technology</option>
-		            <option value="sports">Sports</option>
-		            <option value="legal">Legal</option>
-		            <option value="consulting">Consulting</option>
-		            <option value="environment">Environment</option>
-		            <option value="education">Education</option>
-		            <option value="social">Social</option>
+		        	@foreach($interests as $idx=>$interest)
+		        	<option value="{{$interest}}" selected>{{$interest}}</option>
+		        	@endforeach
 		        </select>
 		    </div>
 		    <div class="form-group">
