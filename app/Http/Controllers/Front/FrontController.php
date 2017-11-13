@@ -53,7 +53,8 @@ class FrontController extends Controller
      * @return [type]           [description]
      */
     public function aboutUs(Request $request){
-        return view('pages.front.aboutus');
+
+        return view('pages.front.aboutus', ["videolink"=>"http://www.youtube.com/embed/FVpdUthXY2I"]);
     }
 
     /**

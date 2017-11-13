@@ -23,6 +23,7 @@
 
 			Voli is a web-based platform that allows like-minded people to find each other, form a group and contribute to volunteering projects of special interest to them. The platform enables the group to create and manage their own volunteering projects with assistance from Voli in navigating those tricky parts. Volunteering has been shown to have direct mental and physical health benefits to individuals and the wider community.
 			</p>
+			<iframe width="520" height="293" src={{ $videolink }} frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
 		<div class="row p-b" style="margin-top: 5%;">
@@ -44,7 +45,7 @@
 						</div>
 					</div>
 					<div class="fh5co-text">
-						<p>Jacqui is curious by nature and has always her fingers in a myriad of pies! A problem solver, entrepreneur and social innovator.</p>
+						<p>Curious by nature and has always her fingers in a myriad of pies! A problem solver, entrepreneur and social innovator.</p>
 					</div>
 				</div>	
 			</div>
@@ -60,7 +61,7 @@
 						</div>
 					</div>
 					<div class="fh5co-text">
-						<p>Minseok is an IT geek who likes learning and building new things.</p>
+						<p>Loves solving challenges with technologies. Software Engineer, Architect, Analyst Developer</p>
 					</div>
 				</div>
 			</div>
@@ -72,12 +73,12 @@
 					<div class="fh5co-name">
 						<img src="/images/person_3.jpg" alt="">
 						<div class="fh5co-meta">
-							<h3>New Member</h3>
+							<h3>Jessie Shin</h3>
 							<span class="fh5co-company">Voli</span>
 						</div>
 					</div>
 					<div class="fh5co-text">
-						<p>New Voli member</p>
+						<p>Digital Marketing Guru</p>
 					</div>
 				</div>
 			</div>
@@ -89,7 +90,7 @@
 					<div class="fh5co-name">
 						<img src="/images/person_1.jpg" alt="">
 						<div class="fh5co-meta">
-							<h3>New Member</h3>
+							<h3>Seeking UX Designer</h3>
 							<span class="fh5co-company">Voli</span>
 						</div>
 					</div>
@@ -106,7 +107,7 @@
 					<div class="fh5co-name">
 						<img src="/images/person_2.jpg" alt="">
 						<div class="fh5co-meta">
-							<h3>New Member</h3>
+							<h3>Seeking New Member</h3>
 							<span class="fh5co-company">Voli</span>
 						</div>
 					</div>
@@ -120,7 +121,7 @@
 					<div class="fh5co-name">
 						<img src="/images/person_6.jpg" alt="">
 						<div class="fh5co-meta">
-							<h3>New Member</h3>
+							<h3>Seeking New Member</h3>
 							<span class="fh5co-company">Voli</span>
 						</div>
 					</div>
