@@ -62,7 +62,7 @@
 		        <a href="#" class="list-group-item" id="menu-member">
 		            <i class="fa fa-user"></i> Tribe Member
 		        </a>
-		        <a href="#" class="list-group-item" id="menu-project">
+		        <a href="{{route('tribe.setting.project-list', ["tribe_id" => $tribe['tribe']->id])}}" class="list-group-item" id="menu-project-list">
 		            <i class="fa fa-folder-o"></i> Project <span class="badge"></span>
 		        </a>
 		    </div>        

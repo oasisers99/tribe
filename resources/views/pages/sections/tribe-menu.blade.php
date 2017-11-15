@@ -24,8 +24,8 @@
         <li><a href="#about">About</a></li> --}}
         <li><a href="/">Home</a></li>
         @if ($tribe['isTribeMember'])
-        <li role="presentation"><a href="#">Messages <span class="badge"></span></a></li>
-        <li role="presentation"><a href="{{route('tribe.setting.main', ["tribe_id" => $tribe['tribe']->id])}}">Setting</a></li>
+        {{-- <li role="presentation"><a href="#">Messages <span class="badge"></span></a></li> --}}
+        <li role="presentation"><a href="{{route('tribe.setting.main', ["tribe_id" => $tribe['tribe']->id])}}">Manage</a></li>
         {{-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Setting <span class="caret"></span></a>
           <ul class="dropdown-menu">

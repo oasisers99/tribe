@@ -175,6 +175,27 @@ class TribeSetController extends Controller
     }
 
     /**
+     * [projectList description]
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function projectList(Request $request){
+
+        $tribeId = $request['tribe_id'];
+        $userId = $request->session()->get('email');
+        $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
+        $tribe['isTribeMember']  = TribeHelper::checkIfTribeMember(TribeHelper::getTribeMembers($tribeId), $userId);
+        $tribe['selected'] = 'project-list';
+
+        $query = DB::table('tribe_project')
+                    ->orderByRaw('created_at DESC')
+                    ->where('tribe_id', $tribeId);
+        $projects = $query->get();
+
+        return view('pages.tribe.setting.project-list', ["tribe"=>$tribe, "projects"=>$projects]);  
+    }
+
+    /**
      * Get join requests for the tribe.
      * 
      * @return [type] [description]
@@ -184,8 +205,11 @@ class TribeSetController extends Controller
                     ->join("users", "tribe_join.user_id", "=", "users.email")
                     ->select("users.name","tribe_join.user_id", "users.email","users.name","tribe_join.id","tribe_join.message","tribe_join.created_at")
                     ->where(["tribe_join.tribe_id"=>$tribeId, "tribe_join.status"=>0]);
+
         $result = $query->get();
         return $result;
     }
+
+
 
 }

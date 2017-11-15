@@ -47,7 +47,7 @@
                     </div>
                     <div class="fh5co-post-text">
                         <h3><a href="{{ route('tribe.main', ["tribe_id" => $tribe->id]) }}">{{$tribe->name}}</a></h3>
-                        <p>{{$tribe->summary}}</p>
+                        <p>{{ str_limit($tribe->summary, 200) }}</p>
                     </div>
                     <div class="fh5co-post-meta">
                         <a href="#"><i class="icon-group"></i> {{$tribe->member_no}}</a>
