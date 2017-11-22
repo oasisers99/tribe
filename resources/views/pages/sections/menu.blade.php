@@ -38,7 +38,7 @@
                     //strtoupper($initial);
                 @endphp
             </a>
-            <a href="#">
+            <a href="{{ route('user.profile-page') }}">
                 Profile
             </a>  
         @elseif (!Auth::check())
