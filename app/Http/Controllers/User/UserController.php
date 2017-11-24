@@ -22,7 +22,7 @@ class UserController extends Controller
     	$query = DB::table('users');
         $query->where('email', $email);
 
-        $profile = $query->first();
-    	return view('pages.user.profile-main', ['profile'=>$profile]);
+        $user = $query->first();
+    	return view('pages.user.profile-detail', ['user'=>$user]);
     }
 }
