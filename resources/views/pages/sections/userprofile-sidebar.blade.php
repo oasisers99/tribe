@@ -53,17 +53,14 @@
 		        {{-- <a href="{{route('tribe.setting.main', ["tribe_id" => $tribe['tribe']->id])}}" class="list-group-item active" id="menu-main">
 		            <i class="fa fa-home"></i> Main
 		        </a> --}}
-		        <a href="" class="list-group-item" id="menu-join-request">
-		            <i class="fa fa-comment-o"></i> Profile <span class="badge"></span>
+		        <a href="" class="list-group-item" id="menu-profile-edie">
+		            <i class="fa fa-user"></i> Profile
 		        </a>
-		        <a href="" class="list-group-item" id="menu-profile-edit">
-		            <i class="fa fa-edit"></i> Tribe
+		        <a href="#" class="list-group-item" id="menu-project">
+		            <i class="fa fa-tasks"></i> Project
 		        </a>
-		        <a href="#" class="list-group-item" id="menu-member">
-		            <i class="fa fa-user"></i> Project
-		        </a>
-		        <a href="" class="list-group-item" id="menu-project-list">
-		            <i class="fa fa-folder-o"></i> Message <span class="badge">0</span>
+		        <a href="" class="list-group-item" id="menu-message">
+		            <i class="fa fa-envelope"></i> Message <span class="badge">0</span>
 		        </a>
 		    </div>        
 		</div>

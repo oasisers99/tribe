@@ -54,6 +54,8 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.', 'namespace' => 'Auth'], funct
 Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'User'], function(){
     Route::middleware(['logincheck'])->group(function () {
         Route::get('profile-page', 'UserController@profilePage')->name('profile-page');
+
+        Route::post('profile-update', 'UserController@profileUpdate')->name('profile-update');
     });        
 });
 
