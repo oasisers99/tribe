@@ -61,6 +61,12 @@ class UserController extends Controller
     		'interests'=>$user_selected_interests]);
     }
 
+    /**
+     * Profile update
+     * 
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
     public function profileUpdate(Request $request){
 
     	DB::table('users')
@@ -72,6 +78,17 @@ class UserController extends Controller
         			]);
 
 
+        DB::table('user_interest')->where('user_id', '=', $request->session()->get('email'))->delete();	
+
+        $interest_input = $request['user-interest'];
+
+        foreach ($interest_input as $key => $selected_interest) {
+        	DB::table('user_interest')->insert([
+        		'user_id'=>$request->session()->get('email'), 'interest'=>$selected_interest
+        	]);
+        }
+        
+
         $email = $request->session()->get('email');
     	$query = DB::table('users');
         $query->where('email', $email);
@@ -81,15 +98,11 @@ class UserController extends Controller
 
         $query = DB::table('user_interest');
         $query->where('user_id', $email);
-
         $user_interests = $query->get();
 
         $interests = Config::get('code.interests');
-
+        
         $user_selected_interests = array();
-
-
-
         foreach ($interests as $i_key => $interest) {
         	$selected = 0;
         	foreach ($user_interests as $ui_key => $user_interest) {
@@ -104,7 +117,6 @@ class UserController extends Controller
         	array_push($user_selected_interests, $item);
     	}
         
-
     	return view('pages.user.user-profile', ['user'=>$user,
     		'interests'=>$user_selected_interests]);
 

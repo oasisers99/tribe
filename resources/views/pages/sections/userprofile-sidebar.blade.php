@@ -53,7 +53,7 @@
 		        {{-- <a href="{{route('tribe.setting.main', ["tribe_id" => $tribe['tribe']->id])}}" class="list-group-item active" id="menu-main">
 		            <i class="fa fa-home"></i> Main
 		        </a> --}}
-		        <a href="" class="list-group-item" id="menu-profile-edie">
+		        <a href="{{route('user.profile-page') }}" class="list-group-item" id="menu-profile-edie">
 		            <i class="fa fa-user"></i> Profile
 		        </a>
 		        <a href="#" class="list-group-item" id="menu-project">

@@ -63,9 +63,9 @@
         <label for="askTopic">Interest</label><br/>
     	@foreach($interests as $idx=>$interest)
     		@if($interest['selected'] == 1)
-    			<input type="checkbox" class="custom-control-input" checked>
+    			<input type="checkbox" id="user-interest-{{$interest['interest']}}" name="user-interest[]" value="{{$interest['interest']}}" class="custom-control-input" checked>
     		@else
-    			<input type="checkbox" class="custom-control-input">
+    			<input type="checkbox" id="user-interest-{{$interest['interest']}}" name="user-interest[]" value="{{$interest['interest']}}" class="custom-control-input">
     		@endif
 			<span class="custom-control-indicator"></span>
 			<span class="custom-control-description" style="margin-right: 1%;">{{$interest['interest']}}</span>
