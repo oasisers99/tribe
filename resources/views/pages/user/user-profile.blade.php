@@ -72,7 +72,7 @@
 		@endforeach
     </div>
     <div class="form-group">   
-        <label for="askLittleAboutTribe">Brief introduction about yoursefl</label>
+        <label for="askLittleAboutTribe">Brief introduction about yourself</label>
         <input type="text" id="user-description" name="user-description" value="{{$user->description}}" placeholder="Summary" class="form-control" maxlength="512"/>
     </div>
     

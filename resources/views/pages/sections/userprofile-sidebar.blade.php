@@ -53,13 +53,13 @@
 		        {{-- <a href="{{route('tribe.setting.main', ["tribe_id" => $tribe['tribe']->id])}}" class="list-group-item active" id="menu-main">
 		            <i class="fa fa-home"></i> Main
 		        </a> --}}
-		        <a href="{{route('user.profile-page') }}" class="list-group-item" id="menu-profile-edie">
+		        <a href="{{route('user.profile-page') }}" class="list-group-item" id="menu-profile-edit">
 		            <i class="fa fa-user"></i> Profile
 		        </a>
-		        <a href="#" class="list-group-item" id="menu-project">
+		        <a href="{{route('user.project-list-page') }}" class="list-group-item" id="menu-project-list">
 		            <i class="fa fa-tasks"></i> Project
 		        </a>
-		        <a href="" class="list-group-item" id="menu-message">
+		        <a href="" class="list-group-item" id="menu-message-list">
 		            <i class="fa fa-envelope"></i> Message <span class="badge">0</span>
 		        </a>
 		    </div>        
@@ -87,7 +87,7 @@ $(function(){
 		$(this).attr("class", "list-group-item");
 	});
 
-	// var selected = '';
+	var selected = '{{ $menu }}';
 	$("#menu-"+selected).attr("class", "list-group-item active");
 })
 

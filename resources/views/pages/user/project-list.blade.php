@@ -1,12 +1,13 @@
-@extends('layouts.tribe-setting')
-@section('title', 'Tribe Setting')
+@extends('layouts.user-setting')
+@section('title', 'User Profile')
 <style type="text/css">
 .card{
     margin-bottom: 3%;
 }
 </style>
 @section('body-content')
-<div class="col-md-9 setting-body">
+<div class="col-md-9 setting-body" style="margin-top: 7%;">
+    <h3 style="margin-top: 0px;">User Projects</h3>
     <hr/>
 	@foreach($projects as $project)
     <div class="card">
@@ -19,6 +20,5 @@
     </div>
     <hr/>
     @endforeach
-
 </div>
 @endsection

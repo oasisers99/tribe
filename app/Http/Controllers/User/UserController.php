@@ -58,7 +58,7 @@ class UserController extends Controller
         
 
     	return view('pages.user.user-profile', ['user'=>$user,
-    		'interests'=>$user_selected_interests]);
+    		'interests'=>$user_selected_interests, 'menu'=>'profile-edit']);
     }
 
     /**
@@ -118,7 +118,25 @@ class UserController extends Controller
     	}
         
     	return view('pages.user.user-profile', ['user'=>$user,
-    		'interests'=>$user_selected_interests]);
+    		'interests'=>$user_selected_interests, 'menu'=>'profile-edit']);
+
+    }
+
+    /**
+     *	Projects that the user is in.
+     * 
+     */
+    public function projectListPage(Request $request){
+    	$user_id = $request->session()->get('email');
+
+    	$projects = DB::table('member_project')
+            ->join('tribe_project', 'member_project.project_id', '=', 'tribe_project.id')
+            ->select('tribe_project.*', 'member_project.*')
+            ->where('member_project.user_id', '=', $user_id)
+            ->get();
+
+        return view('pages.user.project-list', ['projects'=>$projects,
+    		'menu'=>'project-list']);
 
     }
 }
