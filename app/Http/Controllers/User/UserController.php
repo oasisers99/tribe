@@ -131,8 +131,10 @@ class UserController extends Controller
 
     	$projects = DB::table('member_project')
             ->join('tribe_project', 'member_project.project_id', '=', 'tribe_project.id')
-            ->select('tribe_project.*', 'member_project.*')
+            ->select('tribe_project.title', 'tribe_project.description', 
+                        'tribe_project.created_at','tribe_project.id')
             ->where('member_project.user_id', '=', $user_id)
+            ->orderByRaw('tribe_project.created_at DESC')
             ->get();
 
         return view('pages.user.project-list', ['projects'=>$projects,

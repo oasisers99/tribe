@@ -216,11 +216,18 @@ class TribeController extends Controller
         $tribeId = $request['tribe_id'];
         $userId = $request->session()->get('email');
 
-        DB::insert('INSERT INTO tribe_project
-                    (title, description, member_no, topic, location, country, created_by, tribe_id)
-                    VALUES
-                    (?,?,?,?,?,?,?,?)', [$title, $description, $member_no, $topic, $location, 'Australia', $userId, $tribeId]);
+        $project_id = DB::table('tribe_project')->insertGetId(
+            ['title' => $title, 'description' => $description, 
+             'member_no' => $member_no, 'topic' =>  $topic,
+             'location' => $location, 'country' => 'Australia',
+              'created_by' => $userId, 'tribe_id' => $tribeId]
+        );
 
+
+        DB::insert('INSERT INTO member_project
+                    (project_id, user_id, status)
+                    VALUES
+                    (?,?,?)', [$project_id, $userId, '1']);
 
         $tribeId = $request['tribe_id'];
         $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
