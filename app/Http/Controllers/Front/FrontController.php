@@ -138,4 +138,14 @@ class FrontController extends Controller
 
         return view('pages.front.project-detail', ['project' => $project]);
     }
+
+    /**
+     * Move to the contact page.
+     * 
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function contactPage(Request $request){
+        return view('pages.front.contact');
+    }
 }

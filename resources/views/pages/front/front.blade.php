@@ -136,7 +136,7 @@
 							<li><a href="#">How it Works</a></li>
 							<li><a href="#">Services</a></li>
 							<li><a href="#">Blog</a></li>
-							<li><a href="#">Contact</a></li>
+							<li><a href="{{ route('front.contact') }}">Contact</a></li>
 						</ul>
 					</div>
 					<div class="clearfix visible-sm-block"></div>
