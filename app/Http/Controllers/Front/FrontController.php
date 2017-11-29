@@ -120,10 +120,21 @@ class FrontController extends Controller
     public function viewProject(Request $request){
         $projectId = $request['projectId'];
 
-        $query = DB::table('tribe_project');
-        $query->where('id', $projectId);
+        // $query = DB::table('tribe_project');
+        // $query->where('id', $projectId);
 
-        $project = $query->first();
+        // $project = $query->first();
+
+
+        $project = DB::table('tribe_project')
+            ->join('users', 'tribe_project.created_by', '=', 'users.email')
+            ->select('tribe_project.title', 'tribe_project.description', 'users.name',
+                     'tribe_project.topic', 'tribe_project.location', 'tribe_project.member_no',
+                     'tribe_project.created_at')
+            ->where('tribe_project.id', '=', $projectId)
+            ->first();
+
+
 
         return view('pages.front.project-detail', ['project' => $project]);
     }
