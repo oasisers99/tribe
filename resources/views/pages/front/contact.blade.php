@@ -28,7 +28,7 @@ body {
   font-size: 12px;
   line-height: 30px;
   color: #777;
-  background-image: url(/images/full_1.jpg);
+  background: #3C3B3F;
 }
 
 .container {

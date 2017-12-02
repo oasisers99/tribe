@@ -143,7 +143,7 @@
 							<li><a href="#" data-toggle="modal" data-target="#tutorialModal">How {{config('app.name')}} Works</a></li>
 							<li><a href="#">Services</a></li>
 							<li><a href="#">Blog</a></li>
-							<li><a href="{{ route('front.contact') }}">Contact</a></li>
+							<li><a href="{{ route('front.contact') }}">Contact Us</a></li>
 						</ul>
 					</div>
 					<div class="clearfix visible-sm-block"></div>
