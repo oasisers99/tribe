@@ -70,9 +70,13 @@
 <div class="fh5co-blog-style-1 tribe-search" id="searchTribe">
     <div class="container">
         <div class="row tribe-search">
-            <div class="col-md-6 col-md-offset-3 text-center">
-                <h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Search more tribes!</h2>
-                {{-- <p>Search more tribes out there!</p> --}}
+            <div class="col-md-7 col-md-offset-3 text-center">
+                <h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Find your tribe!</h2>
+                <p>We are a community of diverse tribes with different areas of interest. Together we create and run volunteering projects - leaving a lasting legacy in our communities. 
+If you can’t see a tribe that suits you; <a href="{{ route('front.gettingStarted') }}">create a new one!</a><br/><br/>
+
+ “A tribe is a group of people connected to one another… and connected to an idea. For millions of years, human beings have been part of one tribe or another. A group needs only two things to be a <b>tribe</b>: a shared interest and a way to communicate.” ― <b>Seth Godin</b>
+</p>
             </div>
             <form class="tribe-search-form" method="GET" id="tribe-search" name='tribesearchform' action="{{ route('tribe.searchTribeFull') }}">
                 {{ csrf_field() }}

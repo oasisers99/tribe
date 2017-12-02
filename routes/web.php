@@ -24,6 +24,10 @@ Route::group(['prefix' => 'front', 'as' => 'front.', 'namespace' => 'Front'], fu
     Route::get('viewProject', 'FrontController@viewProject')->name('viewProject');
     Route::get('contact', 'FrontController@contactPage')->name('contact');
     Route::get('aboutus', 'FrontController@aboutUs')->name('aboutus');
+    Route::get('gettingStarted', 'FrontController@gettingStarted')->name('gettingStarted');
+    
+    Route::post('sendMessage', 'FrontController@sendMessage')->name('sendMessage');
+    
 });
 
 

@@ -157,7 +157,8 @@ fieldset {
 
 @section('body-content')
 <div class="container">  
-  <form id="contact" action="" method="post">
+  <form id="contact" action="{{ route('front.sendMessage') }}" method="post">
+    {{ csrf_field() }}
     <h3>Contact us</h3>
     <h4>Feel free to ask any questions!</h4>
     <fieldset>

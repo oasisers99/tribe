@@ -6,6 +6,11 @@
 
 	<link rel="stylesheet" type="text/css" href="{{ mix('/css/front/front.css') }}">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    {{-- <link rel="stylesheet" type="text/css" href="{{ mix('/css/tribe/style.css') }}"> --}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 	<!-- Modernizr JS -->
 	<!-- <script src="js/modernizr-2.6.2.min.js"></script> -->
@@ -29,8 +34,10 @@
 						<div class="col-md-push-6 col-md-6 full-height js-full-height">
 							<div class="fh5co-cover-intro">
 								<h1 class="cover-text-lead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Your time is powerful!<br/>How are you going to use it?</h1>
-								<h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">Unite a tribe with a joint interest, love or hobby. Together you can create your lasting legacy. Through the Voli platform you can mobilise your tribe to come together for joint projects that powerfully impact the community.</h2>
-								<p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s"><a href="{{ route('tribe.searchTribeFull') }}" class="btn btn-primary btn-outline btn-lg">Search Tribe</a></p>
+								<h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">If the thought of *volunteering in a dusty op shop or *harassing strangers with a jangling donation tin makes you shudder; you’re in the right place. 
+								Meaningful, fun, flexible volunteering is only <a href="{{ route('front.gettingStarted') }}">a few steps away</a>
+								With Voli - the power is in your hands. </h2>
+								<p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s"><a href="{{ route('tribe.searchTribeFull') }}" class="btn btn-primary btn-outline btn-lg">Find Your Tribe</a></p>
 							</div>
 						</div>
 					</div>
@@ -133,7 +140,7 @@
 					<div class="col-md-3 col-sm-6 fh5co-footer-widget wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
 						<h3>Company</h3>
 						<ul class="fh5co-links">
-							<li><a href="#">How it Works</a></li>
+							<li><a href="#" data-toggle="modal" data-target="#tutorialModal">How {{config('app.name')}} Works</a></li>
 							<li><a href="#">Services</a></li>
 							<li><a href="#">Blog</a></li>
 							<li><a href="{{ route('front.contact') }}">Contact</a></li>
@@ -164,7 +171,13 @@
 			</div>
 		</div>
 		<!-- END footer -->
-		
+		  <!-- Modal -->
+
 	{{-- </div> --}}
 	<!-- END page-->
+<script type="text/javascript">
+	function openModalForTutorial(){
+		$("#tutorialModal").modal('show');
+	}
+</script>
 @endsection

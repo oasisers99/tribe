@@ -69,9 +69,8 @@
     <div class="container">
         <div class="row project-search">
             <div class="col-md-6 col-md-offset-3 text-center">
-                <h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Search project</h2>
-                <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">Explore projects by tribes in different domains. 
-                You can jump in the project you like. Have a look and ask for join now!</p>
+                <h2 class="fh5co-heading wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Find project!</h2>
+                <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">Our community of tribes create and run their <b>own</b> volunteering projects and activities. If you can’t see a project that you’d like to join; <a href="{{ route('front.gettingStarted') }}">create a new one!</a></p>
                 {{-- <p>Search more tribes out there!</p> --}}
             </div>
             <form class="project-search-form" method="GET" id="project-search" name='projectSearchForm' action="{{ route('front.searchProject') }}">

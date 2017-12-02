@@ -12,23 +12,44 @@
 	<div class="container">
 		<div class="row p-b" style="padding-bottom: 15px;">
 			<div class="col-md-6 col-md-offset-3 text-center">
-				<h2>About Voli</h2>
+				<h2>About {{config('app.name')}}</h2>
 				<p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.8s; animation-name: fadeInUp;"> </p>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2 text-center">
 			<p>
-			Voli ultimately aims to keep older adults connected to the community during the process of retirement. Retirement is a time when identity is rocked and people re-visit their thoughts about life purpose. This is a natural next step; through Voli, retirees will have easier access to meaningful connections and fulfilling roles in society. <br/><br/>
+			<b>{{config('app.name')}}</b> is a national online network of self-organising volunteering groups. We make it easy for you to find and create meaningful volunteering activities. <br/><br/>
 
-			Voli is a web-based platform that allows like-minded people to find each other, form a group and contribute to volunteering projects of special interest to them. The platform enables the group to create and manage their own volunteering projects with assistance from Voli in navigating those tricky parts. Volunteering has been shown to have direct mental and physical health benefits to individuals and the wider community.
+On <b>{{config('app.name')}}</b> you can find like-minded people and form a group or ‘tribe’. The platform enables your group to create and manage your own volunteering projects; what, where, how and who is up to you! We know you have a wealth of experience from your decades in the workforce and life knowledge to share. You’re the one with skills and networks, and now you’re the one with the time to use that power. We’ll help you harness that power for the greatest outcome. 
+<br/><br/>
+
+<h3><b>Vision</b>.</h3> 
+At <b>{{config('app.name')}}</b> our vision is to have every Australian Baby Boomer engaged in volunteering roles that feel meaningful, interesting and flexible. 
+<br/><br/>
+
+<h3><b>Mission Statement</b>.</h3>
+We hand you the power and control over your volunteer participation. <br/>You are the leader of your own volunteering journey.
+<br/><br/>
+
+<h3><b>Values</b>.</h3>
+Re-invention (innovation)<br/>
+Personalisation<br/>
+Leadership <br/>
+Connection <br/>
+Spirit (vivacity)<br/>
+
 			</p>
 			<iframe width="520" height="293" src={{ $videolink }} frameborder="0" allowfullscreen></iframe>
+			</div>
+			<div class="col-md-8 col-md-offset-2 text-center">
+			<p>
+			</p>
 			</div>
 		</div>
 		<div class="row p-b" style="margin-top: 5%;">
 			<div class="col-md-6 col-md-offset-3 text-center">
-				<h2>Members of Voli</h2>
+				<h2>Members of {{config('app.name')}}</h2>
 			</div>
 		</div>
 		<div class="row">
@@ -41,11 +62,11 @@
 						</a>
 						<div class="fh5co-meta">
 							<h3>Jacqui Storey</h3>
-							<span class="fh5co-company">Founder & Director</span>
+							<span class="fh5co-company">CEO and Business Director </span>
 						</div>
 					</div>
 					<div class="fh5co-text">
-						<p>Curious by nature and has always her fingers in a myriad of pies! A problem solver, entrepreneur and social innovator.</p>
+						<p>I’d like to extend a warm welcome onto our platform. You may be searching through the website wondering who’s sitting on the other side of this digital screen; well, it’s me, and a small team of dedicated professionals. I describe myself as an entrepreneur, social innovator and doting granddaughter. The spark for this platform came from my high respect and value for the knowledge that is transferred from an elder to their younger generations. This valuable knowledge resource needs to be nourished and shared in a way that is fitting; that garners the appropriate respect for our older generations.</p>
 					</div>
 				</div>	
 			</div>
@@ -57,11 +78,11 @@
 						</a>
 						<div class="fh5co-meta">
 							<h3>Minseok Song</h3>
-							<span class="fh5co-company">Technical Director</span>
+							<span class="fh5co-company">Chief Technical Officer & <br/> Technical Director </span>
 						</div>
 					</div>
 					<div class="fh5co-text">
-						<p>Loves solving challenges with technologies. Software Engineer, Architect, Analyst Developer</p>
+						<p>You may be searching through the website also wondering who’s creating this digital platform; well, it’s me! I started this {{config('app.name')}} project hoping that my technical skills can help people. Technology is my passion, and I love using it to solve problems. I truly hope that with {{config('app.name')}}, you could continue / find your passion and lead a happier life.</p>
 					</div>
 				</div>
 			</div>
