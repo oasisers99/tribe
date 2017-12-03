@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Tribe'),
+    'name' => env('APP_NAME', 'Voli'),
 
     /*
     |--------------------------------------------------------------------------
@@ -134,6 +134,8 @@ return [
     | this array to grant expanded functionality to your applications.
     |
     */
+
+    'mailgun_secret' => env('MAILGUN_SECRET', 'key-9252bec76038bda66d84834770878271'),
 
     'providers' => [
 

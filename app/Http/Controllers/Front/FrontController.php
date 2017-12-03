@@ -170,25 +170,23 @@ class FrontController extends Controller
      * @return [type]           [description]
      */
     public function sendMessage(Request $request){
-
-        $tribes = DB::select("SELECT  
-                                    trb.id, trb.name, trb.summary, trb.topic1, trb.topic2, trb.image1, trb.topic1, trb.region, trb.country
-                                    , (SELECT COUNT(user_id) FROM tribe_member mem WHERE mem.tribe_id = trb.id AND mem.active = 'Y') as member_no
-                                FROM tribe trb
-                                ORDER BY rand() LIMIT 4");
         
         # Instantiate the client.
-        $mgClient = new Mailgun('key-9252bec76038bda66d84834770878271');
+        $mgClient = new Mailgun(config('app.mailgun_secret'));
         $domain = "email.powerfulvoli.com";
+
+        $message = "Sender: " . $request['name'] . "\n";
+        $message .= "Phone: " . $request['tel'] . "\n\n";
+        $message .= "Message: " . $request['message'];
 
         # Make the call to the client.
         $result = $mgClient->sendMessage($domain, array(
-            'from'    => '<oasisers99@gmail.com>',
-            'to'      => '<minseok@email.powerfulvoli.com>',
-            'subject' => 'Hello',
-            'text'    => 'Testing some Mailgun awesomness!'
+            'from'    => $request['sender-email'],
+            'to'      => '<oasisers99@gmail.com>',
+            'subject' => '[Voli Web] Message from Voli user',
+            'text'    => $message
         ));
 
-        return view('pages.front.front', ['tribes' => $tribes]);
+        return redirect("/");
     }
 }

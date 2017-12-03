@@ -162,19 +162,19 @@ fieldset {
     <h3>Contact us</h3>
     <h4>Feel free to ask any questions!</h4>
     <fieldset>
-      <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+      <input placeholder="Your name" type="text" name="name" tabindex="1" required autofocus>
     </fieldset>
     <fieldset>
-      <input placeholder="Your Email Address" type="email" tabindex="2" required>
+      <input placeholder="Your Email Address" type="email" name="sender-email" tabindex="2" required>
     </fieldset>
     <fieldset>
-      <input placeholder="Your Phone Number (optional)" type="tel" tabindex="3">
+      <input placeholder="Your Phone Number (optional)" name="tel" type="tel" tabindex="3">
     </fieldset>
-    <fieldset>
+{{--     <fieldset>
       <input placeholder="Your Web Site (optional)" type="url" tabindex="4">
-    </fieldset>
+    </fieldset> --}}
     <fieldset>
-      <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
+      <textarea placeholder="Type your message here...." name="message" tabindex="4" required></textarea>
     </fieldset>
     <fieldset>
       <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
