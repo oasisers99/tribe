@@ -242,14 +242,14 @@
           <img class="img-thumbnail" alt="60x60" style="width: 60px; height: 60px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLdb4IzWVmXx1l2HcR4q1ACeR3eZvDdOB_7wecoQbpjsWhRezgjQX19B8">
         </div>
         <div class="col-md-8">
-          <h4 class="list-group-item-heading">{{$member->user_name}}</h4>
+          <h4 class="list-group-item-heading"><a href="#" onclick="onMemberClick('{{$member->user_id}}')")>{{$member->user_name}}</a></h4>
           <p class="list-group-item-text">{{$member->member_type_name}}</p>
         </div>
       </div>
       @endforeach
     </div>
   </div>
-  <!-- Modal -->
+  <!-- Modal for message -->
   <div class="modal fade" id="tribeModal" tabindex="-1" role="dialog" aria-labelledby="tribeModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -268,6 +268,7 @@
       </div>
     </div>
   </div>
+  @include('pages.sections.member-modal')
 <script src="/ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
 CKEDITOR.disableAutoInline = true;

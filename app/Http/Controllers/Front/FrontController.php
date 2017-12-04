@@ -182,8 +182,8 @@ class FrontController extends Controller
         # Make the call to the client.
         $result = $mgClient->sendMessage($domain, array(
             'from'    => $request['sender-email'],
-            'to'      => '<oasisers99@gmail.com>',
-            'subject' => '[Voli Web] Message from Voli user',
+            'to'      => '<oasisers99@gmail.com>,<jacqui.storey89@gmail.com>',
+            'subject' => '[Voli Postman] You have a new message from ' . $request['name'],
             'text'    => $message
         ));
 

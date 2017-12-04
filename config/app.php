@@ -135,7 +135,7 @@ return [
     |
     */
 
-    'mailgun_secret' => env('MAILGUN_SECRET', 'key-9252bec76038bda66d84834770878271'),
+    'mailgun_secret' => env('MAILGUN_SECRET'),
 
     'providers' => [
 

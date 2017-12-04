@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Config;
-
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -140,5 +140,21 @@ class UserController extends Controller
         return view('pages.user.project-list', ['projects'=>$projects,
     		'menu'=>'project-list']);
 
+    }
+
+    /**
+     * [userDetail description]
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function userDetail(Request $request){
+        $userId = $request['userId'];
+
+        $query = DB::table('users');
+        $query->where('email', $userId);
+
+        $user = $query->first();
+
+        return response(["user"=>$user]); 
     }
 }
