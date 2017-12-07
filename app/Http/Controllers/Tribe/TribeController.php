@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Config;
 class TribeController extends Controller
 {
 
+    const PROJECT_JOIN_REQUEST = 2;
+
     /**
      * TribeController constructor.
      */
@@ -305,6 +307,23 @@ class TribeController extends Controller
         return response(["message"=>$message]);
     }
 
+    /**
+     * Request join for the project.
+     * 
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function projectJoinRequest(Request $request){
+        $tribeId = $request['tribe_id'];
+        $userId = $request['user_id'];
+        $projectId = $request['project_id'];
+
+        DB::table('users')->insert([
+            ['project_id' => $projectId, 'user_id' => $userId, 'status' => Self::PROJECT_JOIN_REQUEST]
+        ]);
+
+        return response(["message"=>$message]);
+    }
 
     /**
      * Validate inputs to create a tribe.

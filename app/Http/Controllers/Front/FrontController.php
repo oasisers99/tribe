@@ -142,8 +142,8 @@ class FrontController extends Controller
 
         $project = DB::table('tribe_project')
             ->join('users', 'tribe_project.created_by', '=', 'users.email')
-            ->select('tribe_project.title', 'tribe_project.description', 'users.name',
-                     'tribe_project.topic', 'tribe_project.location', 'tribe_project.member_no',
+            ->select('tribe_project.id', 'tribe_project.title', 'tribe_project.description', 
+                     'users.name','tribe_project.topic', 'tribe_project.location', 'tribe_project.member_no',
                      'tribe_project.created_at')
             ->where('tribe_project.id', '=', $projectId)
             ->first();

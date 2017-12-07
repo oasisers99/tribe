@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.common')
 
 @section('title', config('app.name'))
 
@@ -10,6 +10,11 @@
 			margin-top: 10%;
 		}
 	</style>
+  <script type="text/javascript">
+    function sendJoinRequest(projectId){
+      alert(projectId);
+    }
+  </script>
 @endsection
 
 @section('body-content')
@@ -45,7 +50,12 @@
             <ol class="list-unstyled">
               <li>Topic: {{$project->topic}}</a></li>
               <li>Location: {{$project->location}}</a></li>
-              <li>Maximum number: {{$project->member_no}}</a></li>
+              <li>Maximum project members: {{$project->member_no}}</a></li>
+            </ol>
+          </div>
+          <div class="sidebar-module" style="margin-top: 20%;">
+            <h4>Joined Members</h4>
+            <ol class="list-unstyled">
             </ol>
           </div>
           <div class="sidebar-module" style="margin-top: 20%;">
@@ -58,6 +68,27 @@
         </aside><!-- /.blog-sidebar -->
 
       </div><!-- /.row -->
+      <button class="btn btn-primary" data-toggle="modal" data-target="#messageModal">I want to join!</button>
+      <!-- Modal for message -->
 
     </main>
+    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="messageModalLabel">Message</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="messageModal" class="modal-body">
+              Do you want to send a join request?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Send</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 @endsection
