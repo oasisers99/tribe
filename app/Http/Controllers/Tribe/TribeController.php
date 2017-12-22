@@ -318,7 +318,7 @@ class TribeController extends Controller
 
         
 
-        DB::table('project_member')->insert([
+        DB::table('member_project')->insert([
             ['project_id' => $projectId, 'user_id' => $userId, 'status' => '1']
         ]);
 

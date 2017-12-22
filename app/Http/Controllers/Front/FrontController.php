@@ -145,7 +145,7 @@ class FrontController extends Controller
 
         $userId = $request->session()->get('email');
 
-        $userProjectStatus = DB::table('project_member')->where([
+        $userProjectStatus = DB::table('member_project')->where([
                                 ['project_id', '=', $projectId],
                                 ['user_id', '=', $userId],
                              ])->first();
