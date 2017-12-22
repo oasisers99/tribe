@@ -4,20 +4,81 @@
 
 @section('page-resources')
 	<link rel="stylesheet" type="text/css" href="{{ mix('/css/front/front.css') }}">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 	<style type="text/css">
 		main{
 			margin-top: 10%;
 		}
 	</style>
   <script type="text/javascript">
-    function sendJoinRequest(projectId){
-      alert(projectId);
+
+    /**
+     * Show message modal
+     * @return {[type]} [description]
+     */
+    function showMessageModal(){
+
+      if(!('{{Auth::check()}}')){
+        redirectIfNotLoggedIn();
+      }else{
+        $('#messageModalBody').text("Do you want to send a join request?");
+        $('#messageModal').modal('show');
+      }
+    }
+
+    /**
+     * Send join request
+     * @return {[type]} [description]
+     */
+    function confirmClicked(){
+      var data = {
+        'project_id' : '{{$project->id}}'
+      };
+
+     $.ajax({
+        method: "POST",
+        data: data,
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        url: '{{ route('tribe.projectJoinRequest') }}'
+      })
+      .done(function(result){
+
+        $('#messageModal').modal('hide');
+
+        if(result.status == 'success'){
+          $('#resultMessageModalBody').text("You've successfully sent the request.");
+          location.reload();
+        }else{
+          $('#resultMessageModalBody').text("Sorry, there was some problem while sending the request. Please contact us.");
+        }
+
+         $('#resultMessageModal').modal('show');
+      });
+    }
+
+    /**
+     * Redirect if not logged in.
+     * 
+     * @param  {[type]} message [description]
+     * @return {[type]}         [description]
+     */
+    function redirectIfNotLoggedIn(message){
+      $('#infoMessageModalBody').text("Please login to send the request.");
+      $('#infoMessageModal').modal('show');
+      $('#infoMessageModal').on('hidden.bs.modal', function (e) {
+        window.location.href = '{{route('common.redirectToLoginPageWithMessage')}}';
+      });
     }
   </script>
 @endsection
 
 @section('body-content')
+@include('pages.sections.modal')
 <main role="main" class="container">
 
       <div class="row">
@@ -68,27 +129,19 @@
         </aside><!-- /.blog-sidebar -->
 
       </div><!-- /.row -->
-      <button class="btn btn-primary" data-toggle="modal" data-target="#messageModal">I want to join!</button>
+      @isset($userProjectStatus)
+        @if($userProjectStatus->status == 1)
+          <button class="btn btn-primary" disabled="true" title="test">Request already sent</button>
+        @elseif($userProjectStatus->status == 2)
+          <button class="btn btn-primary" disabled="true" title="test">Already accepted</button>
+        @else
+          <button class="btn btn-primary" onclick="showMessageModal();">I want to join!</button>
+        @endif
+      @endisset
+      @empty($userProjectStatus)
+        <button class="btn btn-primary" onclick="showMessageModal();">I want to join!</button>
+      @endempty
       <!-- Modal for message -->
-
     </main>
-    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="messageModalLabel">Message</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div id="messageModal" class="modal-body">
-              Do you want to send a join request?
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Send</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    
 @endsection

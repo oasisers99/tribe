@@ -13,6 +13,12 @@
 
 Route::get('/', 'Front\FrontController@main');
 
+// Common
+Route::group(['prefix' => 'common', 'as' => 'common.', 'namespace' => 'Common'], function(){
+
+    Route::get('redirectToLoginPageWithMessage', 'CommonController@redirectToLoginPageWithMessage')->name('redirectToLoginPageWithMessage');
+    
+});
 
 // Route group for front page
 Route::group(['prefix' => 'front', 'as' => 'front.', 'namespace' => 'Front'], function(){
@@ -89,7 +95,7 @@ Route::group(['prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], fu
         Route::post('createTribe', 'TribeController@createTribe')->name('createTribe');
         Route::post('createProject', 'TribeController@createProject')->name('createProject');
         
-  
+          
         /**
          * Tribe setting functions (still need login check)
          */
@@ -115,6 +121,7 @@ Route::group(['prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], fu
      */
     Route::middleware(['logincheck_ajax'])->group(function () {
         Route::post('requestJoin', 'TribeController@requestJoin')->name('requestJoin');
+        Route::post('projectJoinRequest', 'TribeController@projectJoinRequest')->name('projectJoinRequest');
     });
 
 });

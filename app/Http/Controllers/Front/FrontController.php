@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 use Mailgun\Mailgun;
 
 
@@ -132,14 +133,8 @@ class FrontController extends Controller
      * @return [type]           [description]
      */
     public function viewProject(Request $request){
+      
         $projectId = $request['projectId'];
-
-        // $query = DB::table('tribe_project');
-        // $query->where('id', $projectId);
-
-        // $project = $query->first();
-
-
         $project = DB::table('tribe_project')
             ->join('users', 'tribe_project.created_by', '=', 'users.email')
             ->select('tribe_project.id', 'tribe_project.title', 'tribe_project.description', 
@@ -148,9 +143,15 @@ class FrontController extends Controller
             ->where('tribe_project.id', '=', $projectId)
             ->first();
 
+        $userId = $request->session()->get('email');
+
+        $userProjectStatus = DB::table('project_member')->where([
+                                ['project_id', '=', $projectId],
+                                ['user_id', '=', $userId],
+                             ])->first();
 
 
-        return view('pages.front.project-detail', ['project' => $project]);
+        return view('pages.front.project-detail', ['project' => $project, 'userProjectStatus' => $userProjectStatus]);
     }
 
     /**

@@ -8,12 +8,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Config;
-
+use Illuminate\Support\Facades\Log;
 
 class TribeController extends Controller
 {
-
-    const PROJECT_JOIN_REQUEST = 2;
 
     /**
      * TribeController constructor.
@@ -314,15 +312,17 @@ class TribeController extends Controller
      * @return [type]           [description]
      */
     public function projectJoinRequest(Request $request){
-        $tribeId = $request['tribe_id'];
-        $userId = $request['user_id'];
+
+        $userId = $request->session()->get('email');
         $projectId = $request['project_id'];
 
-        DB::table('users')->insert([
-            ['project_id' => $projectId, 'user_id' => $userId, 'status' => Self::PROJECT_JOIN_REQUEST]
+        
+
+        DB::table('project_member')->insert([
+            ['project_id' => $projectId, 'user_id' => $userId, 'status' => '1']
         ]);
 
-        return response(["message"=>$message]);
+        return response(["status"=>'success']);
     }
 
     /**

@@ -12,5 +12,10 @@ return [
         '7' => 'Recreation',
         '8' => 'Sports',
         '9' => 'Technology'
+    ],
+    'project-join-status' => [
+        '1' => 'JOIN-REQUESTED',
+        '2' => 'JOIN-ACCEPTED',
+        '3' => 'JOIN-DECLINED'
     ]
 ];
