@@ -185,6 +185,25 @@ class TribeController extends Controller
     }
 
     /**
+     * [deletePosting description]
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function deletePosting(Request $request){ 
+        $postId = $request['postId'];
+        $tribeId = $request['tribeId'];
+
+        DB::table('tribe_posting')->where('id', '=', $postId)->delete();
+
+        $postings = DB::select('SELECT post.id, post.tribe_id, post.content, post.created_by, user.name as user_name, post.created_at
+                    FROM tribe_posting post, users user
+                    WHERE post.created_by = user.email
+                    AND tribe_id = (?)
+                    ORDER BY created_at DESC', [$tribeId]);
+
+        return response($postings);
+    }
+    /**
      * Get tribe postings
      * @param  Request $request [description]
      * @return [type]           [description]

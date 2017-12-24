@@ -158,7 +158,8 @@
       postHTML += '</div>';
 
       postHTML += '<div class="col-md-12" id="edit-save-btn-div-'+item.id+'" align="right" style="margin-bottom: 5%;" hidden>';
-      postHTML += '<a type="button" id="edit-save-post-btn" class="btn btn-danger" onclick="editPostSave('+item.id+')">Save</a>';
+      postHTML += '<a type="button" id="edit-del-post-btn" class="btn btn-danger" style="margin-right: 1%;" onclick="checkDelete('+item.id+')">Delete</a>';
+      postHTML += '<a type="button" id="edit-save-post-btn" class="btn btn-primary" onclick="editPostSave('+item.id+')">Save</a>';
       postHTML += '</div>'
 
       postHTML += '</div>';
@@ -208,6 +209,33 @@
   }
 
 
+  function checkDelete(postId){
+    $('#messageModalBody').text("Do you want to delete the post?");
+    $('#confirmBtn').attr('onclick', 'confirmClicked("'+postId+'");');
+    $('#messageModal').modal('show');
+  }
+
+  function confirmClicked(postId){
+    $('#messageModal').modal('hide');
+    var data = {
+      'postId' : postId,
+      'tribeId' : '{{$tribe['tribe']->id}}'
+    };
+    
+    $.ajax({
+          method: "POST",
+          headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+          url: '{{Route("tribe.deletePosting")}}',
+          data: data
+    })
+    .done(function(response){
+      editorCNT = 0;
+      displayTribePostings(response);
+    })
+    .fail(function() {
+      location.reload();
+    });
+  }
 </script>
 
   {{-- Left pane --}}
@@ -269,6 +297,7 @@
     </div>
   </div>
   @include('pages.sections.member-modal')
+  @include('pages.sections.modal')
 <script src="/ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
 CKEDITOR.disableAutoInline = true;

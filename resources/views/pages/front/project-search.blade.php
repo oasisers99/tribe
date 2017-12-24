@@ -13,6 +13,15 @@
         projectSearchForm.submit();
         
     }
+
+    // $.get("https://ipinfo.io", function (response) {
+    //     $("#ip").html("IP: " + response.ip);
+    //     $("#address").html("Location: " + response.city + ", " + response.region);
+    //     $("#details").html(JSON.stringify(response, null, 4));
+    //     $("#city").html(response.city);
+    //     // document.getElementById('city').value = response.city;
+    //     alert(response.city);
+    // }, "jsonp");
 </script>
 <style type="text/css">
     .project-search-text{
@@ -88,7 +97,7 @@
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="project-search-text" id="search-area" name="area" placeholder="Area">
+                    <input type="text" class="project-search-text" id="search-area" name="area" autocomplete="city" placeholder="Area">
                     <input type="button" value="Search" class="btn btn-default" id="search-project-btn" onclick="validateAndSubmit();">
                 </div>
             </form>

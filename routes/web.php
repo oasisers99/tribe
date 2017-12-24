@@ -92,6 +92,8 @@ Route::group(['prefix' => 'tribe', 'as' => 'tribe.', 'namespace' => 'Tribe'], fu
 
         Route::post('createPosting', 'TribeController@createPosting')->name('createPosting');
         Route::post('updatePosting', 'TribeController@updatePosting')->name('updatePosting');
+        Route::post('deletePosting', 'TribeController@deletePosting')->name('deletePosting');
+        
         Route::post('createTribe', 'TribeController@createTribe')->name('createTribe');
         Route::post('createProject', 'TribeController@createProject')->name('createProject');
         
