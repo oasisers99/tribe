@@ -31,6 +31,8 @@ class TribeController extends Controller
      */
     public function createTribeForm(Request $request){
 
+        //Get area of interest from the config file.
+        // config/code.php
         $interests = Config::get('code.interests');
 
         return view('pages.tribe.create', ["interests"=>$interests]);
