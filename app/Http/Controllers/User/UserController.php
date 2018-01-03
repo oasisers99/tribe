@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use App\Helper\MemberHelper;
 
 class UserController extends Controller
 {
@@ -56,9 +58,15 @@ class UserController extends Controller
         	array_push($user_selected_interests, $item);
     	}
         
+        $msgCount = 0;
+        if (Auth::check()) {
+            $msgCount = MemberHelper::countNewMessage($request->session()->get('email'));
+        }
 
     	return view('pages.user.user-profile', ['user'=>$user,
-    		'interests'=>$user_selected_interests, 'menu'=>'profile-edit']);
+    		'interests'=>$user_selected_interests, 
+            'menu'=>'profile-edit',
+            'msgCount'=>$msgCount]);
     }
 
     /**

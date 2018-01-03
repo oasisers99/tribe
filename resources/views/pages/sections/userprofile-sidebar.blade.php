@@ -60,7 +60,7 @@
 		            <i class="fa fa-tasks"></i> Project
 		        </a>
 		        <a href="" class="list-group-item" id="menu-message-list">
-		            <i class="fa fa-envelope"></i> Message <span class="badge">0</span>
+		            <i class="fa fa-envelope"></i> Message <span class="badge">{{$msgCount}}</span>
 		        </a>
 		    </div>        
 		</div>

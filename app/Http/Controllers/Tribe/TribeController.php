@@ -346,6 +346,8 @@ class TribeController extends Controller
         return response(["status"=>'success']);
     }
 
+
+
     /**
      * Validate inputs to create a tribe.
      * 
@@ -363,4 +365,6 @@ class TribeController extends Controller
 
         return Validator::make($data, $rules);
     }
+
+
 }
