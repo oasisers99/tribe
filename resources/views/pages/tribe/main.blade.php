@@ -114,7 +114,6 @@
         displayTribePostings(response);
       })
       .fail(function() {
-        //alert( "error" );
         location.reload();
       });
   }
@@ -208,13 +207,24 @@
     });
   }
 
-
+  /**
+   * Before deleting a post.
+   * 
+   * @param  {[type]} postId [description]
+   * @return {[type]}        [description]
+   */
   function checkDelete(postId){
     $('#messageModalBody').text("Do you want to delete the post?");
     $('#confirmBtn').attr('onclick', 'confirmClicked("'+postId+'");');
     $('#messageModal').modal('show');
   }
 
+  /**
+   * To delete a post.
+   * 
+   * @param  {[type]} postId [description]
+   * @return {[type]}        [description]
+   */
   function confirmClicked(postId){
     $('#messageModal').modal('hide');
     var data = {
@@ -236,6 +246,53 @@
       location.reload();
     });
   }
+
+  function checkSendMessage(){
+    $('#messageModalBody').text("Do you want to send the message?");
+    $('#confirmBtn').attr('onclick', 'confirmSendClicked();');
+    $('#messageModal').modal('show');
+  }
+
+
+  function confirmSendClicked(){
+    var message = $("#message-text").val();
+    var recipient = $("#recipient-id").val();
+    var data = {
+      'recipient' : recipient,
+      'message' : message
+    };
+
+    $('#messageModal').modal('hide');
+
+    $.ajax({
+          method: "POST",
+          headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+          url: '{{Route("user.sendMessage")}}',
+          data: data
+    })
+    .done(function(response){
+      displaySuccess('Your message has successfully been sent.');
+    })
+    .fail(function() {
+      displayFail('Message delivery has failed. Please contact administrator.');
+    });
+  }
+
+
+  function displaySuccess(message){
+    $('#resultMessageModalBody').text(message);
+    $('#resultMessageModal').modal('show');
+    $('#memberModal').modal('hide');
+
+    $("#collapseTwo").attr("class", "collapse");
+  }
+
+  function displayFail(message){
+    $('#resultMessageModalBody').text(message);
+    $('#resultMessageModal').modal('show');
+    $('#memberModal').modal('hide');
+  }
+
 </script>
 
   {{-- Left pane --}}

@@ -58,10 +58,7 @@ class UserController extends Controller
         	array_push($user_selected_interests, $item);
     	}
         
-        $msgCount = 0;
-        if (Auth::check()) {
-            $msgCount = MemberHelper::countNewMessage($request->session()->get('email'));
-        }
+        $msgCount = Self::getMessageCount($request);
 
     	return view('pages.user.user-profile', ['user'=>$user,
     		'interests'=>$user_selected_interests, 
@@ -125,8 +122,12 @@ class UserController extends Controller
         	array_push($user_selected_interests, $item);
     	}
         
+        $msgCount = Self::getMessageCount($request);
+
     	return view('pages.user.user-profile', ['user'=>$user,
-    		'interests'=>$user_selected_interests, 'menu'=>'profile-edit']);
+    		'interests'=>$user_selected_interests, 
+            'menu'=>'profile-edit',
+            'msgCount'=>$msgCount]);
 
     }
 
@@ -145,9 +146,28 @@ class UserController extends Controller
             ->orderByRaw('tribe_project.created_at DESC')
             ->get();
 
-        return view('pages.user.project-list', ['projects'=>$projects,
-    		'menu'=>'project-list']);
+        $msgCount = Self::getMessageCount($request);
 
+        return view('pages.user.project-list', ['projects'=>$projects,
+    		'menu'=>'project-list',
+            'msgCount'=>$msgCount]);
+
+    }
+
+    public function messageListPage(Request $request){
+        $user_id = $request->session()->get('email');
+
+        $messages = DB::table('messages')
+            ->where([['sent_to', '=', $user_id], 
+                ['status', '=', MemberHelper::MESSAGE_STATUS_NEW]
+            ])->orderBy('created_at', 'desc')
+            ->get();
+
+        $msgCount = Self::getMessageCount($request);
+
+        return view('pages.user.message-list', ['messages'=>$messages,
+            'menu'=>'message-list',
+            'msgCount'=>$msgCount]);
     }
 
     /**
@@ -160,9 +180,42 @@ class UserController extends Controller
 
         $query = DB::table('users');
         $query->where('email', $userId);
-
         $user = $query->first();
 
+        $user_interests = array();
+        $query = DB::table('user_interest');
+        $query->where('user_id', $userId);
+        $user_interests = $query->get();
+
+        $user->interests = $user_interests;
+
         return response(["user"=>$user]); 
+    }
+
+
+    public function sendMessage(Request $request){
+        $userId = $request->session()->get('email');
+        $recipient = $request['recipient'];
+        $message = $request['message'];
+
+        DB::table('messages')->insert([
+            'sent_from'=>$userId, 'sent_to'=>$recipient, 'message'=>$message, 'status'=>MemberHelper::MESSAGE_STATUS_NEW
+        ]);
+
+        return response(["result"=>'success']); 
+    }
+
+    /**
+     * Message count
+     * 
+     * @param  [type] $request [description]
+     * @return [type]          [description]
+     */
+    private function getMessageCount($request){
+        $msgCount = 0;
+        if (Auth::check()) {
+            $msgCount = MemberHelper::countNewMessage($request->session()->get('email'));
+        }
+        return $msgCount;
     }
 }

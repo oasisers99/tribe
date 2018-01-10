@@ -59,7 +59,7 @@
 		        <a href="{{route('user.project-list-page') }}" class="list-group-item" id="menu-project-list">
 		            <i class="fa fa-tasks"></i> Project
 		        </a>
-		        <a href="" class="list-group-item" id="menu-message-list">
+		        <a href="{{route('user.message-list-page')}}" class="list-group-item" id="menu-message-list">
 		            <i class="fa fa-envelope"></i> Message <span class="badge">{{$msgCount}}</span>
 		        </a>
 		    </div>        
