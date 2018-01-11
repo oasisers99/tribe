@@ -233,12 +233,13 @@ class UserController extends Controller
     public function messageMarkAsRead(Request $request){
 
         $messageId = $request['messageId'];
-
+        
         DB::table('messages')
             ->where('id', $messageId)
             ->update(
-                ['status' => MemberHelper::MESSAGE_STATUS_READ]
-                );
+                ['status' => MemberHelper::MESSAGE_STATUS_READ,
+                'updated_at' => DB::raw('now()')]
+            );
         return response(["result"=>'success']); 
     }
 }
