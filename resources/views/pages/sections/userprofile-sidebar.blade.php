@@ -44,7 +44,7 @@
 		        <span class="icon-bar"></span>
 		    </div>
 		    <div class="list-group" style="height: 100%;">
-		{{--         <span href="#" class="list-group-item active">
+	{{-- 	        <span href="#" class="list-group-item active">
 		            Submenu
 		            <span class="pull-right" id="slide-submenu">
 		                <i class="fa fa-times"></i>
@@ -61,6 +61,9 @@
 		        </a>
 		        <a href="{{route('user.message-list-page')}}" class="list-group-item" id="menu-message-list">
 		            <i class="fa fa-envelope"></i> Message <span class="badge">{{$msgCount}}</span>
+		        </a>
+		        <a href="#" class="list-group-item" id="menu-message-list">
+		            <i class="fa fa-archive"></i> Message Archive
 		        </a>
 		    </div>        
 		</div>
