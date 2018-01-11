@@ -10,14 +10,14 @@ use Illuminate\Support\Facades\Auth;
 use Mailgun\Mailgun;
 
 
+use App\Helper\MemberHelper;
+
 /**
  * Created by PhpStorm.
  * User: songminseok
  * Date: 27/7/17
  * Time: 9:39 PM
  */
-
-
 class FrontController extends Controller
 {
 
@@ -38,7 +38,13 @@ class FrontController extends Controller
                                 FROM tribe trb
                                 ORDER BY rand() LIMIT 4");
         
-        return view('pages.front.front', ['tribes' => $tribes]);
+        $msgCount = 0;
+        if (Auth::check()) {
+            $msgCount = MemberHelper::countNewMessage($request->session()->get('email'));
+        }
+        
+
+        return view('pages.front.front', ['tribes' => $tribes, 'msgCount'=>$msgCount]);
     }
 
     /**

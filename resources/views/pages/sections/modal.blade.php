@@ -20,7 +20,7 @@
 </div>
 
 
-<!-- Result Message Modal -->
+<!-- Result Message Modal 1 -->
 <div class="modal fade" id="resultMessageModal" tabindex="-1" role="dialog" aria-labelledby="resultMessageModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -40,7 +40,7 @@
   </div>
 </div>
 
-<!-- Result Message Modal -->
+<!-- Result Message Modal 2 -->
 <div class="modal fade" id="infoMessageModal" tabindex="-1" role="dialog" aria-labelledby="infoMessageModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
