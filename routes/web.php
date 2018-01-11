@@ -74,6 +74,8 @@ Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'User'], funct
 
 
         Route::post('profile-update', 'UserController@profileUpdate')->name('profile-update');
+        Route::post('message-mark-as-read', 'UserController@messageMarkAsRead')->name('message-mark-as-read');
+        
     });        
 });
 

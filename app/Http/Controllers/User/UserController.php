@@ -192,7 +192,12 @@ class UserController extends Controller
         return response(["user"=>$user]); 
     }
 
-
+    /**
+     * Send message to other user.
+     * 
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
     public function sendMessage(Request $request){
         $userId = $request->session()->get('email');
         $recipient = $request['recipient'];
@@ -217,5 +222,23 @@ class UserController extends Controller
             $msgCount = MemberHelper::countNewMessage($request->session()->get('email'));
         }
         return $msgCount;
+    }
+
+    /**
+     * Mark the message as read
+     * 
+     * @param  [type] $request [description]
+     * @return [type]          [description]
+     */
+    public function messageMarkAsRead(Request $request){
+
+        $messageId = $request['messageId'];
+
+        DB::table('messages')
+            ->where('id', $messageId)
+            ->update(
+                ['status' => MemberHelper::MESSAGE_STATUS_READ]
+                );
+        return response(["result"=>'success']); 
     }
 }
