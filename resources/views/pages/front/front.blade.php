@@ -141,7 +141,7 @@
 					<div class="col-md-3 col-sm-6 fh5co-footer-widget wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
 						<h3>Company</h3>
 						<ul class="fh5co-links">
-							<li><a href="#" data-toggle="modal" data-target="#tutorialModal">How {{config('app.name')}} Works</a></li>
+							<li><a href="#" data-toggle="modal" data-target="#tutorialModal">How Future Smith Works</a></li>
 							<li><a href="#">Services</a></li>
 							<li><a href="#">Blog</a></li>
 							<li><a href="{{ route('front.contact') }}">Contact Us</a></li>
