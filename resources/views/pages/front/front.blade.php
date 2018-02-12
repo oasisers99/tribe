@@ -135,7 +135,7 @@
 				<div class="row p-b">
 					<div class="col-md-3 col-sm-6 fh5co-footer-widget wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
 						<div class="fh5co-logo"><span class="logo">FS</span> Future Smith</div>
-						<p class="fh5co-copyright">&copy; 2017 Future Smith <br>All Rights Reserved. <br>Created by <a target="_blank" href="">Tribe</a> <br> 
+						<p class="fh5co-copyright">&copy; 2017 Future Smith <br>All Rights Reserved. <br>Created by <a target="_blank" href=""> Awesome People</a> <br> 
 						</p>
 					</div>
 					<div class="col-md-3 col-sm-6 fh5co-footer-widget wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
