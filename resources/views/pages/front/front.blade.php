@@ -37,7 +37,7 @@
 								<h1 class="cover-text-lead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Your time is powerful!<br/>How are you going to use it?</h1>
 								<h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">If the thought of *volunteering in a dusty op shop or *harassing strangers with a jangling donation tin makes you shudder; you’re in the right place. 
 								Meaningful, fun, flexible volunteering is only <a href="{{ route('front.gettingStarted') }}">a few steps away</a>
-								With Voli - the power is in your hands. </h2>
+								With Future Smith - the power is in your hands. </h2>
 								<p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.1s"><a href="{{ route('tribe.searchTribeFull') }}" class="btn btn-primary btn-outline btn-lg">Find Your Tribe</a></p>
 							</div>
 						</div>
