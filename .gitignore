@@ -9,3 +9,9 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
+
+nbproject/private/private.xml
+
+nbproject/private/config.properties
+
+nbproject/private/private.properties
