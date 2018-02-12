@@ -95,7 +95,7 @@ Spirit (vivacity)<br/>
 						<img src="/images/person_3.jpg" alt="">
 						<div class="fh5co-meta">
 							<h3>Jessie Shin</h3>
-							<span class="fh5co-company">Voli</span>
+							<span class="fh5co-company">Future Smith</span>
 						</div>
 					</div>
 					<div class="fh5co-text">
@@ -112,11 +112,11 @@ Spirit (vivacity)<br/>
 						<img src="/images/person_1.jpg" alt="">
 						<div class="fh5co-meta">
 							<h3>Seeking UX Designer</h3>
-							<span class="fh5co-company">Voli</span>
+							<span class="fh5co-company">Future Smith</span>
 						</div>
 					</div>
 					<div class="fh5co-text">
-						<p>New Voli member</p>
+						<p>New Future Smith member</p>
 					</div>
 				</div>	
 			</div>
@@ -129,11 +129,11 @@ Spirit (vivacity)<br/>
 						<img src="/images/person_2.jpg" alt="">
 						<div class="fh5co-meta">
 							<h3>Seeking New Member</h3>
-							<span class="fh5co-company">Voli</span>
+							<span class="fh5co-company">Future Smith</span>
 						</div>
 					</div>
 					<div class="fh5co-text">
-						<p>New Voli member</p>
+						<p>New Future Smith member</p>
 					</div>
 				</div>
 			</div>
@@ -143,11 +143,11 @@ Spirit (vivacity)<br/>
 						<img src="/images/person_6.jpg" alt="">
 						<div class="fh5co-meta">
 							<h3>Seeking New Member</h3>
-							<span class="fh5co-company">Voli</span>
+							<span class="fh5co-company">Future Smith</span>
 						</div>
 					</div>
 					<div class="fh5co-text">
-						<p>New Voli member</p>
+						<p>New Future Smith member</p>
 					</div>
 				</div>
 			</div>
