@@ -49,7 +49,7 @@
     	<h3 style="margin-top: 0px;">Edit Tribe Profile</h3>
     </div>
     <div class="form-group">
-        <label for="askTribeName">Name of the tribe</label>
+        <label for="askTribeName">Name of your tribe</label>
         <input type="text" id="tribe-name" name="name" value="{{$tribe['tribe']->name}}"placeholder="Name" class="form-control" maxlength="128" required/>
     </div>
     <div class="form-group">   
