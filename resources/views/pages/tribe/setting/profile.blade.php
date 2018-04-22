@@ -50,7 +50,7 @@
     </div>
     <div class="form-group">
         <label for="askTribeName">Name of your tribe</label>
-        <input type="text" id="tribe-name" name="name" value="{{$tribe['tribe']->name}}"placeholder="Name" class="form-control" maxlength="128" required/>
+        <input type="text" id="tribe-name" name="name" value="{{$tribe['tribe']->name}}" placeholder="Name" class="form-control" maxlength="128" required/>
     </div>
     <div class="form-group">   
         <label for="askLittleAboutTribe">Summary</label>

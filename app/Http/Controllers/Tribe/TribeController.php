@@ -238,10 +238,10 @@ class TribeController extends Controller
         $userId = $request->session()->get('email');
 
         $project_id = DB::table('tribe_project')->insertGetId(
-            ['title' => $title, 'description' => $description, 
-             'member_no' => $member_no, 'topic' =>  $topic,
-             'location' => $location, 'country' => 'Australia',
-              'created_by' => $userId, 'tribe_id' => $tribeId]
+            ['title'      => $title,     'description' => $description, 
+             'member_no'  => $member_no, 'topic'       =>  $topic,
+             'location'   => $location,  'country'     => 'Australia',
+             'created_by' => $userId,    'tribe_id'    => $tribeId]
         );
 
 
