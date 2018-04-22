@@ -44,7 +44,10 @@
 		        <input type="text" id="title" name="title" placeholder="Project Title" class="form-control" maxlength="256" required/>
 		    </div>
 			<div class="form-group">
-		        <textarea type="text" id="description" name="description" placeholder="Project Description" class="form-control" style="height: 200px;" required/></textarea> 
+				<textarea name="description" id="description" rows="10" cols="100">
+				</textarea>
+{{-- 
+		        <textarea type="text" id="description" name="description" placeholder="Project Description" class="form-control" style="height: 200px;" required/></textarea>  --}}
 		    </div>
 		    <div class="form-group">
 		        <label for="askTopic">How many members do you need?</label>
@@ -72,12 +75,42 @@
 		        <input type="text" id="location" name="location" placeholder="In which location do you plan to run this project? Ex. Sydney" class="form-control" maxlength="64" required/>
 		    </div>
 		    <input type="text" id="tribe_id" name="tribe_id" value="{{$tribe['tribe']->id}}" hidden>
+			{{-- <button id="write-post-btn" class="btn btn-primary" onclick="submitProject();">Submit</button> --}}
 			<button type="submit" id="write-post-btn" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
 	<div class="col-md-1"></div>
 </div>
 <script type="text/javascript">
+	CKEDITOR.replace( 'description' );
 
+	function submitProject(){
+      
+      var title	= $('#title').val();
+      var content = CKEDITOR.instances.editor.getData();
+      var member_no = $('#member_no').val();
+      var topic = $('#topic').val();
+      var location = $('#location').val();
+
+      var data = {
+      	'title' : title,
+      	'member_no' : member_no,
+      	'topic' : topic,
+      	'location' : location,
+        'content' : content,
+        'tribeId' : '{{$tribe['tribe']->id}}'
+      };
+
+      $.ajax({
+            method: "POST",
+            // headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            headers: '{{ csrf_field() }}',
+            url: '{{ Route('tribe.createProject') }}',
+            data: data
+      })
+      .done(function(response){
+        alert('success')
+      });
+  }
 </script>
 @endsection

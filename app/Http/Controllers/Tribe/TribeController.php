@@ -229,6 +229,11 @@ class TribeController extends Controller
      */
     public function createProject(Request $request){
 
+        // Log::error('This is some useful information.');
+        // $output = new Symfony\Component\Console\Output\ConsoleOutput();
+        // $output->writeln("<info>Error message</info>");
+
+
         $title = $request['title'];
         $description = $request['description'];
         $member_no = $request['member_no'];
@@ -238,10 +243,10 @@ class TribeController extends Controller
         $userId = $request->session()->get('email');
 
         $project_id = DB::table('tribe_project')->insertGetId(
-            ['title' => $title, 'description' => $description, 
-             'member_no' => $member_no, 'topic' =>  $topic,
-             'location' => $location, 'country' => 'Australia',
-              'created_by' => $userId, 'tribe_id' => $tribeId]
+            ['title'      => $title,     'description' => $description, 
+             'member_no'  => $member_no, 'topic'       =>  $topic,
+             'location'   => $location,  'country'     => 'Australia',
+             'created_by' => $userId,    'tribe_id'    => $tribeId]
         );
 
 
