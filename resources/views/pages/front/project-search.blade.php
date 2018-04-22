@@ -120,7 +120,7 @@
                 <a href="#" class="link-block">
                     <figure><img src="/images/img_same_dimension_1.jpg" alt="Image" class="img-responsive img-rounded"></figure>
                     <h3>{{$project->title}}</h3>
-                    <p>{{ str_limit($project->description, 200) }}</p>
+                    <p>{{ str_limit(strip_tags($project->description, 200)) }}</p>
                     <p><a href="{{route('front.viewProject', ['projectId' => $project->id]) }}" class="btn btn-primary btn-sm">Learn More</a></p>
                 </a>
             </div>

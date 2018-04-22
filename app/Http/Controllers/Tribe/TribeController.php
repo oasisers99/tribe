@@ -229,11 +229,6 @@ class TribeController extends Controller
      */
     public function createProject(Request $request){
 
-        // Log::error('This is some useful information.');
-        // $output = new Symfony\Component\Console\Output\ConsoleOutput();
-        // $output->writeln("<info>Error message</info>");
-
-
         $title = $request['title'];
         $description = $request['description'];
         $member_no = $request['member_no'];

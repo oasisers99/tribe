@@ -84,33 +84,6 @@
 <script type="text/javascript">
 	CKEDITOR.replace( 'description' );
 
-	function submitProject(){
-      
-      var title	= $('#title').val();
-      var content = CKEDITOR.instances.editor.getData();
-      var member_no = $('#member_no').val();
-      var topic = $('#topic').val();
-      var location = $('#location').val();
 
-      var data = {
-      	'title' : title,
-      	'member_no' : member_no,
-      	'topic' : topic,
-      	'location' : location,
-        'content' : content,
-        'tribeId' : '{{$tribe['tribe']->id}}'
-      };
-
-      $.ajax({
-            method: "POST",
-            // headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            headers: '{{ csrf_field() }}',
-            url: '{{ Route('tribe.createProject') }}',
-            data: data
-      })
-      .done(function(response){
-        alert('success')
-      });
-  }
 </script>
 @endsection

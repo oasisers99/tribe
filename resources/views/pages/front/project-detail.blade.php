@@ -88,7 +88,6 @@
           <div class="blog-post">
             <h2 class="blog-post-title">{{$project->title}} </h2>
             <p class="blog-post-meta">{{ \Carbon\Carbon::parse($project->created_at)->format('d  M,  Y')}} by <a href="#">{{$project->name}}</a></p>
-            {{-- <div contenteditable='false'>{{$project->description}}</div> --}}
             <p>{!! $project->description !!} </p>
           </div><!-- /.blog-post -->
 
