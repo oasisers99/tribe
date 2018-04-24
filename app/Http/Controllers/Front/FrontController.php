@@ -157,7 +157,7 @@ class FrontController extends Controller
                              ])->first();
 
 
-        return view('pages.front.project-detail', ['project' => $project, 'userProjectStatus' => $userProjectStatus]);
+        return view('pages.front.project-detail-public', ['project' => $project, 'userProjectStatus' => $userProjectStatus]);
     }
 
     /**

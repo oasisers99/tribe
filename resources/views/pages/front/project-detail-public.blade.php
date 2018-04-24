@@ -130,8 +130,10 @@
       </div><!-- /.row -->
       @isset($userProjectStatus)
         @if($userProjectStatus->status == 1)
-          <button class="btn btn-primary" disabled="true" title="test">Request already sent</button>
+          {{-- Created by this user. --}}
         @elseif($userProjectStatus->status == 2)
+          <button class="btn btn-primary" disabled="true" title="test">Request already sent</button>
+        @elseif($userProjectStatus->status == 3)
           <button class="btn btn-primary" disabled="true" title="test">Already accepted</button>
         @else
           <button class="btn btn-primary" onclick="showMessageModal();">I want to join!</button>

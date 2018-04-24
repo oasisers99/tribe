@@ -114,7 +114,7 @@ class TribeSetController extends Controller
     }
 
     /**
-     *  Accept join request.
+     *  Accept tribe join request.
      * 
      */
     public function acceptJoin(Request $request){
@@ -193,6 +193,34 @@ class TribeSetController extends Controller
         $projects = $query->get();
 
         return view('pages.tribe.setting.project-list', ["tribe"=>$tribe, "projects"=>$projects]);  
+    }
+
+    /**
+     * View project detail
+     * 
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function projectDetail(Request $request){
+      
+        $projectId = $request['projectId'];
+        $project = DB::table('tribe_project')
+            ->join('users', 'tribe_project.created_by', '=', 'users.email')
+            ->select('tribe_project.id', 'tribe_project.title', 'tribe_project.description', 
+                     'users.name','tribe_project.topic', 'tribe_project.location', 'tribe_project.member_no',
+                     'tribe_project.created_at')
+            ->where('tribe_project.id', '=', $projectId)
+            ->first();
+
+        $userId = $request->session()->get('email');
+
+        $userProjectStatus = DB::table('member_project')->where([
+                                ['project_id', '=', $projectId],
+                                ['user_id', '=', $userId],
+                             ])->first();
+
+
+        return view('pages.tribe.setting.project-detail-private', ['project' => $project, 'userProjectStatus' => $userProjectStatus]);
     }
 
     /**

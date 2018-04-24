@@ -119,8 +119,8 @@
             <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s">
                 <a href="#" class="link-block">
                     <figure><img src="/images/img_same_dimension_1.jpg" alt="Image" class="img-responsive img-rounded"></figure>
-                    <h3>{{$project->title}}</h3>
-                    <p>{{ str_limit(strip_tags($project->description, 200)) }}</p>
+                    <h3>{{ str_limit($project->title, 100) }}</h3>
+                    <p>{{ str_limit(strip_tags($project->description), 200) }}</p>
                     <p><a href="{{route('front.viewProject', ['projectId' => $project->id]) }}" class="btn btn-primary btn-sm">Learn More</a></p>
                 </a>
             </div>

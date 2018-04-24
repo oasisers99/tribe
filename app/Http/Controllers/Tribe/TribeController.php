@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Log;
 class TribeController extends Controller
 {
 
+    const PROJECT_CREATED_BY = 1;
+    const PROJECT_JOIN_REQUESTED = 2;
+    const PROJECT_JOIN_ACCEPTED = 3; 
+    const PROJECT_JOIN_DECLINED = 4; 
+
     /**
      * TribeController constructor.
      */
@@ -248,7 +253,7 @@ class TribeController extends Controller
         DB::insert('INSERT INTO member_project
                     (project_id, user_id, status)
                     VALUES
-                    (?,?,?)', [$project_id, $userId, '1']);
+                    (?,?,?)', [$project_id, $userId, self::PROJECT_CREATED_BY]);
 
         $tribeId = $request['tribe_id'];
         $tribe = TribeHelper::getTribeMainContentsByTribeId($tribeId);
@@ -298,7 +303,7 @@ class TribeController extends Controller
 
 
     /**
-     * Request join
+     * Request join to the tribe
      * 
      * @param  Request $request [description]
      * @return [type]           [description]

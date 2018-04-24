@@ -187,7 +187,7 @@ class TribeHelper
     }
 
     /**
-     * Check if the user has already requested join.
+     * Check if the user has already requested join to a tribe.
      * 
      * @param  [type] $tribeId [description]
      * @param  [type] $userId  [description]
